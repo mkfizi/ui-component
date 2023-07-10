@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="robots" content="noindex">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./src/css/app.css">
+    <link rel="preload" href="./src/css/app.css" as="style">
+
+    <!-- Scripts -->
+    <script src="./src/js/app.js" defer></script>
+    <link rel="preload" href="./src/js/app.js" as="script">
+    
+    <!-- 
+        Handle dark mode toggle when the page is loaded.
+
+        These codes below are called here instead of being inside app.js 
+        to avoid FOUC should app.js type is defined as a module. 
+    -------------------------------------------------------------------------->
+    <script>
+        if (localStorage.theme === "light" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: light)").matches)) {
+            localStorage.theme = 'light';
+            document.documentElement.classList.remove("dark");
+        } else if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            localStorage.theme = 'dark';
+            document.documentElement.classList.add("dark")
+        };
+    </script>
+
+    <title>Components</title>
+</head>
+<body class="relative min-h-screen antialiased bg-white dark:bg-neutral-900">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="sticky top-0 z-10 w-full h-16 bg-white border-b border-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
+        <div class="flex items-center justify-end w-full h-full max-w-screen-md px-4 mx-auto sm:px-8">
+            <div class="flex gap-4">
+                <!-- Dark mode toggle button -->
+                <button type="button" id="dark-mode-toggle" aria-label="Toggle dark mode" class="group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-neutral-600 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6 dark:block dark:stroke-neutral-400 group-hover:stroke-white" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                    </svg>
+                </button>
+
+                <!-- Github -->
+                <a href="https://github.com/mkfizi/style-guideline" target="_blank" class="group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="w-full max-w-screen-md px-4 pt-16 pb-32 mx-auto sm:px-8">
+        <div class="w-full space-y-16">
+            <p class="text-2xl font-black text-black sm:text-3xl lg:text-4xl dark:text-white">Components</p>
+            <div class="space-y-8">
+
+                <!-- Alert -->
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Alert</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <div id="alert" class="flex items-center gap-4 p-4 rounded-md bg-neutral-200 dark:bg-neutral-700">
+                            <div class="grow">
+                                <span class="text-base text-neutral-700 dark:text-neutral-300">This is an alert text.</span>
+                            </div>
+                            <button type="button" class="shrink-0 group" onclick="component.alert.close(this)" aria-controls="alert" aria-label="Close alert">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M18 6l-12 12" />
+                                    <path d="M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Collapse -->
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Collapse</p>
+                    <div class="col-span-2 space-y-8 sm:col-span-3">
+                        <div class="space-y-4">
+                            <p class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Regular collapse</p> 
+                            <div class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="true" aria-controls="collapse-1" aria-label="Toggle collapse 1">
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 1</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 rotate-180 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="collapse-1" class="p-4" aria-hidden="false">
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 1 sentence.</p>
+                                </div>
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="false" aria-controls="collapse-2" aria-label="Toggle collapse 2">
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 2</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-2">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="collapse-2" class="invisible hidden p-4" aria-hidden="true">
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 2 sentence.</p>
+                                </div>
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="false" aria-controls="collapse-3" aria-label="Toggle collapse 3">
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 3</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-3">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="collapse-3" class="invisible hidden p-4" aria-hidden="true">
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 3 sentence.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Accordion collapse</p> 
+                            <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="true" aria-controls="accordion-1" aria-label="Toggle accordion 1">
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 1</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 rotate-180 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-1">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="accordion-1" class="p-4" aria-hidden="false" aria-labelledby="accordion">
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 1 sentence.</p>
+                                </div>
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="false" aria-controls="accordion-2" aria-label="Toggle accordion 2">
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 2</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-2">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="accordion-2" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="accordion">
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 2 sentence.</p>
+                                </div>
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="false" aria-controls="accordion-3" aria-label="Toggle accordion 3">
+                                    <div class="text-left grow">
+                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 3</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-3">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M6 9l6 6l6 -6" />
+                                    </svg>
+                                </button>
+                                <div id="accordion-3" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="accordion">
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 3 sentence.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Dropdown -->
+                <div class="grid gap-4 mb-2 sm:grid-cols-3 pb-36 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Dropdown</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <button class="flex gap-2 p-2 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 group dark:bg-neutral-900" onclick="component.dropdown.toggle(this)" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown">
+                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Dropdown</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="dropdown">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M6 9l6 6l6 -6" />
+                            </svg>
+                        </button>
+                        <ul id="dropdown" aria-hidden="true" class="absolute z-10 invisible hidden w-48 py-2 mt-2 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900">
+                            <li>
+                                <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>  
+
+                <!-- Modal -->
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Modal</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <button type="button" class="px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="component.modal.open(this)" aria-controls="modal" aria-expanded="false" aria-label="Open modal">Open Modal</button>
+                        <div id="modal" class="fixed top-0 left-0 z-20 items-center justify-center invisible hidden w-screen h-screen bg-neutral-500/50">
+                            <div class="relative p-8 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 w-80 sm:w-96" aria-labelledby="modal">
+                                <button type="button" class="absolute right-4 top-4 group" onclick="component.modal.close(this)" aria-controls="modal" aria-expanded="false" aria-label="Close modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M18 6l-12 12" />
+                                        <path d="M6 6l12 12" />
+                                    </svg>
+                                </button>
+                                <div class="space-y-4 text-center">
+                                    <p class="text-lg font-bold text-black sm:text-xl lg:text-2xl dark:text-white">Modal Title</p>
+                                    <p class="text-base text-neutral-700 dark:text-neutral-300">This is a modal sentence.</p>
+                                </div>
+                                <div class="flex justify-center gap-2 mt-8">
+                                    <button type="button" class="px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none">Okay</button>
+                                    <button type="button" class="px-8 py-2 font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none"  onclick="component.modal.close(this)" aria-controls="modal" aria-expanded="false" aria-label="Close modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Offcanvas -->
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Offcanvas</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <button type="button" class="px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="component.offcanvas.open(this)" aria-controls="offcanvas" aria-expanded="false" aria-label="Open offcanvas">Open Offcanvas</button>
+                        <div id="offcanvas" class="fixed top-0 left-0 z-20 invisible hidden w-screen h-screen bg-neutral-500/50">
+                            <div class="fixed h-full p-4 overflow-auto bg-white w-72 dark:bg-neutral-800 drop-shadow-md" aria-labelledby="offcanvas">
+                                <button type="button" class="absolute right-4 top-4 group" onclick="component.offcanvas.close(this)" aria-controls="offcanvas" aria-expanded="false" aria-label="Close offcanvas">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M18 6l-12 12" />
+                                        <path d="M6 6l12 12" />
+                                    </svg>
+                                </button>
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#" class="block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Tabs -->
+                <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Tabs</p>
+                    <div class="col-span-2 sm:col-span-3">
+                        <div id="tab" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700">
+                            <div class="bg-neutral-200 dark:bg-neutral-700">
+                                <div class="inline-block border-r border-r-neutral-300 dark:border-r-neutral-700">
+                                    <div class="flex divide-x divide-neutral-300 dark:divide-neutral-700">
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-black bg-neutral-100 dark:bg-neutral-800 dark:text-white" onclick="component.tab.open(this)" aria-expanded="true" aria-controls="tab-1" aria-label="Open tab 1">Tab 1</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50" onclick="component.tab.open(this)" aria-expanded="false" aria-controls="tab-2" aria-label="Open tab 2">Tab 2</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50" onclick="component.tab.open(this)" aria-expanded="false" aria-controls="tab-3" aria-label="Open tab 3">Tab 3</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-1" class="p-4" aria-hidden="false" aria-labelledby="tab">
+                                <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 1 content.</p>
+                            </div>
+                            <div id="tab-2" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="tab">
+                                <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 2 content.</p>
+                            </div>
+                            <div id="tab-3" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="tab">
+                                <p class="text-base text-neutral-700 dark:text-neutral-300">This is a tab 3 content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>  
+            </div>  
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="absolute bottom-0 flex flex-col items-center justify-between w-full max-w-screen-md px-4 pb-px transform -translate-x-1/2 sm:flex-row left-1/2 sm:px-8">
+        <p class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-app-name"></span> v<span id="footer-app-version"></span></p>
+        <span class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-year"></span> © Developed by <a href="https://mkfizi.dev" target="_blank" class="inline-block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">mkfizi</a></span>
+    </footer>
+
+    <script>
+        const component = {
+            alert: {
+                close: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    if (id) document.getElementById(id).remove();
+                } 
+            },
+
+            collapse: {
+                toggle: toggleElement => {
+                    const isExpanded = toggleElement.getAttribute('aria-expanded') === "true";
+                    isExpanded === true ? component.collapse.close(toggleElement) : component.collapse.open(toggleElement);
+                },
+
+                open: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    const collapseElement = document.getElementById(id);
+                    collapseElement.classList.remove('hidden', 'invisible');
+                    collapseElement.setAttribute('aria-hidden', false);
+
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', true);
+                    });
+                    document.querySelectorAll(`svg[aria-labelledby="${id}"]`).forEach(currentIconElement => {
+                        currentIconElement.classList.add('rotate-180');
+                    });
+
+                    const accordionId = collapseElement.getAttribute('aria-labelledby');
+                    if (accordionId) {
+                        document.querySelectorAll(`[aria-labelledby=${accordionId}]`).forEach(currentCollapseElement => {
+                            if (currentCollapseElement !== collapseElement) {
+                                const currentId = currentCollapseElement.getAttribute('id');
+                                const currentToggleElement = document.querySelector(`[aria-controls="${currentId}"]`)
+                                component.collapse.close(currentToggleElement);
+                            }
+                        })
+                    }
+                },
+
+                close: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    const collapseElement = document.getElementById(id);
+                    collapseElement.classList.add('hidden', 'invisible');
+                    collapseElement.setAttribute('aria-hidden', true);
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', false);
+                    });
+                    document.querySelectorAll(`svg[aria-labelledby="${id}"]`).forEach(currentIconElement => {
+                        currentIconElement.classList.remove('rotate-180');
+                    });
+                }
+            },
+
+            dropdown: {
+                toggle: toggleElement => {
+                    const isExpanded = toggleElement.getAttribute('aria-expanded') === "true";
+                    isExpanded === true ? component.dropdown.close(toggleElement) : component.dropdown.open(toggleElement);
+                },
+
+                open: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    const dropdownElement = document.getElementById(id);
+                    dropdownElement.classList.remove('hidden', 'invisible');
+                    dropdownElement.setAttribute('aria-hidden', false);
+
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', true);
+                    });
+
+                    component.dropdown.clickOutside = event => {
+                        if (!event.target.closest(`[id="${id}"]`) && !event.target.closest(`[aria-controls="${id}"]`)) {
+                            component.dropdown.close(toggleElement);
+                        }
+                    };
+                    document.addEventListener('click', component.dropdown.clickOutside);
+                },
+
+                close: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    const dropdownElement = document.getElementById(id);
+                    dropdownElement.classList.add('hidden', 'invisible');
+                    dropdownElement.setAttribute('aria-hidden', true);
+
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', false);
+                    });
+
+                    document.removeEventListener('click', component.dropdown.clickOutside);
+                    component.dropdown.clickOutside = null;
+                }
+            },
+
+            modal: {
+                open: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    const modalElement = document.getElementById(id);
+                    modalElement.classList.remove('hidden', 'invisible');
+                    modalElement.classList.add('flex');
+                    modalElement.setAttribute('aria-hidden', false);
+
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', true);
+                    });
+
+                    component.modal.clickOutside = event => {
+                        if (!event.target.closest(`[aria-labelledby="${id}"]`) && !event.target.closest(`[aria-controls="${id}"]`)) {
+                            component.modal.close(toggleElement);
+                        }
+                    };
+                    document.addEventListener('click', component.modal.clickOutside);
+
+                    component.modal.focusTrap = event => {
+                        const focusableElements = modalElement.querySelectorAll('a:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), textarea:not([tabindex="-1"]), select:not([tabindex="-1"]), details:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"]), [contenteditable="true"]:not([tabindex="-1"])');
+                        const firstElement = focusableElements[0];
+                        const lastElement = focusableElements[focusableElements.length - 1];
+                        if (event.type === "keydown" && event.keyCode === 9) {
+                            if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
+                                event.preventDefault();
+                                lastElement.focus();
+
+                            } else if (!event.shiftKey && document.activeElement === lastElement) {
+                                event.preventDefault();
+                                firstElement.focus();
+                            }
+                        }
+                    }
+                    window.addEventListener('keydown', component.modal.focusTrap);
+                },
+
+                close: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    const modalElement = document.getElementById(id);
+                    modalElement.classList.remove('flex');
+                    modalElement.classList.add('hidden', 'invisible');
+                    modalElement.setAttribute('aria-hidden', true);
+
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', false);
+                    });
+
+                    document.removeEventListener('click', component.modal.clickOutside);
+                    window.removeEventListener('keydown', component.modal.focusTrap);
+                    component.modal.clickOutside = null;
+                    component.modal.focusTrap = null;
+                }
+            },
+
+            offcanvas: {
+                open: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    const offcanvasElement = document.getElementById(id);
+                    offcanvasElement.classList.remove('hidden', 'invisible');
+                    offcanvasElement.setAttribute('aria-hidden', false);
+
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', true);
+                    });
+
+                    component.offcanvas.clickOutside = event => {
+                        if (!event.target.closest(`[aria-labelledby="${id}"]`) && !event.target.closest(`[aria-controls="${id}"]`)) {
+                            component.offcanvas.close(toggleElement);
+                        }
+                    };
+                    document.addEventListener('click', component.offcanvas.clickOutside);
+
+                    component.offcanvas.focusTrap = event => {
+                        const focusableElements = offcanvasElement.querySelectorAll('a:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), textarea:not([tabindex="-1"]), select:not([tabindex="-1"]), details:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"]), [contenteditable="true"]:not([tabindex="-1"])');
+                        const firstElement = focusableElements[0];
+                        const lastElement = focusableElements[focusableElements.length - 1];
+                        if (event.type === "keydown" && event.keyCode === 9) {
+                            if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
+                                event.preventDefault();
+                                lastElement.focus();
+
+                            } else if (!event.shiftKey && document.activeElement === lastElement) {
+                                event.preventDefault();
+                                firstElement.focus();
+                            }
+                        }
+                    }
+                    window.addEventListener('keydown', component.offcanvas.focusTrap);
+                },
+
+                close: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    const offcanvasElement = document.getElementById(id);
+                    offcanvasElement.classList.add('hidden', 'invisible');
+                    offcanvasElement.setAttribute('aria-hidden', true);
+
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', false);
+                    });
+                    
+                    document.removeEventListener('click', component.offcanvas.clickOutside);
+                    window.removeEventListener('keydown', component.offcanvas.focusTrap);
+                    component.offcanvas.clickOutside = null;
+                    component.offcanvas.focusTrap = null;
+                }
+            },
+
+            tab: {
+                open: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    const tabElement = document.getElementById(id);
+                    tabElement.classList.remove('hidden', 'invisible');
+                    tabElement.setAttribute('aria-hidden', false);
+
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', true);
+                        currentToggleElement.classList.remove('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-100/50', 'dark:hover:bg-neutral-800/50');
+                        currentToggleElement.classList.add('bg-neutral-100', 'dark:bg-neutral-800', 'text-black', 'dark:bg-white');
+                    });
+
+                    const tabId = tabElement.getAttribute('aria-labelledby');
+                    if (tabId) {
+                        document.querySelectorAll(`[aria-labelledby=${tabId}]`).forEach(currentTabElement => {
+                            if (currentTabElement !== tabElement) {
+                                const currentId = currentTabElement.getAttribute('id');
+                                const currentToggleElement = document.querySelector(`[aria-controls="${currentId}"]`)
+                                component.tab.close(currentToggleElement);
+                            }
+                        })
+                    }
+                },
+
+                close: toggleElement => {
+                    const id = toggleElement.getAttribute('aria-controls');
+                    const tabElement = document.getElementById(id);
+                    tabElement.classList.add('hidden', 'invisible');
+                    tabElement.setAttribute('aria-hidden', true);
+                    
+                    document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', false);
+                        currentToggleElement.classList.remove('bg-neutral-100', 'dark:bg-neutral-800', 'text-black', 'dark:bg-white');
+                        currentToggleElement.classList.add('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-100/50', 'dark:hover:bg-neutral-800/50');
+                    });
+                }
+            },
+        }
+    </script>
+</body>
+</html>
