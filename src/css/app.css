@@ -857,6 +857,10 @@ video {
   overflow: hidden;
 }
 
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
 .rounded-md {
   border-radius: 0.375rem;
 }
