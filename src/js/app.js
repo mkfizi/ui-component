@@ -11,12 +11,14 @@
     const app = {
         name: 'Components',
         version:'0.1.0',
+        
         elements: {
             id: {
                 darkMode: {
                     toggle: 'dark-mode-toggle'
                 }
             },
+
             node: {
                 footer: {
                     year: document.getElementById('footer-year'),
