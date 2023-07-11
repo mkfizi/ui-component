@@ -22,8 +22,8 @@
             node: {
                 footer: {
                     year: document.getElementById('footer-year'),
-                    appName: document.getElementById('footer-app-name'),
-                    appVersion: document.getElementById('footer-app-version'),
+                    appName: document.getElementById('footer-appname'),
+                    appVersion: document.getElementById('footer-appversion'),
                 }
             }
         },
