@@ -211,7 +211,7 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Modal</p>
                     <div class="col-span-2 sm:col-span-3">
-                        <button type="button" class="px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="component.modal.open(this)" aria-controls="modal" aria-expanded="false" aria-label="Open modal">Open Modal</button>
+                        <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="component.modal.open(this)" aria-controls="modal" aria-expanded="false" aria-label="Open modal">Open Modal</button>
                         <div id="modal" class="fixed top-0 left-0 z-20 items-center justify-center invisible hidden w-screen h-screen bg-neutral-500/50">
                             <div class="relative p-8 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 w-80 sm:w-96" aria-labelledby="modal">
                                 <button type="button" class="absolute right-4 top-4 group" onclick="component.modal.close(this)" aria-controls="modal" aria-expanded="false" aria-label="Close modal">
@@ -226,8 +226,8 @@
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a modal sentence.</p>
                                 </div>
                                 <div class="flex justify-center gap-2 mt-8">
-                                    <button type="button" class="px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none">Okay</button>
-                                    <button type="button" class="px-8 py-2 font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none"  onclick="component.modal.close(this)" aria-controls="modal" aria-expanded="false" aria-label="Close modal">Cancel</button>
+                                    <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none">Okay</button>
+                                    <button type="button" class="px-8 py-2 text-base font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none"  onclick="component.modal.close(this)" aria-controls="modal" aria-expanded="false" aria-label="Close modal">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +238,7 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Offcanvas</p>
                     <div class="col-span-2 sm:col-span-3">
-                        <button type="button" class="px-8 py-2 font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="component.offcanvas.open(this)" aria-controls="offcanvas" aria-expanded="false" aria-label="Open offcanvas">Open Offcanvas</button>
+                        <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="component.offcanvas.open(this)" aria-controls="offcanvas" aria-expanded="false" aria-label="Open offcanvas">Open Offcanvas</button>
                         <div id="offcanvas" class="fixed top-0 left-0 z-20 invisible hidden w-screen h-screen bg-neutral-500/50">
                             <div class="fixed h-full p-4 overflow-y-auto bg-white w-72 dark:bg-neutral-800 drop-shadow-md" aria-labelledby="offcanvas">
                                 <button type="button" class="absolute right-4 top-4 group" onclick="component.offcanvas.close(this)" aria-controls="offcanvas" aria-expanded="false" aria-label="Close offcanvas">
@@ -250,13 +250,13 @@
                                 </button>
                                 <ul class="space-y-4">
                                     <li>
-                                        <a href="#" class="block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 1</a>
+                                        <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 1</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 2</a>
+                                        <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 2</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 3</a>
+                                        <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Offcanvas item 3</a>
                                     </li>
                                 </ul>
                             </div>
