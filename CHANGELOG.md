@@ -16,26 +16,6 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.2.0] - 2023-07-08
-### Add
-- Internal and external link styles.
-
-### Changed
-- Checkbox and radio to follow default browser appearance which changed accent colour.
-- Restructure `app.js` functions to include IIFE for more conventional standards.
-
-### Removed
-- TailwindCSS Forms plugin.
-
-## [0.1.1] - 2023-07-02
-### Added
-- All headings `<h1>` to `<h6>` styles.
-- Forms styles.
-
-### Changed
-- Rewrite layout.
-- Rewrite `README.md`.
-
-## [0.1.0] - 2023-06-14
+## [0.1.0] - 2023-07-13
 ### Added
 - First release.
