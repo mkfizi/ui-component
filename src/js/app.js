@@ -8,96 +8,110 @@
 (function () {
     'use strict';
 
-    const app = {
-        name: 'Components',
-        version:'0.1.0',
+    const app = {};
 
-        elements: {
-            id: {
-                darkMode: {
-                    toggle: 'darkmode-toggle'
+    app.name = 'Components';
+    app.version = '0.1.0';
+    app.breakpointSize = 1024;
+
+    app.element = {
+        navbar: document.getElementById('navbar'),
+        darkModeToggle: document.getElementById('dark-mode-toggle'),
+        footerCurrentYear: document.getElementById('footer-year'),
+        footerAppName: document.getElementById('footer-app-name'),
+        footerAppVersion: document.getElementById('footer-app-version'),
+    }
+    
+    app.view = {
+        // Workaround fix to handle viewport height issue on mobile browsers
+        viewportHeight: {
+            // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+            update: () => {
+                document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
+            }
+        },
+
+        footer: {
+            // Update the footer with current year, app name and version
+            update: () => {
+                if (app.element.footerCurrentYear) {
+                    app.element.footerCurrentYear.innerHTML = new Date().getFullYear();
                 }
-            },
 
-            node: {
-                footer: {
-                    year: document.getElementById('footer-year'),
-                    appName: document.getElementById('footer-appname'),
-                    appVersion: document.getElementById('footer-appversion'),
+                if (app.element.footerAppName) {
+                    app.element.footerAppName.innerHTML = app.name;
+                }
+                
+                if (app.element.footerAppVersion) {
+                    app.element.footerAppVersion.innerHTML = app.version;
                 }
             }
         },
 
-        events: {
-            document: {
-                click: event => {
-                    const target = event.target;
-                    if (target.closest(`[id=${app.elements.id.darkMode.toggle}]`)) {
-                        app.views.darkMode.toggle();
-                    }
-                }
-            },
 
-            window: {
-                resize: () => {
-                    app.views.viewportHeight.toggle();
-                }
-            },
-
-            init: () => {
-                document.addEventListener('click', app.events.document.click);
-                window.addEventListener('resize', app.events.window.resize);
+        darkMode: {
+            // Toggle dark mode
+            toggle: () => {
+                const isDarkMode = localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
+                localStorage.theme = isDarkMode ? 'dark' : 'light';
+                document.documentElement.classList.toggle('dark', isDarkMode);
             }
         },
 
-        views: {
-            viewportHeight: {
-                toggle: () => {
-                    document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
+        navbar: {
+            // Update navbar appearance base on window scroll Y position
+            update: () => {
+                if (app.element.navbar) {
+                    const isScrolled = window.scrollY > (app.element.navbar.offsetHeight - app.element.navbar.clientHeight);
+                    app.element.navbar.classList[isScrolled? 'add' : 'remove']('border-neutral-200', 'dark:border-neutral-800');
+                    app.element.navbar.classList[isScrolled? 'remove' : 'add']('border-transparent', 'dark:border-transparent');
                 }
             },
+        },
 
-            darkMode: {
-                toggle: () => {
-                    const transitions = document.querySelectorAll('.transition, .transition-all, .transition-colors, .transition-opacity, .transition-shadow, .transition-transform');
-                    for (const transition of transitions) {
-                        transition.classList.add('transition-none');
-                        setTimeout(() => {
-                            transition.classList.remove('transition-none');
-                        }, 100);
-                    }
-        
-                    const isDarkMode = localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
-                    localStorage.theme = isDarkMode ? 'dark' : 'light';
-                    document.documentElement.classList.toggle('dark', isDarkMode);
-                }
-            },
+        // Initialize view
+        init: () => {
+            app.view.viewportHeight.update();
+            app.view.footer.update();
+        }
+    }
 
-            footer: {
-                toggle: () => {
-                    if (app.elements.node.footer.year) {
-                        app.elements.node.footer.year.innerHTML = new Date().getFullYear();
-                    }
-
-                    if (app.elements.node.footer.appName) {
-                        app.elements.node.footer.appName.innerHTML = app.name;
-                    }
-                    if (app.elements.node.footer.appVersion) {
-                        app.elements.node.footer.appVersion.innerHTML = app.version;
+    app.event = {
+        document: {
+            // Handle document 'click event
+            click: event => {
+                const targetElement = event.target.closest('[id]');
+                if (targetElement) {
+                    const targetId = targetElement.getAttribute('id');
+                    if (document.getElementById(targetId) == app.element.darkModeToggle) {
+                        app.view.darkMode.toggle();
                     }
                 }
+            }
+        },
+
+        window: {
+            // Handle window 'resize' event
+            resize: () => {
+                app.view.viewportHeight.update();
             },
 
-            init: () => {
-                app.views.viewportHeight.toggle();
-                app.views.footer.toggle();
+            // Handle window 'scroll' event
+            scroll: () => {
+                app.view.navbar.update();
             }
         },
 
         init: () => {
-            app.events.init();
-            app.views.init();
+            document.addEventListener('click', app.event.document.click);
+            window.addEventListener('resize', app.event.window.resize);
+            window.addEventListener('scroll', app.event.window.scroll);
         }
+    },
+
+    app.init = () => {
+        app.view.init();
+        app.event.init();
     }
 
     app.init();
