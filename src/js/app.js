@@ -83,10 +83,10 @@
                 const targetElement = event.target.closest('[id]');
                 if (targetElement) {
                     const targetId = targetElement.getAttribute('id');
-
-                    // If target is dark mode toggle
-                    if (document.getElementById(targetId) == app.element.darkModeToggle) {
-                        app.view.darkMode.toggle();
+                    switch (targetId) {
+                        case app.element.darkModeToggle.getAttribute('id'):
+                            app.view.darkMode.toggle();
+                            break;
                     }
                 }
             }
