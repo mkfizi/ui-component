@@ -26,14 +26,14 @@
         // Workaround fix to handle viewport height issue on mobile browsers
         viewportHeight: {
             // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
-            update: () => {
+            toggle: () => {
                 document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
             }
         },
 
         footer: {
-            // Update the footer with current year, app name and version
-            update: () => {
+            // Toggle footer content with current year, app name and version
+            toggle: () => {
                 if (app.element.footerCurrentYear) {
                     app.element.footerCurrentYear.innerHTML = new Date().getFullYear();
                 }
@@ -59,8 +59,8 @@
         },
 
         navbar: {
-            // Update navbar appearance base on window scroll Y position
-            update: () => {
+            // Toggle navbar appearance base on window scroll Y position
+            toggle: () => {
                 if (app.element.navbar) {
                     const isScrolled = window.scrollY > (app.element.navbar.offsetHeight - app.element.navbar.clientHeight);
                     app.element.navbar.classList[isScrolled? 'add' : 'remove']('border-neutral-200', 'dark:border-neutral-800');
@@ -71,8 +71,8 @@
 
         // Initialize view
         init: () => {
-            app.view.viewportHeight.update();
-            app.view.footer.update();
+            app.view.viewportHeight.toggle();
+            app.view.footer.toggle();
         }
     }
 
@@ -83,6 +83,8 @@
                 const targetElement = event.target.closest('[id]');
                 if (targetElement) {
                     const targetId = targetElement.getAttribute('id');
+
+                    // If target is dark mode toggle
                     if (document.getElementById(targetId) == app.element.darkModeToggle) {
                         app.view.darkMode.toggle();
                     }
@@ -93,12 +95,12 @@
         window: {
             // Handle window 'resize' event
             resize: () => {
-                app.view.viewportHeight.update();
+                app.view.viewportHeight.toggle();
             },
 
             // Handle window 'scroll' event
             scroll: () => {
-                app.view.navbar.update();
+                app.view.navbar.toggle();
             }
         },
 
