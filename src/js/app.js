@@ -82,9 +82,8 @@
             click: event => {
                 const targetElement = event.target.closest('[id]');
                 if (targetElement) {
-                    const targetId = targetElement.getAttribute('id');
-                    switch (targetId) {
-                        case app.element.darkModeToggle.getAttribute('id'):
+                    switch (targetElement.id) {
+                        case app.element.darkModeToggle.id:
                             app.view.darkMode.toggle();
                             break;
                     }
