@@ -269,12 +269,12 @@
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Tabs</p>
                     <div class="col-span-2 sm:col-span-3">
                         <div id="tab" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700">
-                            <div class="bg-neutral-200 dark:bg-neutral-700">
+                            <div class="bg-neutral-100 dark:bg-neutral-800">
                                 <div class="inline-block border-r border-r-neutral-300 dark:border-r-neutral-700">
                                     <div class="flex divide-x divide-neutral-300 dark:divide-neutral-700">
-                                        <button type="button" class="px-6 py-4 text-base font-semibold text-black bg-neutral-100 dark:bg-neutral-800 dark:text-white" onclick="component.tab.open(this)" aria-expanded="true" aria-controls="tab-1" aria-label="Open tab 1">Tab 1</button>
-                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50" onclick="component.tab.open(this)" aria-expanded="false" aria-controls="tab-2" aria-label="Open tab 2">Tab 2</button>
-                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50" onclick="component.tab.open(this)" aria-expanded="false" aria-controls="tab-3" aria-label="Open tab 3">Tab 3</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-black bg-neutral-50 dark:bg-neutral-700 dark:text-white" onclick="component.tab.open(this)" aria-expanded="true" aria-controls="tab-1" aria-label="Open tab 1">Tab 1</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50" onclick="component.tab.open(this)" aria-expanded="false" aria-controls="tab-2" aria-label="Open tab 2">Tab 2</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50" onclick="component.tab.open(this)" aria-expanded="false" aria-controls="tab-3" aria-label="Open tab 3">Tab 3</button>
                                     </div>
                                 </div>
                             </div>
@@ -511,8 +511,8 @@
 
                     document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
                         currentToggleElement.setAttribute('aria-expanded', true);
-                        currentToggleElement.classList.remove('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-100/50', 'dark:hover:bg-neutral-800/50');
-                        currentToggleElement.classList.add('bg-neutral-100', 'dark:bg-neutral-800', 'text-black', 'dark:bg-white');
+                        currentToggleElement.classList.remove('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-50/50', 'dark:hover:bg-neutral-700/50');
+                        currentToggleElement.classList.add('bg-neutral-50', 'dark:bg-neutral-800', 'text-black', 'dark:bg-white');
                     });
 
                     const tabId = tabElement.getAttribute('aria-labelledby');
@@ -535,8 +535,8 @@
                     
                     document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
                         currentToggleElement.setAttribute('aria-expanded', false);
-                        currentToggleElement.classList.remove('bg-neutral-100', 'dark:bg-neutral-800', 'text-black', 'dark:bg-white');
-                        currentToggleElement.classList.add('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-100/50', 'dark:hover:bg-neutral-800/50');
+                        currentToggleElement.classList.remove('bg-neutral-50', 'dark:bg-neutral-700', 'text-black', 'dark:bg-white');
+                        currentToggleElement.classList.add('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-50/50', 'dark:hover:bg-neutral-700/50');
                     });
                 }
             },
