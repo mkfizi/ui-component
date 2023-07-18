@@ -308,7 +308,7 @@
                     const id = toggleElement.getAttribute('aria-controls');
                     const alertElement = document.getElementById(id);
                     if (alertElement) {
-                        alertElement.classList.add('hidden');
+                        alertElement.classList.add('hidden', 'invisible');
                         alertElement.setAttribute('aria-hidden', true);
                     }
                 } 
