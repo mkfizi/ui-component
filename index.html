@@ -442,6 +442,12 @@
                             }
                         }
                         window.addEventListener('keydown', component.modal.focusTrap);
+                        
+                        modalElement.setAttribute('tabindex', 1);
+                        modalElement.focus();
+                        setTimeout(() => {
+                            modalElement.removeAttribute('tabindex');
+                        }, 100);
                     }
                 },
 
@@ -500,6 +506,12 @@
                             }
                         }
                         window.addEventListener('keydown', component.offcanvas.focusTrap);
+
+                        offcanvasElement.setAttribute('tabindex', 1);
+                        offcanvasElement.focus();
+                        setTimeout(() => {
+                            offcanvasElement.removeAttribute('tabindex');
+                        }, 100);
                     }
                 },
 
