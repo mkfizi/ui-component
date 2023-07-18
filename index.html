@@ -186,9 +186,9 @@
                 <div class="grid gap-4 mb-2 sm:grid-cols-3 pb-36 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Dropdown</p>
                     <div class="col-span-2 sm:col-span-3">
-                        <button class="flex gap-2 p-2 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 group dark:bg-neutral-900" onclick="component.dropdown.toggle(this)" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown">
-                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Dropdown</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="dropdown">
+                        <button type="button" class="flex gap-2 p-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="component.dropdown.toggle(this)" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown">
+                            <span>Toggle Dropdown</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="dropdown">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                 <path d="M6 9l6 6l6 -6" />
                             </svg>

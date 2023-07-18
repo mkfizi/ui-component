@@ -976,6 +976,10 @@ video {
   stroke: #525252;
 }
 
+.stroke-white {
+  stroke: #fff;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
