@@ -1,8 +1,8 @@
 # Components
 Personal preferences of components for my open source projects.
 
-## Variant
-[AlpineJS](https://github.com/mkfizi/components-alpine)
+**Variant:**
+- [AlpineJS](https://github.com/mkfizi/components-alpine)
 
 ## Installation
 Clone this repository to get started.
