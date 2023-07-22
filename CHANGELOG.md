@@ -16,6 +16,16 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.2.0] - 2023-07-23
+### Added
+- Dropdown list hover background color toggle.
+- Escape key event for dropdown, modal and offcanvas components.
+
+### Changed
+- Extract every components as their own object.
+- Rewrite components object functions and behavior
+- Rename most of variable and function names for more concise meaning.
+
 ## [0.1.0] - 2023-07-13
 ### Added
 - First release.
