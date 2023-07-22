@@ -82,7 +82,7 @@
                             <div class="grow">
                                 <span class="text-base text-neutral-700 dark:text-neutral-300">This is an alert text.</span>
                             </div>
-                            <button type="button" class="shrink-0 group" onclick="component.alert.close(this)" aria-controls="alert" aria-label="Close alert">
+                            <button type="button" class="shrink-0 group" onclick="alert.close(this)" aria-controls="alert" aria-label="Close alert">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M18 6l-12 12" />
@@ -100,7 +100,7 @@
                         <div class="space-y-4">
                             <p class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Regular collapse</p> 
                             <div class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700">
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="true" aria-controls="collapse-1" aria-label="Toggle collapse 1">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="true" aria-controls="collapse-1" aria-label="Toggle collapse 1">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 1</span>
                                     </div>
@@ -112,7 +112,7 @@
                                 <div id="collapse-1" class="p-4" aria-hidden="false">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 1 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="false" aria-controls="collapse-2" aria-label="Toggle collapse 2">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="false" aria-controls="collapse-2" aria-label="Toggle collapse 2">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 2</span>
                                     </div>
@@ -124,7 +124,7 @@
                                 <div id="collapse-2" class="invisible hidden p-4" aria-hidden="true">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 2 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="false" aria-controls="collapse-3" aria-label="Toggle collapse 3">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="false" aria-controls="collapse-3" aria-label="Toggle collapse 3">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 3</span>
                                     </div>
@@ -141,7 +141,7 @@
                         <div class="space-y-4">
                             <p class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Accordion collapse</p> 
                             <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700">
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="true" aria-controls="accordion-1" aria-label="Toggle accordion 1">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="true" aria-controls="accordion-1" aria-label="Toggle accordion 1">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 1</span>
                                     </div>
@@ -153,7 +153,7 @@
                                 <div id="accordion-1" class="p-4" aria-hidden="false" aria-labelledby="accordion">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 1 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="false" aria-controls="accordion-2" aria-label="Toggle accordion 2">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="false" aria-controls="accordion-2" aria-label="Toggle accordion 2">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 2</span>
                                     </div>
@@ -165,7 +165,7 @@
                                 <div id="accordion-2" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="accordion">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 2 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="component.collapse.toggle(this)" aria-expanded="false" aria-controls="accordion-3" aria-label="Toggle accordion 3">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="false" aria-controls="accordion-3" aria-label="Toggle accordion 3">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 3</span>
                                     </div>
@@ -186,24 +186,26 @@
                 <div class="grid gap-4 mb-2 sm:grid-cols-3 pb-36 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Dropdown</p>
                     <div class="col-span-2 sm:col-span-3">
-                        <button type="button" class="flex gap-2 p-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="component.dropdown.toggle(this)" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown">
+                        <button type="button" class="flex gap-2 p-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="dropdown.toggle(this)" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown">
                             <span>Toggle Dropdown</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="dropdown">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                 <path d="M6 9l6 6l6 -6" />
                             </svg>
                         </button>
-                        <ul id="dropdown" aria-hidden="true" class="absolute z-10 invisible hidden w-48 py-2 mt-2 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900">
-                            <li>
-                                <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 2</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 3</a>
-                            </li>
-                        </ul>
+                        <div id="dropdown" class="relative invisible hidden" aria-hidden="true">
+                            <ul class="absolute z-10 w-48 py-2 bg-white border rounded-md top-2 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 drop-shadow-md" aria-labelledby="dropdown">
+                                <li class="hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                                    <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 1</a>
+                                </li>
+                                <li class="hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                                    <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 2</a>
+                                </li>
+                                <li class="hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                                    <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 3</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>  
 
@@ -211,10 +213,10 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Modal</p>
                     <div class="col-span-2 sm:col-span-3">
-                        <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="component.modal.open(this)" aria-controls="modal" aria-expanded="false" aria-label="Open modal">Open Modal</button>
-                        <div id="modal" class="fixed top-0 left-0 z-20 items-center justify-center invisible hidden w-screen h-screen bg-neutral-500/50" aria-hidden="true">
-                            <div class="relative p-8 bg-white border rounded-md border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 w-80 sm:w-96" aria-labelledby="modal">
-                                <button type="button" class="absolute right-4 top-4 group" onclick="component.modal.close(this)" aria-controls="modal" aria-expanded="false" aria-label="Close modal">
+                        <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="modal.toggle(this, true)" aria-controls="modal" aria-expanded="false" aria-label="Open modal">Open Modal</button>
+                        <div id="modal" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-neutral-500/50" aria-hidden="true">
+                            <div class="fixed p-8 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded-md left-1/2 top-1/2 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 w-80 sm:w-96 drop-shadow-md" aria-labelledby="modal">
+                                <button type="button" class="absolute right-4 top-4 group" onclick="modal.toggle(this, false)" aria-controls="modal" aria-expanded="false" aria-label="Close modal">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                         <path d="M18 6l-12 12" />
@@ -225,9 +227,9 @@
                                     <p class="text-lg font-bold text-black sm:text-xl lg:text-2xl dark:text-white">Modal Title</p>
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a modal sentence.</p>
                                 </div>
-                                <div class="flex justify-center gap-2 mt-8">
+                                <div class="flex flex-wrap justify-center gap-2 mt-8">
                                     <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none">Okay</button>
-                                    <button type="button" class="px-8 py-2 text-base font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none"  onclick="component.modal.close(this)" aria-controls="modal" aria-expanded="false" aria-label="Close modal">Cancel</button>
+                                    <button type="button" class="px-8 py-2 text-base font-semibold text-black bg-transparent border border-black rounded-md dark:text-white hover:border-neutral-700 hover:text-white hover:bg-neutral-700 dark:bg-transparent dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="modal.toggle(this, false)" aria-controls="modal" aria-expanded="false" aria-label="Close modal">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -238,10 +240,10 @@
                 <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Offcanvas</p>
                     <div class="col-span-2 sm:col-span-3">
-                        <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="component.offcanvas.open(this)" aria-controls="offcanvas" aria-expanded="false" aria-label="Open offcanvas">Open Offcanvas</button>
-                        <div id="offcanvas" class="fixed top-0 left-0 z-20 invisible hidden w-screen h-screen bg-neutral-500/50" aria-hidden="true">
-                            <div class="fixed h-full p-4 overflow-y-auto bg-white w-72 dark:bg-neutral-800 drop-shadow-md" aria-labelledby="offcanvas">
-                                <button type="button" class="absolute right-4 top-4 group" onclick="component.offcanvas.close(this)" aria-controls="offcanvas" aria-expanded="false" aria-label="Close offcanvas">
+                        <button type="button" class="px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="offcanvas.toggle(this, true)" aria-controls="offcanvas" aria-expanded="false" aria-label="Open offcanvas">Open Offcanvas</button>
+                        <div id="offcanvas" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-neutral-500/50" aria-hidden="true">
+                            <div class="fixed top-0 left-0 h-full p-4 overflow-y-auto bg-white w-72 dark:bg-neutral-800 drop-shadow-md" aria-labelledby="offcanvas">
+                                <button type="button" class="absolute right-4 top-4 group" onclick="offcanvas.toggle(this, false)" aria-controls="offcanvas" aria-expanded="false" aria-label="Close offcanvas">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                         <path d="M18 6l-12 12" />
@@ -272,9 +274,9 @@
                             <div class="bg-neutral-100 dark:bg-neutral-800">
                                 <div class="inline-block border-r border-r-neutral-300 dark:border-r-neutral-700">
                                     <div class="flex divide-x divide-neutral-300 dark:divide-neutral-700">
-                                        <button type="button" class="px-6 py-4 text-base font-semibold text-black bg-white dark:bg-neutral-700 dark:text-white" onclick="component.tab.open(this)" aria-expanded="true" aria-controls="tab-1" aria-label="Open tab 1">Tab 1</button>
-                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50" onclick="component.tab.open(this)" aria-expanded="false" aria-controls="tab-2" aria-label="Open tab 2">Tab 2</button>
-                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50" onclick="component.tab.open(this)" aria-expanded="false" aria-controls="tab-3" aria-label="Open tab 3">Tab 3</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-black bg-white dark:bg-neutral-700 dark:text-white" onclick="tab.toggle(this, true)" aria-expanded="true" aria-controls="tab-1" aria-label="Open tab 1">Tab 1</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50" onclick="tab.toggle(this, true)" aria-expanded="false" aria-controls="tab-2" aria-label="Open tab 2">Tab 2</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50" onclick="tab.toggle(this, true)" aria-expanded="false" aria-controls="tab-3" aria-label="Open tab 3">Tab 3</button>
                                     </div>
                                 </div>
                             </div>
@@ -289,7 +291,6 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>  
             </div>  
         </div>
@@ -301,281 +302,320 @@
         <span class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-year"></span> © Developed by <a href="https://mkfizi.dev" target="_blank" class="inline-block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">mkfizi</a></span>
     </footer>
 
-    <script>
-        const component = {
-            alert: {
-                close: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const alertElement = document.getElementById(id);
-                    if (alertElement) {
-                        alertElement.classList.add('hidden', 'invisible');
-                        alertElement.setAttribute('aria-hidden', true);
+    <script type="text/javascript">
+        const alert = {
+            // Close alert
+            close: toggleElement => {
+                const alertId = toggleElement.getAttribute('aria-controls');
+                const alertElement = document.getElementById(alertId);
+                if (alertElement) {
+                    alertElement.classList.add('hidden', 'invisible');
+                    alertElement.setAttribute('aria-hidden', true);
+                }
+            }
+        }
+
+        const collapse = {
+            // Toggle collapse
+            toggle: (toggleElement, isOpen = null) => {
+                const collapseId = toggleElement.getAttribute('aria-controls');
+                const collapseElement = document.getElementById(collapseId);
+                if (collapseElement) {
+                    if (isOpen == null) isOpen = collapseElement.getAttribute('aria-hidden') === "true" || false;
+                    collapseElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
+                    collapseElement.setAttribute('aria-hidden', !isOpen);
+
+                    // Set toggle element `[aria-expanded]` attribute value
+                    document.querySelectorAll(`[aria-controls="${collapseId}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', isOpen);
+                    });
+
+                    // Rotate icon element
+                    document.querySelectorAll(`svg[aria-labelledby="${collapseId}"]`).forEach(currentIconElement => {
+                        currentIconElement.classList.toggle('rotate-180', isOpen);
+                    });
+
+                    // Handle accordion
+                    const accordionId = collapseElement.getAttribute('aria-labelledby');
+                    if (accordionId && isOpen) {
+                        document.querySelectorAll(`[aria-labelledby=${accordionId}]`).forEach(currentCollapseElement => {
+                            if (currentCollapseElement !== collapseElement) {
+                                const currentToggleElement = document.querySelector(`[aria-controls="${currentCollapseElement.id}"]`)
+                                collapse.toggle(currentToggleElement, false);
+                            }
+                        })
+                    } 
+                }
+            }
+        }
+        
+        const dropdown = {
+            // Toggle dropdown
+            toggle: (toggleElement, isOpen = null) => {
+                const dropdownId = toggleElement.getAttribute('aria-controls');
+                const dropdownElement = document.getElementById(dropdownId);
+                if (dropdownElement) {
+                    if (isOpen == null) isOpen = dropdownElement.getAttribute('aria-hidden') === "true" || false;
+                    dropdownElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
+                    dropdownElement.setAttribute('aria-hidden', !isOpen);
+
+                    // Set toggle element `[aria-expanded]` attribute value
+                    document.querySelectorAll(`[aria-controls="${dropdownId}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', isOpen);
+                    });
+
+                    // Toggle handlers
+                    if (isOpen) {
+                        dropdown.clickOutside = dropdown.attachClickOutside(toggleElement);
+                        dropdown.escape = dropdown.attachEscape(toggleElement);
+                    } else {
+                       if (dropdown.clickOutside != null) dropdown.clickOutside();
+                       if (dropdown.escape != null) dropdown.attachEscape();
                     }
-                } 
+                }
             },
 
-            collapse: {
-                toggle: toggleElement => {
-                    const isExpanded = toggleElement.getAttribute('aria-expanded') === "true";
-                    isExpanded === true ? component.collapse.close(toggleElement) : component.collapse.open(toggleElement);
-                },
-
-                open: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const collapseElement = document.getElementById(id);
-                    if (collapseElement) {
-                        collapseElement.classList.remove('hidden', 'invisible');
-                        collapseElement.setAttribute('aria-hidden', false);
-
-                        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
-                            currentToggleElement.setAttribute('aria-expanded', true);
-                        });
-                        document.querySelectorAll(`svg[aria-labelledby="${id}"]`).forEach(currentIconElement => {
-                            currentIconElement.classList.add('rotate-180');
-                        });
-
-                        const accordionId = collapseElement.getAttribute('aria-labelledby');
-                        if (accordionId) {
-                            document.querySelectorAll(`[aria-labelledby=${accordionId}]`).forEach(currentCollapseElement => {
-                                if (currentCollapseElement !== collapseElement) {
-                                    const currentId = currentCollapseElement.getAttribute('id');
-                                    const currentToggleElement = document.querySelector(`[aria-controls="${currentId}"]`)
-                                    component.collapse.close(currentToggleElement);
-                                }
-                            })
+            // Attach click outside dropdown
+            attachClickOutside: toggleElement => {
+                const dropdownId = toggleElement.getAttribute('aria-controls');
+                if (dropdownId) {
+                    const clickOutsideHandler = event => {
+                        if (!event.target.closest(`[aria-labelledby="${dropdownId}"]`) && !event.target.closest(`[aria-controls="${dropdownId}"]`)) {
+                            dropdown.toggle(toggleElement, false);
                         }
                     }
-                },
-
-                close: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const collapseElement = document.getElementById(id);
-                    if (collapseElement) {
-                        collapseElement.classList.add('hidden', 'invisible');
-                        collapseElement.setAttribute('aria-hidden', true);
-                        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
-                            currentToggleElement.setAttribute('aria-expanded', false);
-                        });
-                        document.querySelectorAll(`svg[aria-labelledby="${id}"]`).forEach(currentIconElement => {
-                            currentIconElement.classList.remove('rotate-180');
-                        });
+                    document.addEventListener('click', clickOutsideHandler);
+                    return () => {
+                        document.removeEventListener('click', clickOutsideHandler);
                     }
                 }
             },
 
-            dropdown: {
-                toggle: toggleElement => {
-                    const isExpanded = toggleElement.getAttribute('aria-expanded') === "true";
-                    isExpanded === true ? component.dropdown.close(toggleElement) : component.dropdown.open(toggleElement);
-                },
-
-                open: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const dropdownElement = document.getElementById(id);
-                    if (dropdownElement) {
-                        dropdownElement.classList.remove('hidden', 'invisible');
-                        dropdownElement.setAttribute('aria-hidden', false);
-
-                        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
-                            currentToggleElement.setAttribute('aria-expanded', true);
-                        });
-
-                        component.dropdown.clickOutside = event => {
-                            if (!event.target.closest(`[id="${id}"]`) && !event.target.closest(`[aria-controls="${id}"]`)) {
-                                component.dropdown.close(toggleElement);
-                            }
-                        };
-                        document.addEventListener('click', component.dropdown.clickOutside);
+            // Attach press escape key
+            attachEscape: toggleElement => {
+                const escapeHandler = event => {
+                    if (event.key === 'Escape') {
+                        dropdown.toggle(toggleElement, false);
                     }
-                },
+                }
+                window.addEventListener('keydown', escapeHandler);
+                return () => {
+                    window.removeEventListener('keydown', escapeHandler);
+                }
+            },
+        }
 
-                close: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const dropdownElement = document.getElementById(id);
-                    if (dropdownElement) {
-                        dropdownElement.classList.add('hidden', 'invisible');
-                        dropdownElement.setAttribute('aria-hidden', true);
+        const modal = {
+            // Toggle modal
+            toggle: (toggleElement, isOpen) => {
+                const modalId = toggleElement.getAttribute('aria-controls');
+                const modalElement = document.getElementById(modalId);
+                if (modalElement) {
+                    modalElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
+                    modalElement.setAttribute('aria-hidden', !isOpen);
+                }
 
-                        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
-                            currentToggleElement.setAttribute('aria-expanded', false);
-                        });
+                // Set toggle element `[aria-expanded]` attribute value
+                document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach(currentToggleElement => {
+                    currentToggleElement.setAttribute('aria-expanded', isOpen);
+                });
 
-                        document.removeEventListener('click', component.dropdown.clickOutside);
-                        component.dropdown.clickOutside = null;
-                    }
+                // Toggle handlers
+                if (isOpen) {
+                    modal.clickOutside = modal.attachClickOutside(toggleElement);
+                    modal.escape = modal.attachEscape(toggleElement);
+                    modal.focusTrap = modal.attachFocusTrap(toggleElement);
+                } else {
+                    if (modal.clickOutside != null) modal.clickOutside();
+                    if (modal.escape != null) modal.escape();
+                    if (modal.focusTrap != null) modal.focusTrap();
                 }
             },
 
-            modal: {
-                open: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const modalElement = document.getElementById(id);
-                    if (modalElement) {
-                        modalElement.classList.remove('hidden', 'invisible');
-                        modalElement.classList.add('flex');
-                        modalElement.setAttribute('aria-hidden', false);
-
-                        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
-                            currentToggleElement.setAttribute('aria-expanded', true);
-                        });
-
-                        component.modal.clickOutside = event => {
-                            if (!event.target.closest(`[aria-labelledby="${id}"]`) && !event.target.closest(`[aria-controls="${id}"]`)) {
-                                component.modal.close(toggleElement);
-                            }
-                        };
-                        document.addEventListener('click', component.modal.clickOutside);
-
-                        component.modal.focusTrap = event => {
-                            const focusableElements = modalElement.querySelectorAll('a:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), textarea:not([tabindex="-1"]), select:not([tabindex="-1"]), details:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"]), [contenteditable="true"]:not([tabindex="-1"])');
-                            const firstElement = focusableElements[0];
-                            const lastElement = focusableElements[focusableElements.length - 1];
-                            if (event.type === 'keydown' && event.keyCode === 9) {
-                                if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
-                                    event.preventDefault();
-                                    lastElement.focus();
-
-                                } else if (!event.shiftKey && document.activeElement === lastElement) {
-                                    event.preventDefault();
-                                    firstElement.focus();
-                                }
-                            }
-                        }
-                        window.addEventListener('keydown', component.modal.focusTrap);
-                        
-                        modalElement.setAttribute('tabindex', 1);
-                        modalElement.focus();
-                        setTimeout(() => {
-                            modalElement.removeAttribute('tabindex');
-                        }, 100);
-                    }
-                },
-
-                close: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const modalElement = document.getElementById(id);
-                    if (modalElement) {
-                        modalElement.classList.remove('flex');
-                        modalElement.classList.add('hidden', 'invisible');
-                        modalElement.setAttribute('aria-hidden', true);
-
-                        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
-                            currentToggleElement.setAttribute('aria-expanded', false);
-                        });
-
-                        document.removeEventListener('click', component.modal.clickOutside);
-                        window.removeEventListener('keydown', component.modal.focusTrap);
-                        component.modal.clickOutside = null;
-                        component.modal.focusTrap = null;
-                    }
-                }
-            },
-
-            offcanvas: {
-                open: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const offcanvasElement = document.getElementById(id);
-                    if (offcanvasElement) {
-                        offcanvasElement.classList.remove('hidden', 'invisible');
-                        offcanvasElement.setAttribute('aria-hidden', false);
-
-                        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
-                            currentToggleElement.setAttribute('aria-expanded', true);
-                        });
-
-                        component.offcanvas.clickOutside = event => {
-                            if (!event.target.closest(`[aria-labelledby="${id}"]`) && !event.target.closest(`[aria-controls="${id}"]`)) {
-                                component.offcanvas.close(toggleElement);
-                            }
-                        };
-                        document.addEventListener('click', component.offcanvas.clickOutside);
-
-                        component.offcanvas.focusTrap = event => {
-                            const focusableElements = offcanvasElement.querySelectorAll('a:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), textarea:not([tabindex="-1"]), select:not([tabindex="-1"]), details:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"]), [contenteditable="true"]:not([tabindex="-1"])');
-                            const firstElement = focusableElements[0];
-                            const lastElement = focusableElements[focusableElements.length - 1];
-                            if (event.type === 'keydown' && event.keyCode === 9) {
-                                if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
-                                    event.preventDefault();
-                                    lastElement.focus();
-
-                                } else if (!event.shiftKey && document.activeElement === lastElement) {
-                                    event.preventDefault();
-                                    firstElement.focus();
-                                }
-                            }
-                        }
-                        window.addEventListener('keydown', component.offcanvas.focusTrap);
-
-                        offcanvasElement.setAttribute('tabindex', 1);
-                        offcanvasElement.focus();
-                        setTimeout(() => {
-                            offcanvasElement.removeAttribute('tabindex');
-                        }, 100);
-                    }
-                },
-
-                close: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const offcanvasElement = document.getElementById(id);
-                    if (offcanvasElement) {
-                        offcanvasElement.classList.add('hidden', 'invisible');
-                        offcanvasElement.setAttribute('aria-hidden', true);
-
-                        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
-                            currentToggleElement.setAttribute('aria-expanded', false);
-                        });
-                        
-                        document.removeEventListener('click', component.offcanvas.clickOutside);
-                        window.removeEventListener('keydown', component.offcanvas.focusTrap);
-                        component.offcanvas.clickOutside = null;
-                        component.offcanvas.focusTrap = null;
-                    }
-                }
-            },
-
-            tab: {
-                open: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const tabElement = document.getElementById(id);
-                    if (tabElement) {
-                        tabElement.classList.remove('hidden', 'invisible');
-                        tabElement.setAttribute('aria-hidden', false);
-
-                        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
-                            currentToggleElement.setAttribute('aria-expanded', true);
-                            currentToggleElement.classList.remove('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-50/50', 'dark:hover:bg-neutral-700/50');
-                            currentToggleElement.classList.add('bg-white', 'dark:bg-neutral-700', 'text-black', 'dark:text-white');
-                        });
-
-                        const tabId = tabElement.getAttribute('aria-labelledby');
-                        if (tabId) {
-                            document.querySelectorAll(`[aria-labelledby=${tabId}]`).forEach(currentTabElement => {
-                                if (currentTabElement !== tabElement) {
-                                    const currentId = currentTabElement.getAttribute('id');
-                                    const currentToggleElement = document.querySelector(`[aria-controls="${currentId}"]`)
-                                    component.tab.close(currentToggleElement);
-                                }
-                            })
+            // Attach click outside modal
+            attachClickOutside: toggleElement => {
+                const modalId = toggleElement.getAttribute('aria-controls');
+                if (modalId) {
+                    const clickOutsideHandler = event => {
+                        if (!event.target.closest(`[aria-labelledby="${modalId}"]`) && !event.target.closest(`[aria-controls="${modalId}"]`)) {
+                            modal.toggle(toggleElement, false);
                         }
                     }
-                },
-
-                close: toggleElement => {
-                    const id = toggleElement.getAttribute('aria-controls');
-                    const tabElement = document.getElementById(id);
-                    if (tabElement) {
-                        tabElement.classList.add('hidden', 'invisible');
-                        tabElement.setAttribute('aria-hidden', true);
-                        
-                        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(currentToggleElement => {
-                            currentToggleElement.setAttribute('aria-expanded', false);
-                            currentToggleElement.classList.remove('bg-white', 'dark:bg-neutral-700', 'text-black', 'dark:text-white');
-                            currentToggleElement.classList.add('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-50/50', 'dark:hover:bg-neutral-700/50');
-                        });
+                    document.addEventListener('click', clickOutsideHandler);
+                    return () => {
+                        document.removeEventListener('click', clickOutsideHandler);
                     }
                 }
             },
+
+            // Attach press escape key
+            attachEscape: toggleElement => {
+                const escapeHandler = event => {
+                    if (event.key === 'Escape') {
+                        modal.toggle(toggleElement, false);
+                    }
+                }
+                window.addEventListener('keydown', escapeHandler);
+                return () => {
+                    window.removeEventListener('keydown', escapeHandler);
+                }
+            },
+
+            // Attach focus trap
+            attachFocusTrap: toggleElement => {
+                const id = toggleElement.getAttribute('aria-controls');
+                const modalElement = document.getElementById(id);
+                if (modalElement) {
+                    modalElement.setAttribute('tabindex', 1);
+                    modalElement.focus();
+                    setTimeout(() => {
+                        modalElement.removeAttribute('tabindex');
+                    }, 100);
+
+                    const focusableElements = Array.from(modalElement.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter(element => {
+                        return !element.closest('[tabindex="-1"], .hidden, .invisible') || null;
+                    });
+                    const firstElement = focusableElements[0];
+                    const lastElement = focusableElements[focusableElements.length - 1];
+                    const focusTrapHandler = event => {
+                        if (event.type === 'keydown' && event.key === 'Tab') {
+                            if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
+                                event.preventDefault();
+                                lastElement.focus();
+                            } else if (!event.shiftKey && document.activeElement === lastElement) {
+                                event.preventDefault();
+                                firstElement.focus();
+                            }
+                        }
+                    }
+
+                    window.addEventListener('keydown', focusTrapHandler);
+                    return () => {
+                        window.removeEventListener('keydown', focusTrapHandler);
+                    }
+                }
+            }
+        }
+
+        const offcanvas = {
+            // Toggle offcanvas
+            toggle: (toggleElement, isOpen) => {
+                const offcanvasId = toggleElement.getAttribute('aria-controls');
+                const offcanvasElement = document.getElementById(offcanvasId);
+                if (offcanvasElement) {
+                    offcanvasElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
+                    offcanvasElement.setAttribute('aria-hidden', !isOpen);
+                }
+
+                // Set toggle element `[aria-expanded]` attribute value
+                document.querySelectorAll(`[aria-controls="${offcanvasId}"]`).forEach(currentToggleElement => {
+                    currentToggleElement.setAttribute('aria-expanded', isOpen);
+                });
+
+                // Toggle handlers
+                if (isOpen) {
+                    offcanvas.clickOutside = offcanvas.attachClickOutside(toggleElement);
+                    offcanvas.escape = offcanvas.attachEscape(toggleElement);
+                    offcanvas.focusTrap = offcanvas.attachFocusTrap(toggleElement);
+                } else {
+                    if (offcanvas.clickOutside != null) offcanvas.clickOutside();
+                    if (offcanvas.escape != null) offcanvas.escape();
+                    if (offcanvas.focusTrap != null) offcanvas.focusTrap();
+                }
+            },
+
+            // Attach click outside offcanvas
+            attachClickOutside: toggleElement => {
+                const offcanvasId = toggleElement.getAttribute('aria-controls');
+                if (offcanvasId) {
+                    const clickOutsideHandler = event => {
+                        if (!event.target.closest(`[aria-labelledby="${offcanvasId}"]`) && !event.target.closest(`[aria-controls="${offcanvasId}"]`)) {
+                            offcanvas.toggle(toggleElement, false);
+                        }
+                    }
+                    document.addEventListener('click', clickOutsideHandler);
+                    return () => {
+                        document.removeEventListener('click', clickOutsideHandler);
+                    }
+                }
+            },
+
+            // Attach press escape key
+            attachEscape: toggleElement => {
+                const escapeHandler = event => {
+                    if (event.key === 'Escape') {
+                        offcanvas.toggle(toggleElement, false);
+                    }
+                }
+                window.addEventListener('keydown', escapeHandler);
+                return () => {
+                    window.removeEventListener('keydown', escapeHandler);
+                }
+            },
+
+            // Attach focus trap
+            attachFocusTrap: toggleElement => {
+                const id = toggleElement.getAttribute('aria-controls');
+                const offcanvasElement = document.getElementById(id);
+                if (offcanvasElement) {
+                    offcanvasElement.setAttribute('tabindex', 1);
+                    offcanvasElement.focus();
+                    setTimeout(() => {
+                        offcanvasElement.removeAttribute('tabindex');
+                    }, 100);
+
+                    const focusableElements = Array.from(offcanvasElement.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter(element => {
+                        return !element.closest('[tabindex="-1"], .hidden, .invisible') || null;
+                    });
+                    const firstElement = focusableElements[0];
+                    const lastElement = focusableElements[focusableElements.length - 1];
+                    const focusTrapHandler = event => {
+                        if (event.type === 'keydown' && event.key === 'Tab') {
+                            if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
+                                event.preventDefault();
+                                lastElement.focus();
+                            } else if (!event.shiftKey && document.activeElement === lastElement) {
+                                event.preventDefault();
+                                firstElement.focus();
+                            }
+                        }
+                    }
+
+                    window.addEventListener('keydown', focusTrapHandler);
+                    return () => {
+                        window.removeEventListener('keydown', focusTrapHandler);
+                    }
+                }
+            }
+        }
+
+
+        const tab = {
+            toggle: (toggleElement, isOpen) => {
+                const tabId = toggleElement.getAttribute('aria-controls');
+                const tabElement = document.getElementById(tabId);
+                if (tabElement) {
+                    tabElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
+                    tabElement.setAttribute('aria-hidden', !isOpen);
+                }
+
+                // Set toggle element `[aria-expanded]` attribute value
+                document.querySelectorAll(`[aria-controls="${tabId}"]`).forEach(currentToggleElement => {
+                    currentToggleElement.setAttribute('aria-expanded', isOpen);
+                    currentToggleElement.classList[ isOpen ? 'remove' : 'add' ]('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-50/50', 'dark:hover:bg-neutral-700/50');
+                    currentToggleElement.classList[ isOpen ? 'add' : 'remove' ]('bg-white', 'dark:bg-neutral-700', 'text-black', 'dark:text-white');
+                });
+
+                const groupId = tabElement.getAttribute('aria-labelledby');
+                if (groupId && isOpen) {
+                    document.querySelectorAll(`[aria-labelledby=${groupId}]`).forEach(currentTabElement => {
+                        if (currentTabElement !== tabElement) {
+                            const currentToggleElement = document.querySelector(`[aria-controls="${currentTabElement.id}"]`)
+                            tab.toggle(currentToggleElement, false);
+                        }
+                    })
+                }
+            }
         }
     </script>
 </body>
