@@ -466,6 +466,7 @@
                 const id = toggleElement.getAttribute('aria-controls');
                 const modalElement = document.getElementById(id);
                 if (modalElement) {
+                    // Toggle force focus on modal element
                     modalElement.setAttribute('tabindex', 1);
                     modalElement.focus();
                     setTimeout(() => {
@@ -558,6 +559,7 @@
                 const id = toggleElement.getAttribute('aria-controls');
                 const offcanvasElement = document.getElementById(id);
                 if (offcanvasElement) {
+                    // Toggle force focus on offcanvas element
                     offcanvasElement.setAttribute('tabindex', 1);
                     offcanvasElement.focus();
                     setTimeout(() => {
