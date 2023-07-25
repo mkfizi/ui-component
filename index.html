@@ -310,6 +310,7 @@
                 const alertElement = document.getElementById(alertId);
                 if (alertElement) {
                     alertElement.classList.add('hidden', 'invisible');
+                    alertElement.classList.remove('flex');
                     alertElement.setAttribute('aria-hidden', true);
                 }
             }
