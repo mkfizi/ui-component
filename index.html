@@ -366,43 +366,38 @@
 
                     // Toggle handlers
                     if (isOpen) {
-                        dropdown.clickOutside = dropdown.attachClickOutside(toggleElement);
-                        dropdown.escape = dropdown.attachEscape(toggleElement);
+                        dropdown.clickOutside = dropdown.attachEvent(document, 'click', dropdown.clickOutsideHandler.bind(null, toggleElement));
+                        dropdown.escape = dropdown.attachEvent(window, 'keydown', dropdown.escapeHandler.bind(null, toggleElement));
                     } else {
-                       if (dropdown.clickOutside != null) dropdown.clickOutside();
-                       if (dropdown.escape != null) dropdown.attachEscape();
+                        if (dropdown.clickOutside != null) dropdown.clickOutside();
+                        if (dropdown.escape != null) dropdown.escape();
                     }
                 }
             },
 
-            // Attach click outside dropdown
-            attachClickOutside: toggleElement => {
-                const dropdownId = toggleElement.getAttribute('aria-controls');
-                if (dropdownId) {
-                    const clickOutsideHandler = event => {
-                        if (!event.target.closest(`[aria-labelledby="${dropdownId}"]`) && !event.target.closest(`[aria-controls="${dropdownId}"]`)) {
-                            dropdown.toggle(toggleElement, false);
-                        }
-                    }
-                    document.addEventListener('click', clickOutsideHandler);
-                    return () => {
-                        document.removeEventListener('click', clickOutsideHandler);
-                    }
-                }
-            },
-
-            // Attach press escape key
-            attachEscape: toggleElement => {
-                const escapeHandler = event => {
-                    if (event.key === 'Escape') {
-                        dropdown.toggle(toggleElement, false);
-                    }
-                }
-                window.addEventListener('keydown', escapeHandler);
+            // Attach event
+            attachEvent: (element, eventType, handler) => {
+                element.addEventListener(eventType, handler);
                 return () => {
-                    window.removeEventListener('keydown', escapeHandler);
+                    element.removeEventListener(eventType, handler);
                 }
             },
+
+            // Click outside dropdown handler
+            clickOutsideHandler: (toggleElement, event) => {
+                const dropdownId = toggleElement.getAttribute('aria-controls');
+                    if (!event.target.closest(`[aria-labelledby="${dropdownId}"]`) && !event.target.closest(`[aria-controls="${dropdownId}"]`)) {
+                    dropdown.toggle(toggleElement, false);
+                }
+            },
+            
+            // Escape key handler
+            escapeHandler: (toggleElement, event) => {
+                if (event.key === 'Escape') {
+                    dropdown.toggle(toggleElement, false);
+                }
+            },
+
         }
 
         const modal = {
@@ -413,86 +408,66 @@
                 if (modalElement) {
                     modalElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
                     modalElement.setAttribute('aria-hidden', !isOpen);
-                }
+                    // Set toggle element `[aria-expanded]` attribute value
+                    document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', isOpen);
+                    });
 
-                // Set toggle element `[aria-expanded]` attribute value
-                document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach(currentToggleElement => {
-                    currentToggleElement.setAttribute('aria-expanded', isOpen);
-                });
-
-                // Toggle handlers
-                if (isOpen) {
-                    modal.clickOutside = modal.attachClickOutside(toggleElement);
-                    modal.escape = modal.attachEscape(toggleElement);
-                    modal.focusTrap = modal.attachFocusTrap(toggleElement);
-                } else {
-                    if (modal.clickOutside != null) modal.clickOutside();
-                    if (modal.escape != null) modal.escape();
-                    if (modal.focusTrap != null) modal.focusTrap();
-                }
-            },
-
-            // Attach click outside modal
-            attachClickOutside: toggleElement => {
-                const modalId = toggleElement.getAttribute('aria-controls');
-                if (modalId) {
-                    const clickOutsideHandler = event => {
-                        if (!event.target.closest(`[aria-labelledby="${modalId}"]`) && !event.target.closest(`[aria-controls="${modalId}"]`)) {
-                            modal.toggle(toggleElement, false);
-                        }
-                    }
-                    document.addEventListener('click', clickOutsideHandler);
-                    return () => {
-                        document.removeEventListener('click', clickOutsideHandler);
+                    // Toggle handlers
+                    if (isOpen) {
+                        modal.clickOutside = modal.attachEvent(document, 'click', modal.clickOutsideHandler.bind(null, toggleElement));
+                        modal.escape = modal.attachEvent(window, 'keydown', modal.escapeHandler.bind(null, toggleElement));
+                        modal.focusTrap = modal.attachEvent(window, 'keydown', modal.focusTrapHandler.bind(null, toggleElement));
+                    } else {
+                        if (modal.clickOutside != null) modal.clickOutside();
+                        if (modal.escape != null) modal.escape();
+                        if (modal.focusTrap != null) modal.focusTrap();
                     }
                 }
             },
 
-            // Attach press escape key
-            attachEscape: toggleElement => {
-                const escapeHandler = event => {
-                    if (event.key === 'Escape') {
-                        modal.toggle(toggleElement, false);
-                    }
-                }
-                window.addEventListener('keydown', escapeHandler);
+            // Attach event
+            attachEvent: (element, eventType, handler) => {
+                element.addEventListener(eventType, handler);
                 return () => {
-                    window.removeEventListener('keydown', escapeHandler);
+                    element.removeEventListener(eventType, handler);
                 }
             },
 
-            // Attach focus trap
-            attachFocusTrap: toggleElement => {
-                const id = toggleElement.getAttribute('aria-controls');
-                const modalElement = document.getElementById(id);
-                if (modalElement) {
-                    // Toggle force focus on modal element
-                    modalElement.setAttribute('tabindex', 1);
-                    modalElement.focus();
-                    setTimeout(() => {
-                        modalElement.removeAttribute('tabindex');
-                    }, 100);
+            // Click outside modal handler
+            clickOutsideHandler: (toggleElement, event) => {
+                const modalId = toggleElement.getAttribute('aria-controls');
+                    if (!event.target.closest(`[aria-labelledby="${modalId}"]`) && !event.target.closest(`[aria-controls="${modalId}"]`)) {
+                    modal.toggle(toggleElement, false);
+                }
+            },
+
+            // Escape key handler
+            escapeHandler: (toggleElement, event) => {
+                if (event.key === 'Escape') {
+                    modal.toggle(toggleElement, false);
+                }
+            },
+
+            // Focus trap handler
+            focusTrapHandler: (toggleElement, event) => {
+                if (event.key === 'Tab') {
+                    const modalId = toggleElement.getAttribute('aria-controls');
+                    const modalElement = document.getElementById(modalId);
+                    if (!modalElement) return;
 
                     const focusableElements = Array.from(modalElement.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter(element => {
                         return !element.closest('[tabindex="-1"], .hidden, .invisible') || null;
                     });
                     const firstElement = focusableElements[0];
                     const lastElement = focusableElements[focusableElements.length - 1];
-                    const focusTrapHandler = event => {
-                        if (event.type === 'keydown' && event.key === 'Tab') {
-                            if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
-                                event.preventDefault();
-                                lastElement.focus();
-                            } else if (!event.shiftKey && document.activeElement === lastElement) {
-                                event.preventDefault();
-                                firstElement.focus();
-                            }
-                        }
-                    }
 
-                    window.addEventListener('keydown', focusTrapHandler);
-                    return () => {
-                        window.removeEventListener('keydown', focusTrapHandler);
+                    if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
+                        event.preventDefault();
+                        lastElement.focus();
+                    } else if (!event.shiftKey && document.activeElement === lastElement) {
+                        event.preventDefault();
+                        firstElement.focus();
                     }
                 }
             }
@@ -506,116 +481,98 @@
                 if (offcanvasElement) {
                     offcanvasElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
                     offcanvasElement.setAttribute('aria-hidden', !isOpen);
-                }
 
-                // Set toggle element `[aria-expanded]` attribute value
-                document.querySelectorAll(`[aria-controls="${offcanvasId}"]`).forEach(currentToggleElement => {
-                    currentToggleElement.setAttribute('aria-expanded', isOpen);
-                });
+                    // Set toggle element `[aria-expanded]` attribute value
+                    document.querySelectorAll(`[aria-controls="${offcanvasId}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', isOpen);
+                    });
 
-                // Toggle handlers
-                if (isOpen) {
-                    offcanvas.clickOutside = offcanvas.attachClickOutside(toggleElement);
-                    offcanvas.escape = offcanvas.attachEscape(toggleElement);
-                    offcanvas.focusTrap = offcanvas.attachFocusTrap(toggleElement);
-                } else {
-                    if (offcanvas.clickOutside != null) offcanvas.clickOutside();
-                    if (offcanvas.escape != null) offcanvas.escape();
-                    if (offcanvas.focusTrap != null) offcanvas.focusTrap();
-                }
-            },
-
-            // Attach click outside offcanvas
-            attachClickOutside: toggleElement => {
-                const offcanvasId = toggleElement.getAttribute('aria-controls');
-                if (offcanvasId) {
-                    const clickOutsideHandler = event => {
-                        if (!event.target.closest(`[aria-labelledby="${offcanvasId}"]`) && !event.target.closest(`[aria-controls="${offcanvasId}"]`)) {
-                            offcanvas.toggle(toggleElement, false);
-                        }
-                    }
-                    document.addEventListener('click', clickOutsideHandler);
-                    return () => {
-                        document.removeEventListener('click', clickOutsideHandler);
+                    // Toggle handlers
+                    if (isOpen) {
+                        offcanvas.clickOutside = offcanvas.attachEvent(document, 'click', offcanvas.clickOutsideHandler.bind(null, toggleElement));
+                        offcanvas.escape = offcanvas.attachEvent(window, 'keydown', offcanvas.escapeHandler.bind(null, toggleElement));
+                        offcanvas.focusTrap = offcanvas.attachEvent(window, 'keydown', offcanvas.focusTrapHandler.bind(null, toggleElement));
+                    } else {
+                        if (offcanvas.clickOutside != null) offcanvas.clickOutside();
+                        if (offcanvas.escape != null) offcanvas.escape();
+                        if (offcanvas.focusTrap != null) offcanvas.focusTrap();
                     }
                 }
             },
 
-            // Attach press escape key
-            attachEscape: toggleElement => {
-                const escapeHandler = event => {
-                    if (event.key === 'Escape') {
-                        offcanvas.toggle(toggleElement, false);
-                    }
-                }
-                window.addEventListener('keydown', escapeHandler);
+            // Attach event
+            attachEvent: (element, eventType, handler) => {
+                element.addEventListener(eventType, handler);
                 return () => {
-                    window.removeEventListener('keydown', escapeHandler);
+                    element.removeEventListener(eventType, handler);
                 }
             },
 
-            // Attach focus trap
-            attachFocusTrap: toggleElement => {
-                const id = toggleElement.getAttribute('aria-controls');
-                const offcanvasElement = document.getElementById(id);
-                if (offcanvasElement) {
-                    // Toggle force focus on offcanvas element
-                    offcanvasElement.setAttribute('tabindex', 1);
-                    offcanvasElement.focus();
-                    setTimeout(() => {
-                        offcanvasElement.removeAttribute('tabindex');
-                    }, 100);
+            // Click outside offcanvas handler
+            clickOutsideHandler: (toggleElement, event) => {
+                const offcanvasId = toggleElement.getAttribute('aria-controls');
+                    if (!event.target.closest(`[aria-labelledby="${offcanvasId}"]`) && !event.target.closest(`[aria-controls="${offcanvasId}"]`)) {
+                    offcanvas.toggle(toggleElement, false);
+                }
+            },
+
+            // Escape key handler
+            escapeHandler: (toggleElement, event) => {
+                if (event.key === 'Escape') {
+                    offcanvas.toggle(toggleElement, false);
+                }
+            },
+
+            // Focus trap handler
+            focusTrapHandler: (toggleElement, event) => {
+                if (event.key === 'Tab') {
+                    const offcanvasId = toggleElement.getAttribute('aria-controls');
+                    const offcanvasElement = document.getElementById(offcanvasId);
+                    if (!offcanvasElement) return;
 
                     const focusableElements = Array.from(offcanvasElement.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter(element => {
                         return !element.closest('[tabindex="-1"], .hidden, .invisible') || null;
                     });
                     const firstElement = focusableElements[0];
                     const lastElement = focusableElements[focusableElements.length - 1];
-                    const focusTrapHandler = event => {
-                        if (event.type === 'keydown' && event.key === 'Tab') {
-                            if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
-                                event.preventDefault();
-                                lastElement.focus();
-                            } else if (!event.shiftKey && document.activeElement === lastElement) {
-                                event.preventDefault();
-                                firstElement.focus();
-                            }
-                        }
-                    }
 
-                    window.addEventListener('keydown', focusTrapHandler);
-                    return () => {
-                        window.removeEventListener('keydown', focusTrapHandler);
+                    if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
+                        event.preventDefault();
+                        lastElement.focus();
+                    } else if (!event.shiftKey && document.activeElement === lastElement) {
+                        event.preventDefault();
+                        firstElement.focus();
                     }
                 }
             }
         }
 
-
         const tab = {
+            // Toggle tabs
             toggle: (toggleElement, isOpen) => {
                 const tabId = toggleElement.getAttribute('aria-controls');
                 const tabElement = document.getElementById(tabId);
                 if (tabElement) {
                     tabElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
                     tabElement.setAttribute('aria-hidden', !isOpen);
-                }
 
-                // Set toggle element `[aria-expanded]` attribute value
-                document.querySelectorAll(`[aria-controls="${tabId}"]`).forEach(currentToggleElement => {
-                    currentToggleElement.setAttribute('aria-expanded', isOpen);
-                    currentToggleElement.classList[ isOpen ? 'remove' : 'add' ]('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-50/50', 'dark:hover:bg-neutral-700/50');
-                    currentToggleElement.classList[ isOpen ? 'add' : 'remove' ]('bg-white', 'dark:bg-neutral-700', 'text-black', 'dark:text-white');
-                });
+                    // Set toggle element `[aria-expanded]` attribute value
+                    document.querySelectorAll(`[aria-controls="${tabId}"]`).forEach(currentToggleElement => {
+                        currentToggleElement.setAttribute('aria-expanded', isOpen);
+                        currentToggleElement.classList[ isOpen ? 'remove' : 'add' ]('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-50/50', 'dark:hover:bg-neutral-700/50');
+                        currentToggleElement.classList[ isOpen ? 'add' : 'remove' ]('bg-white', 'dark:bg-neutral-700', 'text-black', 'dark:text-white');
+                    });
 
-                const groupId = tabElement.getAttribute('aria-labelledby');
-                if (groupId && isOpen) {
-                    document.querySelectorAll(`[aria-labelledby=${groupId}]`).forEach(currentTabElement => {
-                        if (currentTabElement !== tabElement) {
-                            const currentToggleElement = document.querySelector(`[aria-controls="${currentTabElement.id}"]`)
-                            tab.toggle(currentToggleElement, false);
-                        }
-                    })
+                    // Active tab handler
+                    const groupId = tabElement.getAttribute('aria-labelledby');
+                    if (groupId && isOpen) {
+                        document.querySelectorAll(`[aria-labelledby=${groupId}]`).forEach(currentTabElement => {
+                            if (currentTabElement !== tabElement) {
+                                const currentToggleElement = document.querySelector(`[aria-controls="${currentTabElement.id}"]`)
+                                tab.toggle(currentToggleElement, false);
+                            }
+                        })
+                    }
                 }
             }
         }
