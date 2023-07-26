@@ -83,7 +83,7 @@
                 const targetElement = event.target.closest('[id]');
                 if (targetElement) {
                     switch (targetElement.id) {
-                        case app.element.darkModeToggle.id:
+                        case app.element.darkModeToggle?.id:
                             app.view.darkMode.toggle();
                             break;
                     }
