@@ -416,6 +416,13 @@
 
                     // Toggle handlers
                     if (isOpen) {
+                        // Force focus
+                        modalElement.setAttribute('tabindex', 1);
+                        modalElement.focus();
+                        setTimeout(() => {
+                            modalElement.removeAttribute('tabindex');
+                        }, 100);
+
                         modal.clickOutside = modal.attachEvent(document, 'click', modal.clickOutsideHandler.bind(null, toggleElement));
                         modal.escape = modal.attachEvent(window, 'keydown', modal.escapeHandler.bind(null, toggleElement));
                         modal.focusTrap = modal.attachEvent(window, 'keydown', modal.focusTrapHandler.bind(null, toggleElement));
@@ -490,6 +497,13 @@
 
                     // Toggle handlers
                     if (isOpen) {
+                        // Force focus
+                        offcanvasElement.setAttribute('tabindex', 1);
+                        offcanvasElement.focus();
+                        setTimeout(() => {
+                            offcanvasElement.removeAttribute('tabindex');
+                        }, 100);
+
                         offcanvas.clickOutside = offcanvas.attachEvent(document, 'click', offcanvas.clickOutsideHandler.bind(null, toggleElement));
                         offcanvas.escape = offcanvas.attachEvent(window, 'keydown', offcanvas.escapeHandler.bind(null, toggleElement));
                         offcanvas.focusTrap = offcanvas.attachEvent(window, 'keydown', offcanvas.focusTrapHandler.bind(null, toggleElement));
