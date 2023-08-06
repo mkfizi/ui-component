@@ -16,6 +16,10 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.2.2] - 2023-08-07
+### Added
+- Add force focus to modal and offcanvas components.
+
 ## [0.2.1] - 2023-07-25
 ### Changed
 - Revise extended event handlers for dropdown, modal and offcanvas components.
