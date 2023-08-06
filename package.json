@@ -1,10 +1,10 @@
 {
 	"name": "components",
-	"version": "0.1.0",
+	"version": "0.2.2",
 	"description": "Personal preferences of components for my open source projects.",
 	"keywords": [
 		"Tailwindcss",
-		"Style guideline"
+		"Components"
 	],
 	"author": "hi@mkfizi.dev",
 	"license": "MIT",
