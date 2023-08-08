@@ -45,7 +45,7 @@
         <div class="flex items-center justify-end w-full h-full max-w-screen-md px-4 mx-auto sm:px-8">
             <div class="flex gap-4">
                 <!-- Dark mode toggle button -->
-                <button type="button" id="dark-mode-toggle" aria-label="Toggle dark mode" class="group">
+                <button id="dark-mode-toggle" type="button" class="group" aria-label="Toggle dark mode">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-neutral-600 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
@@ -100,7 +100,7 @@
                         <div class="space-y-4">
                             <p class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Regular collapse</p> 
                             <div class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700">
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="true" aria-controls="collapse-1" aria-label="Toggle collapse 1">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="collapse-1" aria-expanded="true" aria-label="Toggle collapse 1">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 1</span>
                                     </div>
@@ -112,7 +112,7 @@
                                 <div id="collapse-1" class="p-4" aria-hidden="false">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 1 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="false" aria-controls="collapse-2" aria-label="Toggle collapse 2">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="collapse-2" aria-expanded="false" aria-label="Toggle collapse 2">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 2</span>
                                     </div>
@@ -124,7 +124,7 @@
                                 <div id="collapse-2" class="invisible hidden p-4" aria-hidden="true">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 2 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="false" aria-controls="collapse-3" aria-label="Toggle collapse 3">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="collapse-3" aria-expanded="false" aria-label="Toggle collapse 3">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 3</span>
                                     </div>
@@ -141,7 +141,7 @@
                         <div class="space-y-4">
                             <p class="text-base font-bold text-black sm:text-lg lg:text-xl dark:text-white">Accordion collapse</p> 
                             <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700">
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="true" aria-controls="accordion-1" aria-label="Toggle accordion 1">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="accordion-1" aria-expanded="true" aria-label="Toggle accordion 1">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 1</span>
                                     </div>
@@ -153,7 +153,7 @@
                                 <div id="accordion-1" class="p-4" aria-hidden="false" aria-labelledby="accordion">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 1 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="false" aria-controls="accordion-2" aria-label="Toggle accordion 2">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="accordion-2" aria-expanded="false" aria-label="Toggle accordion 2">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 2</span>
                                     </div>
@@ -165,7 +165,7 @@
                                 <div id="accordion-2" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="accordion">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 2 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-expanded="false" aria-controls="accordion-3" aria-label="Toggle accordion 3">
+                                <button type="button" class="flex items-center w-full gap-4 p-4 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="accordion-3" aria-expanded="false" aria-label="Toggle accordion 3">
                                     <div class="text-left grow">
                                         <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 3</span>
                                     </div>
@@ -274,9 +274,9 @@
                             <div class="bg-neutral-100 dark:bg-neutral-800">
                                 <div class="inline-block border-r border-r-neutral-300 dark:border-r-neutral-700">
                                     <div class="flex divide-x divide-neutral-300 dark:divide-neutral-700">
-                                        <button type="button" class="px-6 py-4 text-base font-semibold text-black bg-white dark:bg-neutral-700 dark:text-white" onclick="tab.toggle(this, true)" aria-expanded="true" aria-controls="tab-1" aria-label="Open tab 1">Tab 1</button>
-                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50" onclick="tab.toggle(this, true)" aria-expanded="false" aria-controls="tab-2" aria-label="Open tab 2">Tab 2</button>
-                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50" onclick="tab.toggle(this, true)" aria-expanded="false" aria-controls="tab-3" aria-label="Open tab 3">Tab 3</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-black bg-white dark:bg-neutral-700 dark:text-white" onclick="tab.toggle(this, true)" aria-controls="tab-1" aria-expanded="true" aria-label="Open tab 1">Tab 1</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50" onclick="tab.toggle(this, true)" aria-controls="tab-2" aria-expanded="false" aria-label="Open tab 2">Tab 2</button>
+                                        <button type="button" class="px-6 py-4 text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50/50 dark:hover:bg-neutral-700/50" onclick="tab.toggle(this, true)" aria-controls="tab-3" aria-expanded="false" aria-label="Open tab 3">Tab 3</button>
                                     </div>
                                 </div>
                             </div>
@@ -323,7 +323,7 @@
                 const collapseElement = document.getElementById(collapseId);
                 if (collapseElement) {
                     if (isOpen == null) isOpen = collapseElement.getAttribute('aria-hidden') === "true" || false;
-                    collapseElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
+                    collapseElement.classList[isOpen ? 'remove' : 'add']('hidden', 'invisible');
                     collapseElement.setAttribute('aria-hidden', !isOpen);
 
                     // Set toggle element `[aria-expanded]` attribute value
@@ -345,11 +345,11 @@
                                 collapse.toggle(currentToggleElement, false);
                             }
                         })
-                    } 
+                    }
                 }
             }
         }
-        
+
         const dropdown = {
             // Toggle dropdown
             toggle: (toggleElement, isOpen = null) => {
@@ -357,7 +357,7 @@
                 const dropdownElement = document.getElementById(dropdownId);
                 if (dropdownElement) {
                     if (isOpen == null) isOpen = dropdownElement.getAttribute('aria-hidden') === "true" || false;
-                    dropdownElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
+                    dropdownElement.classList[isOpen ? 'remove' : 'add']('hidden', 'invisible');
                     dropdownElement.setAttribute('aria-hidden', !isOpen);
 
                     // Set toggle element `[aria-expanded]` attribute value
@@ -391,7 +391,7 @@
                     dropdown.toggle(toggleElement, false);
                 }
             },
-            
+
             // Escape key handler
             escapeHandler: (toggleElement, event) => {
                 if (event.key === 'Escape') {
@@ -407,7 +407,7 @@
                 const modalId = toggleElement.getAttribute('aria-controls');
                 const modalElement = document.getElementById(modalId);
                 if (modalElement) {
-                    modalElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
+                    modalElement.classList[isOpen ? 'remove' : 'add']('hidden', 'invisible');
                     modalElement.setAttribute('aria-hidden', !isOpen);
                     // Set toggle element `[aria-expanded]` attribute value
                     document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach(currentToggleElement => {
@@ -487,7 +487,7 @@
                 const offcanvasId = toggleElement.getAttribute('aria-controls');
                 const offcanvasElement = document.getElementById(offcanvasId);
                 if (offcanvasElement) {
-                    offcanvasElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
+                    offcanvasElement.classList[isOpen ? 'remove' : 'add']('hidden', 'invisible');
                     offcanvasElement.setAttribute('aria-hidden', !isOpen);
 
                     // Set toggle element `[aria-expanded]` attribute value
@@ -568,14 +568,14 @@
                 const tabId = toggleElement.getAttribute('aria-controls');
                 const tabElement = document.getElementById(tabId);
                 if (tabElement) {
-                    tabElement.classList[ isOpen ? 'remove' : 'add' ]('hidden', 'invisible');
+                    tabElement.classList[isOpen ? 'remove' : 'add']('hidden', 'invisible');
                     tabElement.setAttribute('aria-hidden', !isOpen);
 
                     // Set toggle element `[aria-expanded]` attribute value
                     document.querySelectorAll(`[aria-controls="${tabId}"]`).forEach(currentToggleElement => {
                         currentToggleElement.setAttribute('aria-expanded', isOpen);
-                        currentToggleElement.classList[ isOpen ? 'remove' : 'add' ]('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-50/50', 'dark:hover:bg-neutral-700/50');
-                        currentToggleElement.classList[ isOpen ? 'add' : 'remove' ]('bg-white', 'dark:bg-neutral-700', 'text-black', 'dark:text-white');
+                        currentToggleElement.classList[isOpen ? 'remove' : 'add']('text-neutral-600', 'dark:text-neutral-400', 'hover:text-black', 'dark:hover:text-white', 'hover:bg-neutral-50/50', 'dark:hover:bg-neutral-700/50');
+                        currentToggleElement.classList[isOpen ? 'add' : 'remove']('bg-white', 'dark:bg-neutral-700', 'text-black', 'dark:text-white');
                     });
 
                     // Active tab handler
