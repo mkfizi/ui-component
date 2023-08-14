@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Components v0.2.2: app.js
- * Licensed under MIT (https://github.com/mkfizi/components/blob/main/LICENSE)
+ * Components v0.3.0: app.js
+ * Licensed under MIT (https://github.com/mkfizi/tailstart-kit-components/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -10,9 +10,8 @@
 
     const app = {};
 
-    app.name = 'Components';
-    app.version = '0.2.2';
-    app.breakpointSize = 1024;
+    app.name = 'Tailstart Kit - Components';
+    app.version = '0.3.0';
 
     app.element = {
         navbar: document.getElementById('navbar'),
