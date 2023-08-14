@@ -1,8 +1,8 @@
-# Components
-Personal preferences of components for my open source projects.
+# Tailstart Kit - Components
+Components for Tailstart Kit in HTML and Javascript.
 
 **Variant:**
-- [AlpineJS](https://github.com/mkfizi/components-alpine)
+- [HTML + AlpineJS](https://github.com/mkfizi/tailstart-kit-components-alpine)
 
 ## Installation
 Clone this repository to get started.
@@ -22,4 +22,4 @@ npm run watch
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[MIT](https://github.com/mkfizi/components/blob/main/LICENSE)
+[MIT](https://github.com/mkfizi/tailstart-kit-components/blob/main/LICENSE)
