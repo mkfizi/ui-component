@@ -20,6 +20,7 @@ Put unreleased changes here.
 ### Added
 - Tailstart Kit metadata.
 - Tailstart Kit logo to navbar.
+- Alert reset button.
 
 ### Changed
 - Logo to Tailstart Kit logo.
