@@ -16,6 +16,14 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.3.0] - 2023-08-15
+### Added
+- Tailstart Kit metadata.
+- Tailstart Kit logo to navbar.
+
+### Changed
+- Logo to Tailstart Kit logo.
+
 ## [0.2.2] - 2023-08-07
 ### Added
 - Add force focus to modal and offcanvas components.
