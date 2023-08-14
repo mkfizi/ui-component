@@ -1,72 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Metadata -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="robots" content="noindex">
+    <head>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
     
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="./src/css/app.css">
-    <link rel="preload" href="./src/css/app.css" as="style">
-
-    <!-- Scripts -->
-    <script src="./src/js/app.js" defer></script>
-    <link rel="preload" href="./src/js/app.js" as="script">
+        <!-- SEO -->
+        <meta name="title" content="Tailstart Kit">
+        <meta name="description" content="A handcrafted collection of TailwindCSS multipurpose starter kits, style guide, components and layouts.">
+        <meta name="robots" content="index, follow">
+     
+         <!-- Facebook open graph -->
+         <meta property="og:url" content="https://mkfizi.dev/tailstart-kit">
+         <meta property="og:type" content="website">
+         <meta property="og:title" content="Tailstart Kit">
+         <meta property="og:image" content="https://https://mkfizi.dev/tailstart-kit/src/images/fb-og.jpg">
+         <meta property="og:description" content="A handcrafted collection of TailwindCSS multipurpose starter kits, style guide, components and layouts.">
+         <meta property="og:site_name" content="Tailstart Kit">
+     
+         <!-- Twitter cards -->
+         <meta name="twitter:card" content="summary">
+         <meta name="twitter:site" content="@mkfizi">
+         <meta name="twitter:creator" content="@mkfizi">
+         <meta name="twitter:url" content="https://mkfizi.dev/tailstart-kit">
+         <meta name="twitter:title" content="Tailstart Kit">
+         <meta name="twitter:description" content="A handcrafted collection of TailwindCSS multipurpose starter kits, style guide, components and layouts.">
+         <meta name="twitter:image" content="https://https://mkfizi.dev/tailstart-kit/src/images/tw-card.jpg">
     
-    <!-- 
-        Handle dark mode toggle when the page is loaded.
-
-        These codes below are called here instead of being inside app.js 
-        to avoid FOUC should app.js type is defined as a module. 
-    -------------------------------------------------------------------------->
-    <script>
-        if (localStorage.theme === "light" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: light)").matches)) {
-            localStorage.theme = 'light';
-            document.documentElement.classList.remove("dark");
-        } else if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-            localStorage.theme = 'dark';
-            document.documentElement.classList.add("dark")
-        };
-    </script>
-
-    <title>Components</title>
-</head>
-<body class="relative min-h-screen antialiased bg-white dark:bg-neutral-900">
-
-    <!-- Navbar -->
-    <nav id="navbar" class="sticky top-0 z-10 w-full h-16 bg-white border-b border-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
-        <div class="flex items-center justify-end w-full h-full max-w-screen-md px-4 mx-auto sm:px-8">
-            <div class="flex gap-4">
-                
-                <!-- Dark mode toggle button -->
-                <button id="dark-mode-toggle" type="button" class="group" aria-label="Toggle dark mode">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-neutral-600 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6 dark:block dark:stroke-neutral-400 group-hover:stroke-white" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-                    </svg>
-                </button>
-
-                <a href="https://github.com/mkfizi/components" target="_blank" class="group">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-                    </svg>
+        <!-- Favicon -->
+        <link rel="manifest" href="./site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    
+        <!-- Styles -->
+        <link rel="stylesheet" href="./src/css/app.css">
+        <link rel="preload" href="./src/css/app.css" as="style">
+    
+        <!-- Scripts -->
+        <script src="./src/js/app.js" defer></script>
+        <link rel="preload" href="./src/js/app.js" as="script">
+        
+        <!-- 
+            Handle dark mode toggle when the page is loaded.
+    
+            These codes below are called here instead of being inside app.js 
+            to avoid FOUC should app.js type is defined as a module. 
+        -------------------------------------------------------------------------->
+        <script>
+            if (localStorage.theme === "light" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: light)").matches)) {
+                localStorage.theme = 'light';
+                document.documentElement.classList.remove("dark");
+            } else if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                localStorage.theme = 'dark';
+                document.documentElement.classList.add("dark")
+            };
+        </script>
+    
+        <title>Style Guide</title>
+    </head>
+    <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-900">
+    
+        <!-- Navbar -->
+        <nav id="navbar" class="sticky top-0 z-10 w-full h-16 bg-white border-b border-transparent dark:border-transparent dark:bg-neutral-900">
+            <div class="flex items-center justify-between w-full h-full max-w-screen-md px-4 mx-auto sm:px-8">
+    
+                <!-- Logo -->
+                <a href="./" class="flex gap-4">
+                    <img src="./src/images/logo.png" alt="Tailstart Kit Logo" class="w-6 h-6 dark:hidden">
+                    <img src="./src/images/logo-dark.png" alt="Tailstart Kit Logo" class="hidden w-6 h-6 dark:block">
+                    <span class="text-lg font-bold text-black dark:text-white">Tailstart Kit</span>
                 </a>
+                
+                <div class="flex gap-4">
+    
+                    <!-- Dark mode toggle button -->
+                    <button id="dark-mode-toggle" type="button" class="group" aria-label="Toggle dark mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-neutral-600 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                            <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6 dark:block dark:stroke-neutral-400 group-hover:stroke-white" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                        </svg>
+                    </button>
+    
+                    <a href="https://github.com/mkfizi/style-guideline" target="_blank" class="group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                        </svg>
+                    </a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
     <!-- Content -->
     <main class="w-full max-w-screen-md px-4 pt-16 pb-24 mx-auto lg:pb-20 sm:px-8">
@@ -82,7 +115,7 @@
                             <div class="grow">
                                 <span class="text-base text-neutral-700 dark:text-neutral-300">This is an alert text.</span>
                             </div>
-                            <button type="button" class="shrink-0 group" onclick="alert.close(this)" aria-controls="alert" aria-label="Close alert">
+                            <button type="button" class="shrink-0 group" onclick="alert.toggle(this, false)" aria-controls="alert" aria-label="Close alert">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M18 6l-12 12" />
@@ -90,6 +123,7 @@
                                 </svg>
                             </button>
                         </div>
+                        <button type="button" onclick="alert.toggle(this, true)" class="invisible hidden px-8 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" aria-controls="alert" aria-label="Reset alert" aria-labelledby="alert">Reset</button>
                     </div>
                 </div>  
 
@@ -304,14 +338,15 @@
 
     <script type="text/javascript">
         const alert = {
-            // Close alert
-            close: toggleElement => {
+            // Toggle alert
+            toggle: (toggleElement, isOpen) => {
                 const alertId = toggleElement.getAttribute('aria-controls');
                 const alertElement = document.getElementById(alertId);
                 if (alertElement) {
-                    alertElement.classList.add('hidden', 'invisible');
-                    alertElement.classList.remove('flex');
-                    alertElement.setAttribute('aria-hidden', true);
+                    alertElement.classList[isOpen ? 'remove' : 'add']('hidden', 'invisible');
+                    alertElement.classList[isOpen ? 'add' : 'remove']('flex');
+                    alertElement.setAttribute('aria-hidden', !isOpen);
+                    document.querySelector(`[aria-labelledby=${alertId}]`)?.classList[isOpen ? 'add' : 'remove']('hidden', 'invisible');
                 }
             }
         }
