@@ -1,7 +1,7 @@
 {
-	"name": "components",
-	"version": "0.2.2",
-	"description": "Personal preferences of components for my open source projects.",
+	"name": "tailstart-kit-components",
+	"version": "0.3.0",
+	"description": "Components for Tailstart Kit in HTML and Javascript.",
 	"keywords": [
 		"Tailwindcss",
 		"Components"
