@@ -1,4 +1,4 @@
-# Tailstart Kit - Components
+# Tailstart Kit - Components UI Kit
 [Tailstart Kit](https://mkfizi.dev/tailstart-kit/) component UI kit in HTML and Javascript.
 
 ## Variant
