@@ -1,7 +1,7 @@
 {
 	"name": "tailstart-kit-components",
 	"version": "0.3.0",
-	"description": "Components for Tailstart Kit in HTML and Javascript.",
+	"description": "Tailstart Kit component UI kit in HTML and Javascript.",
 	"keywords": [
 		"Tailwindcss",
 		"Components"

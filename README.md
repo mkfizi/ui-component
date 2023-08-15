@@ -1,5 +1,5 @@
 # Tailstart Kit - Components
-Components for Tailstart Kit in HTML and Javascript.
+[Tailstart Kit](https://mkfizi.dev/tailstart-kit/) component UI kit in HTML and Javascript.
 
 ## Variant
 - [HTML + AlpineJS](https://github.com/mkfizi/tailstart-kit-components-alpine)
