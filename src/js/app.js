@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Components v0.3.0: app.js
- * Licensed under MIT (https://github.com/mkfizi/tailstartkit-ui-components/blob/main/LICENSE)
+ * Tailstart Kit - Component UI Kit v0.3.0: app.js
+ * Licensed under MIT (https://github.com/mkfizi/tailstartkit-ui-component/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -10,7 +10,7 @@
 
     const app = {};
 
-    app.name = 'Tailstart Kit - Components';
+    app.name = 'Tailstart Kit - Component UI Kit';
     app.version = '0.3.0';
 
     app.element = {
