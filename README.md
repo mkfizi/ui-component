@@ -1,8 +1,8 @@
 # Tailstart Kit - Components UI Kit
-[Tailstart Kit](https://mkfizi.dev/tailstart-kit/) component UI kit in HTML and Javascript.
+[Tailstart Kit](https://mkfizi.dev/tailstartkit/) component UI kit in HTML and Javascript.
 
 ## Variant
-- [HTML + AlpineJS](https://github.com/mkfizi/tailstart-kit-components-alpine)
+- [HTML + AlpineJS](https://github.com/mkfizi/tailstartkit-ui-components-alpine)
 
 ## Installation
 Clone this repository to get started.
@@ -22,4 +22,4 @@ npm run watch
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[MIT](https://github.com/mkfizi/tailstart-kit-components/blob/main/LICENSE)
+[MIT](https://github.com/mkfizi/tailstartkit-ui-components/blob/main/LICENSE)

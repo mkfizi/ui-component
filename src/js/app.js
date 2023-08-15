@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
  * Components v0.3.0: app.js
- * Licensed under MIT (https://github.com/mkfizi/tailstart-kit-components/blob/main/LICENSE)
+ * Licensed under MIT (https://github.com/mkfizi/tailstartkit-ui-components/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
