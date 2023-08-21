@@ -1,10 +1,10 @@
 {
-	"name": "tailstartkit-ui-component",
+	"name": "@tailstart/uikit-components",
 	"version": "0.3.0",
-	"description": "Tailstart Kit component UI kit in HTML and Javascript.",
+	"description": "Tailstart development sandbox for components UI Kit.",
 	"keywords": [
 		"Tailwindcss",
-		"Components"
+		"UI Kit"
 	],
 	"author": "hi@mkfizi.dev",
 	"license": "MIT",
