@@ -220,15 +220,15 @@
                 <div class="grid gap-4 mb-2 sm:grid-cols-3 pb-36 lg:grid-cols-4">
                     <p class="text-base font-bold text-neutral-700 dark:text-neutral-300">Dropdown</p>
                     <div class="col-span-2 sm:col-span-3">
-                        <button type="button" class="flex gap-2 px-4 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="dropdown.toggle(this)" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown">
-                            <span>Toggle Dropdown</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="dropdown">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M6 9l6 6l6 -6" />
-                            </svg>
-                        </button>
-                        <div id="dropdown" class="relative invisible hidden" aria-hidden="true">
-                            <ul class="absolute z-10 w-48 py-1 bg-white border rounded-md top-2 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 drop-shadow-md" aria-labelledby="dropdown">
+                        <div class="relative inline-block">
+                            <button type="button" class="flex gap-2 px-4 py-2 text-base font-semibold text-white bg-black border border-black rounded-md hover:border-neutral-700 hover:bg-neutral-700 dark:bg-neutral-600 dark:border-neutral-600 dark:hover:border-neutral-500 dark:hover:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none" onclick="dropdown.toggle(this)" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown">
+                                <span>Toggle Dropdown</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="dropdown">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M6 9l6 6l6 -6" />
+                                </svg>
+                            </button>
+                            <ul id="dropdown" class="absolute z-10 invisible hidden w-full py-1 mt-2 overflow-y-auto bg-white border rounded-md max-h-64 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 drop-shadow-md" aria-hidden="true" aria-labelledby="dropdown">
                                 <li class="hover:bg-neutral-100 dark:hover:bg-neutral-800">
                                     <a href="#" class="block px-4 py-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 1</a>
                                 </li>
