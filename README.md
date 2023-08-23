@@ -1,5 +1,5 @@
 # Tailstart - Components UI Kit
-[Tailstart](https://tailstart.github.io) development sandbox for style guide UI Kit.
+[Tailstart](https://tailstart.github.io) development sandbox for components UI Kit.
 
 ## Variant
 - [AlpineJS](https://github.com/tailstart/uikit-components-alpinejs)
