@@ -338,6 +338,7 @@
 
     <script type="text/javascript">
         const alert = {
+            
             // Toggle alert
             toggle: (toggleElement, isOpen) => {
                 const alertId = toggleElement.getAttribute('aria-controls');
@@ -352,6 +353,7 @@
         }
 
         const collapse = {
+
             // Toggle collapse
             toggle: (toggleElement, isOpen = null) => {
                 const collapseId = toggleElement.getAttribute('aria-controls');
@@ -386,6 +388,7 @@
         }
 
         const dropdown = {
+
             // Toggle dropdown
             toggle: (toggleElement, isOpen = null) => {
                 const dropdownId = toggleElement.getAttribute('aria-controls');
@@ -418,6 +421,7 @@
                 }
             },
 
+            // Handle click outside event
             clickOutsideHandler: (toggleElement, event) => {
                 const dropdownId = toggleElement.getAttribute('aria-controls');
                 if (!event.target.closest(`[aria-labelledby="${dropdownId}"]`) && !event.target.closest(`[aria-controls="${dropdownId}"]`)) {
@@ -425,6 +429,7 @@
                 }
             },
 
+            // Handle escape key event
             escapeHandler: (toggleElement, event) => {
                 if (event.key === 'Escape') {
                     dropdown.toggle(toggleElement, false);
@@ -433,6 +438,7 @@
         }
 
         const modal = {
+
             // Toggle modal
             toggle: (toggleElement, isOpen) => {
                 const modalId = toggleElement.getAttribute('aria-controls');
@@ -475,6 +481,7 @@
                 }
             },
 
+            // Handle click outside event
             clickOutsideHandler: (toggleElement, event) => {
                 const modalId = toggleElement.getAttribute('aria-controls');
                 if (!event.target.closest(`[aria-labelledby="${modalId}"]`) && !event.target.closest(`[aria-controls="${modalId}"]`)) {
@@ -482,12 +489,14 @@
                 }
             },
 
+            // Handle escape key event
             escapeHandler: (toggleElement, event) => {
                 if (event.key === 'Escape') {
                     dropdown.toggle(toggleElement, false);
                 }
             },
 
+            // Handle focus trap event
             focusTrapHandler: (toggleElement, event) => {
                 if (event.key === 'Tab') {
                     const modalId = toggleElement.getAttribute('aria-controls');
@@ -512,6 +521,7 @@
         }
 
         const offcanvas = {
+
             // Toggle offcanvas
             toggle: (toggleElement, isOpen) => {
                 const offcanvasId = toggleElement.getAttribute('aria-controls');
@@ -554,6 +564,7 @@
                 }
             },
 
+            // Handle click outside event
             clickOutsideHandler: (toggleElement, event) => {
                 const offcanvasId = toggleElement.getAttribute('aria-controls');
                 if (!event.target.closest(`[aria-labelledby="${offcanvasId}"]`) && !event.target.closest(`[aria-controls="${offcanvasId}"]`)) {
@@ -561,12 +572,14 @@
                 }
             },
 
+            // Handle escape key event
             escapeHandler: (toggleElement, event) => {
                 if (event.key === 'Escape') {
                     dropdown.toggle(toggleElement, false);
                 }
             },
 
+            // Handle focus trap event
             focusTrapHandler: (toggleElement, event) => {
                 if (event.key === 'Tab') {
                     const offcanvasId = toggleElement.getAttribute('aria-controls');
@@ -591,6 +604,7 @@
         }
 
         const tab = {
+
             // Toggle tab
             toggle: (toggleElement, isOpen) => {
                 const tabId = toggleElement.getAttribute('aria-controls');
