@@ -16,7 +16,7 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.3.0] - 2023-08-21
+## [0.3.0] - 2023-08-29
 ### Added
 - Tailstart metadata.
 - Tailstart logo to navbar.
@@ -25,6 +25,7 @@ Put unreleased changes here.
 ### Changed
 - Logo to Tailstart logo.
 - Components padding size.
+- Rewrite Dropdown, Modal and Offcanvas event handlers.
 
 ## [0.2.2] - 2023-08-07
 ### Added
