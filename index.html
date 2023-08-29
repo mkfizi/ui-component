@@ -400,26 +400,24 @@
                         currentToggleElement.setAttribute('aria-expanded', isOpen);
                     });
 
-                    // Toggle handlers
+                    // Execute event handlers
                     if (isOpen) {
-                        dropdown.clickOutside = dropdown.attachEvent(document, 'click', dropdown.clickOutsideHandler.bind(null, toggleElement));
-                        dropdown.escape = dropdown.attachEvent(window, 'keydown', dropdown.escapeHandler.bind(null, toggleElement));
-                    } else {
-                        if (dropdown.clickOutside != null) dropdown.clickOutside();
-                        if (dropdown.escape != null) dropdown.escape();
+                        if (!dropdown[dropdownId]) {
+                            dropdown[dropdownId] = {
+                                clickOutside: (event) => dropdown.clickOutsideHandler(toggleElement, event),
+                                escape: (event) => dropdown.escapeHandler(toggleElement, event)
+                            };
+                            document.addEventListener('click', dropdown[dropdownId].clickOutside);
+                            window.addEventListener('keydown', dropdown[dropdownId].escape);
+                        }
+                    } else if (dropdown[dropdownId]) {
+                        document.removeEventListener('click', dropdown[dropdownId].clickOutside);
+                        window.removeEventListener('keydown', dropdown[dropdownId].escape);
+                        delete dropdown[dropdownId];
                     }
                 }
             },
 
-            // Attach event
-            attachEvent: (element, eventType, handler) => {
-                element.addEventListener(eventType, handler);
-                return () => {
-                    element.removeEventListener(eventType, handler);
-                }
-            },
-
-            // Click outside dropdown handler
             clickOutsideHandler: (toggleElement, event) => {
                 const dropdownId = toggleElement.getAttribute('aria-controls');
                 if (!event.target.closest(`[aria-labelledby="${dropdownId}"]`) && !event.target.closest(`[aria-controls="${dropdownId}"]`)) {
@@ -427,13 +425,11 @@
                 }
             },
 
-            // Escape key handler
             escapeHandler: (toggleElement, event) => {
                 if (event.key === 'Escape') {
                     dropdown.toggle(toggleElement, false);
                 }
             },
-
         }
 
         const modal = {
@@ -442,42 +438,43 @@
                 const modalId = toggleElement.getAttribute('aria-controls');
                 const modalElement = document.getElementById(modalId);
                 if (modalElement) {
+                    if (isOpen == null) isOpen = modalElement.getAttribute('aria-hidden') === "true" || false;
                     modalElement.classList[isOpen ? 'remove' : 'add']('hidden', 'invisible');
                     modalElement.setAttribute('aria-hidden', !isOpen);
+                    
                     // Set toggle element `[aria-expanded]` attribute value
                     document.querySelectorAll(`[aria-controls="${modalId}"]`).forEach(currentToggleElement => {
                         currentToggleElement.setAttribute('aria-expanded', isOpen);
                     });
 
-                    // Toggle handlers
+                    // Execute event handlers
                     if (isOpen) {
-                        // Force focus
+                        // Force focus for focus trap
                         modalElement.setAttribute('tabindex', 1);
                         modalElement.focus();
                         setTimeout(() => {
                             modalElement.removeAttribute('tabindex');
                         }, 100);
 
-                        modal.clickOutside = modal.attachEvent(document, 'click', modal.clickOutsideHandler.bind(null, toggleElement));
-                        modal.escape = modal.attachEvent(window, 'keydown', modal.escapeHandler.bind(null, toggleElement));
-                        modal.focusTrap = modal.attachEvent(window, 'keydown', modal.focusTrapHandler.bind(null, toggleElement));
-                    } else {
-                        if (modal.clickOutside != null) modal.clickOutside();
-                        if (modal.escape != null) modal.escape();
-                        if (modal.focusTrap != null) modal.focusTrap();
+                        if (!modal[modalId]) {
+                            modal[modalId] = {
+                                clickOutside: (event) => modal.clickOutsideHandler(toggleElement, event),
+                                escape: (event) => modal.escapeHandler(toggleElement, event),
+                                focusTrap: (event) => modal.focusTrapHandler(toggleElement, event),
+                            };
+                            document.addEventListener('click', modal[modalId].clickOutside);
+                            window.addEventListener('keydown', modal[modalId].escape);
+                            window.addEventListener('keydown', modal[modalId].focusTrap);
+                        }
+                    } else if (modal[modalId]) {
+                        document.removeEventListener('click', modal[modalId].clickOutside);
+                        window.removeEventListener('keydown', modal[modalId].escape);
+                        window.removeEventListener('keydown', modal[modalId].focusTrap);
+                        delete modal[modalId];
                     }
                 }
             },
 
-            // Attach event
-            attachEvent: (element, eventType, handler) => {
-                element.addEventListener(eventType, handler);
-                return () => {
-                    element.removeEventListener(eventType, handler);
-                }
-            },
-
-            // Click outside modal handler
             clickOutsideHandler: (toggleElement, event) => {
                 const modalId = toggleElement.getAttribute('aria-controls');
                 if (!event.target.closest(`[aria-labelledby="${modalId}"]`) && !event.target.closest(`[aria-controls="${modalId}"]`)) {
@@ -485,26 +482,24 @@
                 }
             },
 
-            // Escape key handler
             escapeHandler: (toggleElement, event) => {
                 if (event.key === 'Escape') {
-                    modal.toggle(toggleElement, false);
+                    dropdown.toggle(toggleElement, false);
                 }
             },
 
-            // Focus trap handler
             focusTrapHandler: (toggleElement, event) => {
                 if (event.key === 'Tab') {
                     const modalId = toggleElement.getAttribute('aria-controls');
                     const modalElement = document.getElementById(modalId);
                     if (!modalElement) return;
 
-                    const focusableElements = Array.from(modalElement.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter(element => {
-                        return !element.closest('[tabindex="-1"], .hidden, .invisible') || null;
+                    const focusableElements = Array.from(modalElement.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter(currentElement => {
+                        return !currentElement.closest('[tabindex="-1"], .hidden, .invisible') || null;
                     });
                     const firstElement = focusableElements[0];
                     const lastElement = focusableElements[focusableElements.length - 1];
-                    console.log(document.activeElement, firstElement, document.body)
+
                     if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
                         event.preventDefault();
                         lastElement.focus();
@@ -522,43 +517,43 @@
                 const offcanvasId = toggleElement.getAttribute('aria-controls');
                 const offcanvasElement = document.getElementById(offcanvasId);
                 if (offcanvasElement) {
+                    if (isOpen == null) isOpen = offcanvasElement.getAttribute('aria-hidden') === "true" || false;
                     offcanvasElement.classList[isOpen ? 'remove' : 'add']('hidden', 'invisible');
                     offcanvasElement.setAttribute('aria-hidden', !isOpen);
-
+                    
                     // Set toggle element `[aria-expanded]` attribute value
                     document.querySelectorAll(`[aria-controls="${offcanvasId}"]`).forEach(currentToggleElement => {
                         currentToggleElement.setAttribute('aria-expanded', isOpen);
                     });
 
-                    // Toggle handlers
+                    // Execute event handlers
                     if (isOpen) {
-                        // Force focus
+                        // Force focus for focus trap
                         offcanvasElement.setAttribute('tabindex', 1);
                         offcanvasElement.focus();
                         setTimeout(() => {
                             offcanvasElement.removeAttribute('tabindex');
                         }, 100);
 
-                        offcanvas.clickOutside = offcanvas.attachEvent(document, 'click', offcanvas.clickOutsideHandler.bind(null, toggleElement));
-                        offcanvas.escape = offcanvas.attachEvent(window, 'keydown', offcanvas.escapeHandler.bind(null, toggleElement));
-                        offcanvas.focusTrap = offcanvas.attachEvent(window, 'keydown', offcanvas.focusTrapHandler.bind(null, toggleElement));
-                    } else {
-                        if (offcanvas.clickOutside != null) offcanvas.clickOutside();
-                        if (offcanvas.escape != null) offcanvas.escape();
-                        if (offcanvas.focusTrap != null) offcanvas.focusTrap();
+                        if (!offcanvas[offcanvasId]) {
+                            offcanvas[offcanvasId] = {
+                                clickOutside: (event) => offcanvas.clickOutsideHandler(toggleElement, event),
+                                escape: (event) => offcanvas.escapeHandler(toggleElement, event),
+                                focusTrap: (event) => offcanvas.focusTrapHandler(toggleElement, event),
+                            };
+                            document.addEventListener('click', offcanvas[offcanvasId].clickOutside);
+                            window.addEventListener('keydown', offcanvas[offcanvasId].escape);
+                            window.addEventListener('keydown', offcanvas[offcanvasId].focusTrap);
+                        }
+                    } else if (offcanvas[offcanvasId]) {
+                        document.removeEventListener('click', offcanvas[offcanvasId].clickOutside);
+                        window.removeEventListener('keydown', offcanvas[offcanvasId].escape);
+                        window.removeEventListener('keydown', offcanvas[offcanvasId].focusTrap);
+                        delete offcanvas[offcanvasId];
                     }
                 }
             },
 
-            // Attach event
-            attachEvent: (element, eventType, handler) => {
-                element.addEventListener(eventType, handler);
-                return () => {
-                    element.removeEventListener(eventType, handler);
-                }
-            },
-
-            // Click outside offcanvas handler
             clickOutsideHandler: (toggleElement, event) => {
                 const offcanvasId = toggleElement.getAttribute('aria-controls');
                 if (!event.target.closest(`[aria-labelledby="${offcanvasId}"]`) && !event.target.closest(`[aria-controls="${offcanvasId}"]`)) {
@@ -566,22 +561,20 @@
                 }
             },
 
-            // Escape key handler
             escapeHandler: (toggleElement, event) => {
                 if (event.key === 'Escape') {
-                    offcanvas.toggle(toggleElement, false);
+                    dropdown.toggle(toggleElement, false);
                 }
             },
 
-            // Focus trap handler
             focusTrapHandler: (toggleElement, event) => {
                 if (event.key === 'Tab') {
                     const offcanvasId = toggleElement.getAttribute('aria-controls');
                     const offcanvasElement = document.getElementById(offcanvasId);
                     if (!offcanvasElement) return;
 
-                    const focusableElements = Array.from(offcanvasElement.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter(element => {
-                        return !element.closest('[tabindex="-1"], .hidden, .invisible') || null;
+                    const focusableElements = Array.from(offcanvasElement.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter(currentElement => {
+                        return !currentElement.closest('[tabindex="-1"], .hidden, .invisible') || null;
                     });
                     const firstElement = focusableElements[0];
                     const lastElement = focusableElements[focusableElements.length - 1];
@@ -598,7 +591,7 @@
         }
 
         const tab = {
-            // Toggle tabs
+            // Toggle tab
             toggle: (toggleElement, isOpen) => {
                 const tabId = toggleElement.getAttribute('aria-controls');
                 const tabElement = document.getElementById(tabId);
