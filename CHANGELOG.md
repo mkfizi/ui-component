@@ -25,6 +25,8 @@ Put unreleased changes here.
 ### Changed
 - Logo to Tailstart logo.
 - Components padding size.
+- Revise content padding size.
+- Revise footer appearance.
 - Rewrite Dropdown, Modal and Offcanvas event handlers.
 
 ## [0.2.2] - 2023-08-07
