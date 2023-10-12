@@ -406,23 +406,23 @@
                     if (isOpen) {
                         if (!dropdown[dropdownId]) {
 
-                            // Create dropdown instance
+                            // Create dropdown object instance
                             dropdown[dropdownId] = {
                                 clickOutside: (event) => dropdown.clickOutsideHandler(toggleElement, event),
                                 escape: (event) => dropdown.escapeHandler(toggleElement, event)
                             };
 
-                            // Add event listeners to dropdown instance
+                            // Add event listeners to dropdown object instance
                             document.addEventListener('click', dropdown[dropdownId].clickOutside);
                             window.addEventListener('keydown', dropdown[dropdownId].escape);
                         }
                     } else if (dropdown[dropdownId]) {
 
-                        // Remove event listeners from dropdown instance
+                        // Remove event listeners from dropdown object instance
                         document.removeEventListener('click', dropdown[dropdownId].clickOutside);
                         window.removeEventListener('keydown', dropdown[dropdownId].escape);
 
-                        // Delete dropdown instance associated with id
+                        // Delete dropdown object instance associated with id
                         delete dropdown[dropdownId];
                     }
                 }
@@ -471,26 +471,26 @@
 
                         if (!modal[modalId]) {
 
-                            // Create modal instance
+                            // Create modal object instance
                             modal[modalId] = {
                                 clickOutside: (event) => modal.clickOutsideHandler(toggleElement, event),
                                 escape: (event) => modal.escapeHandler(toggleElement, event),
                                 focusTrap: (event) => modal.focusTrapHandler(toggleElement, event),
                             };
 
-                            // Add event listeners to modal instance
+                            // Add event listeners to modal object instance
                             document.addEventListener('click', modal[modalId].clickOutside);
                             window.addEventListener('keydown', modal[modalId].escape);
                             window.addEventListener('keydown', modal[modalId].focusTrap);
                         }
                     } else if (modal[modalId]) {
 
-                        // Remove event listeners from modal instance
+                        // Remove event listeners from modal object instance
                         document.removeEventListener('click', modal[modalId].clickOutside);
                         window.removeEventListener('keydown', modal[modalId].escape);
                         window.removeEventListener('keydown', modal[modalId].focusTrap);
                         
-                        // Delete modal instance associated with id
+                        // Delete modal object instance associated with id
                         delete modal[modalId];
                     }
                 }
@@ -562,26 +562,26 @@
 
                         if (!offcanvas[offcanvasId]) {
 
-                            // Create offcanvas instance
+                            // Create offcanvas object instance
                             offcanvas[offcanvasId] = {
                                 clickOutside: (event) => offcanvas.clickOutsideHandler(toggleElement, event),
                                 escape: (event) => offcanvas.escapeHandler(toggleElement, event),
                                 focusTrap: (event) => offcanvas.focusTrapHandler(toggleElement, event),
                             };
 
-                            // Add event listeners to offcanvas instance
+                            // Add event listeners to offcanvas object instance
                             document.addEventListener('click', offcanvas[offcanvasId].clickOutside);
                             window.addEventListener('keydown', offcanvas[offcanvasId].escape);
                             window.addEventListener('keydown', offcanvas[offcanvasId].focusTrap);
                         }
                     } else if (offcanvas[offcanvasId]) {
 
-                        // Remove event listeners from offcanvas instance
+                        // Remove event listeners from offcanvas object instance
                         document.removeEventListener('click', offcanvas[offcanvasId].clickOutside);
                         window.removeEventListener('keydown', offcanvas[offcanvasId].escape);
                         window.removeEventListener('keydown', offcanvas[offcanvasId].focusTrap);
 
-                        // Delete offcanvas instance associated with id
+                        // Delete offcanvas object instance associated with id
                         delete offcanvas[offcanvasId];
                     }
                 }
