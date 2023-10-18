@@ -1,7 +1,7 @@
 {
-	"name": "@tailstart/uikit-components",
-	"version": "0.3.0",
-	"description": "Tailstart development sandbox for components UI Kit.",
+	"name": "@mkfizi/components",
+	"version": "0.3.1",
+	"description": "Curated component preferences for @mkfizi projects.",
 	"keywords": [
 		"Tailwindcss",
 		"UI Kit"

@@ -1,8 +1,8 @@
-# Tailstart - Components UI Kit
-[Tailstart](https://tailstart.github.io) development sandbox for components UI Kit.
+# Components
+Curated components preferences for [@mkfizi](https://github.com/mkfizi) projects.
 
 ## Variant
-- [AlpineJS](https://github.com/tailstart/uikit-components-alpinejs)
+- [AlpineJS](https://github.com/mkfizi/components-alpinejs)
 
 ## Installation
 Clone this repository to get started.
@@ -22,4 +22,4 @@ npm run watch
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[MIT](https://github.com/tailstart/uikit-components/blob/main/LICENSE)
+[MIT](https://github.com/mkfizi/components/blob/main/LICENSE)

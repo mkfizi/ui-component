@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Tailstart - Components UI Kit v0.3.0: app.js
- * Licensed under MIT (https://github.com/tailstart/uikit-components/blob/main/LICENSE)
+ * Components UI Kit v0.3.1: app.js
+ * Licensed under MIT (https://github.com/mkfizi/components/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -10,8 +10,8 @@
 
     const app = {};
 
-    app.name = 'Tailstart - Components UI Kit';
-    app.version = '0.3.0';
+    app.name = 'Components';
+    app.version = '0.3.1';
 
     app.element = {
         navbar: document.getElementById('navbar'),

@@ -16,6 +16,12 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [0.3.1] - 2023-10-18
+### Changed
+- Remove from Tailstart.
+- Revise metadata.
+- Content max width to `sm`.
+
 ## [0.3.0] - 2023-08-29
 ### Added
 - Tailstart metadata.
