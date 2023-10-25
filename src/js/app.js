@@ -81,10 +81,12 @@
     app.event = {
         document: {
 
-            // Handle document 'click event
+            // Handle document 'click' event by attaching a global click event listener instead of applying it on every clickable elements
             click: event => {
                 const targetElement = event.target.closest('[id]');
                 if (targetElement) {
+
+                    // Delegated method calls using switch case on element id
                     switch (targetElement.id) {
                         case app.element.darkModeToggle?.id:
                             app.view.darkMode.toggle();
