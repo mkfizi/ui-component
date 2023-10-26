@@ -31,6 +31,28 @@
             }
         },
 
+        navbar: {
+
+            // Toggle navbar appearance based on window scroll Y position
+            toggle: () => {
+                if (app.element.navbar) {
+                    const isScrolled = window.scrollY > (app.element.navbar.offsetHeight - app.element.navbar.clientHeight);
+                    app.element.navbar.classList[isScrolled ? 'add' : 'remove']('border-neutral-200', 'dark:border-neutral-800');
+                    app.element.navbar.classList[isScrolled ? 'remove' : 'add']('border-transparent', 'dark:border-transparent');
+                }
+            },
+        },
+
+        darkMode: {
+
+            // Toggle dark mode
+            toggle: () => {
+                const isDarkMode = localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
+                localStorage.theme = isDarkMode ? 'dark' : 'light';
+                document.documentElement.classList.toggle('dark', isDarkMode);
+            }
+        },
+
         footer: {
 
             // Initialize footer content with current year, app name and version
@@ -47,28 +69,6 @@
                     app.element.footerAppVersion.innerHTML = app.version;
                 }
             }
-        },
-
-        darkMode: {
-
-            // Toggle dark mode
-            toggle: () => {
-                const isDarkMode = localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
-                localStorage.theme = isDarkMode ? 'dark' : 'light';
-                document.documentElement.classList.toggle('dark', isDarkMode);
-            }
-        },
-
-        navbar: {
-
-            // Toggle navbar appearance based on window scroll Y position
-            toggle: () => {
-                if (app.element.navbar) {
-                    const isScrolled = window.scrollY > (app.element.navbar.offsetHeight - app.element.navbar.clientHeight);
-                    app.element.navbar.classList[isScrolled ? 'add' : 'remove']('border-neutral-200', 'dark:border-neutral-800');
-                    app.element.navbar.classList[isScrolled ? 'remove' : 'add']('border-transparent', 'dark:border-transparent');
-                }
-            },
         },
 
         // Initialize view
