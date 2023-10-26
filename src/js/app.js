@@ -33,8 +33,8 @@
 
         footer: {
 
-            // Toggle footer content with current year, app name and version
-            toggle: () => {
+            // Initialize footer content with current year, app name and version
+            init: () => {
                 if (app.element.footerCurrentYear) {
                     app.element.footerCurrentYear.innerHTML = new Date().getFullYear();
                 }
@@ -74,7 +74,7 @@
         // Initialize view
         init: () => {
             app.view.viewportHeight.toggle();
-            app.view.footer.toggle();
+            app.view.footer.init();
         }
     }
 
@@ -86,7 +86,7 @@
                 const targetElement = event.target.closest('[id]');
                 if (targetElement) {
 
-                    // Delegated method calls using switch case on element id
+                    // Delegate method calls using switch case on element id
                     switch (targetElement.id) {
                         case app.element.darkModeToggle?.id:
                             app.view.darkMode.toggle();
