@@ -22,7 +22,7 @@ Put unreleased changes here.
 - Revise metadata.
 - Content max width to `sm`.
 - Remove `404.html` page dependencies.
-- Revise collapse and dropdown padding size.
+- Add collapse and dropdown padding for element focus.
 
 ## [0.3.0] - 2023-08-29
 ### Added
