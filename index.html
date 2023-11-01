@@ -116,39 +116,45 @@
                         <div class="space-y-4">
                             <p class="text-base font-medium text-neutral-700 dark:text-neutral-300">Regular collapse</p> 
                             <div class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700">
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="collapse-1" aria-expanded="true" aria-label="Toggle collapse 1">
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 1</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 rotate-180 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" onclick="collapse.toggle(this)" aria-controls="collapse-1" aria-expanded="true" aria-label="Toggle collapse 1">
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 1</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 rotate-180 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-1">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="collapse-1" class="p-4" aria-hidden="false">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 1 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="collapse-2" aria-expanded="false" aria-label="Toggle collapse 2">
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 2</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-2">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" onclick="collapse.toggle(this)" aria-controls="collapse-2" aria-expanded="false" aria-label="Toggle collapse 2">
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 2</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-2">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="collapse-2" class="invisible hidden p-4" aria-hidden="true">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 2 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="collapse-3" aria-expanded="false" aria-label="Toggle collapse 3">
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 3</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-3">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="collapse-3" aria-expanded="false" aria-label="Toggle collapse 3">
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Collapse 3</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="collapse-3">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="collapse-3" class="invisible hidden p-4" aria-hidden="true">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a collapse 3 sentence.</p>
                                 </div>
@@ -157,39 +163,45 @@
                         <div class="space-y-4">
                             <p class="text-base font-medium text-neutral-700 dark:text-neutral-300">Accordion collapse</p> 
                             <div id="accordion" class="overflow-hidden border divide-y rounded-md border-neutral-300 dark:border-neutral-700 divide-neutral-300 dark:divide-neutral-700">
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="accordion-1" aria-expanded="true" aria-label="Toggle accordion 1">
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 1</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 rotate-180 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-1">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" onclick="collapse.toggle(this)" aria-controls="accordion-1" aria-expanded="true" aria-label="Toggle accordion 1">
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 1</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 rotate-180 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-1">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="accordion-1" class="p-4" aria-hidden="false" aria-labelledby="accordion">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 1 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="accordion-2" aria-expanded="false" aria-label="Toggle accordion 2">
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 2</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-2">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" onclick="collapse.toggle(this)" aria-controls="accordion-2" aria-expanded="false" aria-label="Toggle accordion 2">
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 2</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-2">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="accordion-2" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="accordion">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 2 sentence.</p>
                                 </div>
-                                <button type="button" class="flex items-center w-full gap-4 px-4 py-3 bg-neutral-100 dark:bg-neutral-800 group" onclick="collapse.toggle(this)" aria-controls="accordion-3" aria-expanded="false" aria-label="Toggle accordion 3">
-                                    <div class="text-left grow">
-                                        <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 3</span>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-3">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M6 9l6 6l6 -6" />
-                                    </svg>
-                                </button>
+                                <div class="p-0.5 bg-neutral-100 dark:bg-neutral-800">
+                                    <button type="button" class="flex items-center w-full gap-4 px-4 py-3 group" onclick="collapse.toggle(this)" aria-controls="accordion-3" aria-expanded="false" aria-label="Toggle accordion 3">
+                                        <div class="text-left grow">
+                                            <span class="text-base font-semibold text-neutral-600 dark:text-neutral-400 group-hover:text-black dark:group-hover:text-white">Toggle Accordion 3</span>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-labelledby="accordion-3">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6 9l6 6l6 -6" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <div id="accordion-3" class="invisible hidden p-4" aria-hidden="true" aria-labelledby="accordion">
                                     <p class="text-base text-neutral-700 dark:text-neutral-300">This is a accordion 3 sentence.</p>
                                 </div>
@@ -210,7 +222,7 @@
                                     <path d="M6 9l6 6l6 -6" />
                                 </svg>
                             </button>
-                            <ul id="dropdown" class="absolute right-0 z-10 invisible hidden w-48 py-1 mt-2 overflow-y-auto bg-white border rounded-md max-h-64 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 drop-shadow-md" aria-hidden="true">
+                            <ul id="dropdown" class="absolute right-0 z-10 invisible hidden w-48 p-0.5 mt-2 overflow-y-auto bg-white border rounded-md max-h-64 border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 drop-shadow-md" aria-hidden="true">
                                 <li class="hover:bg-neutral-100 dark:hover:bg-neutral-800">
                                     <a href="#" class="block px-4 py-2 text-base text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Dropdown item 1</a>
                                 </li>
