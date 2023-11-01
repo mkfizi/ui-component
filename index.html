@@ -413,6 +413,9 @@
             // Handle click outside event
             clickOutsideHandler: (toggleElement, event) => {
                 const dropdownId = toggleElement.getAttribute('aria-controls');
+
+                // Check if closest element to `event.target` is not the element where its `[aria-labelledby]`
+                // or `[aria-controls]` values does not equal to `targetElement.id` value
                 if (!event.target.closest(`[aria-labelledby="${dropdownId}"]`) && !event.target.closest(`[aria-controls="${dropdownId}"]`)) {
                     dropdown.toggle(toggleElement, false);
                 }
@@ -481,6 +484,9 @@
             // Handle click outside event
             clickOutsideHandler: (toggleElement, event) => {
                 const modalId = toggleElement.getAttribute('aria-controls');
+
+                // Check if closest element to `event.target` is not the element where its `[aria-labelledby]`
+                // or `[aria-controls]` values does not equal to `targetElement.id` value
                 if (!event.target.closest(`[aria-labelledby="${modalId}"]`) && !event.target.closest(`[aria-controls="${modalId}"]`)) {
                     modal.toggle(toggleElement, false);
                 }
@@ -572,6 +578,9 @@
             // Handle click outside event
             clickOutsideHandler: (toggleElement, event) => {
                 const offcanvasId = toggleElement.getAttribute('aria-controls');
+
+                // Check if closest element to `event.target` is not the element where its `[aria-labelledby]`
+                // or `[aria-controls]` values does not equal to `targetElement.id` value
                 if (!event.target.closest(`[aria-labelledby="${offcanvasId}"]`) && !event.target.closest(`[aria-controls="${offcanvasId}"]`)) {
                     offcanvas.toggle(toggleElement, false);
                 }
