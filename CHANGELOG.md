@@ -16,7 +16,7 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [0.3.1] - 2023-11-04
+## [0.3.1] - 2023-11-05
 ### Changed
 - Remove from Tailstart.
 - Revise metadata.
@@ -25,6 +25,7 @@ Put unreleased changes here.
 - Add collapse and dropdown padding for element focus.
 - Change link colours to `neutral-500` for light mode.
 - Change `drop-shadow-md` to `shadow`.
+- Add border to offcanvas.
 
 ## [0.3.0] - 2023-08-29
 ### Added
