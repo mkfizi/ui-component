@@ -105,7 +105,7 @@
 
             // Handle window 'scroll' event
             scroll: () => {
-                if(app.element.navbarMenu) {
+                if (app.element.navbarMenu) {
                     app.view.navbar.toggle();
                 }
             }
