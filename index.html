@@ -372,7 +372,7 @@
                     if (accordionId && isOpen) {
                         document.querySelectorAll(`[aria-labelledby=${accordionId}]`).forEach(currentCollapseElement => {
                             if (currentCollapseElement !== collapseElement) {
-                                const currentToggleElement = document.querySelector(`[aria-controls="${currentCollapseElement.id}"]`)
+                                const currentToggleElement = document.querySelector(`[aria-controls="${currentCollapseElement.id}"]`);
                                 collapse.toggle(currentToggleElement, false);
                             }
                         })
