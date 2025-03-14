@@ -1,25 +1,27 @@
-# Components
-Curated components preferences for [@mkfizi](https://github.com/mkfizi) projects.
+# UI Component
+Component UI sandbox in TailwindCSS.
 
-## Variant
-- [AlpineJS](https://github.com/mkfizi/components-alpinejs)
+## Usage
+This sandbox is for experimenting and building UI components in Javascript and TailwindCSS. By default, this project is utilizing [Vite](https://vitejs.dev/) for source code bundling.
 
 ## Installation
 Clone this repository to get started.
 
-Run the following command in project directory to install dependencies.
+Run the following command in project directory to install TailwindCSS dependencies.
 ```bash
 npm install
 ```
 
-To compile the CSS file, use one of the following commands:
+Run one of the following commands to execute, build or preview site using Vite server:
 ```bash
+npm run dev
 npm run build
-npm run watch
+npm run preview
 ```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[MIT](https://github.com/mkfizi/components/blob/main/LICENSE)
+[MIT](https://github.com/mkfizi/ui-component/blob/main/LICENSE)
+

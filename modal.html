@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <!-- END Metadata -->
+
+        <!-- SEO -->
+        <meta name="title" content="UI Component">
+        <meta name="description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="robots" content="index, follow">
+        <!-- END SEO -->
+    
+        <!-- Facebook open graph -->
+        <meta property="og:url" content="https://mkfizi.dev">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="UI Component">
+        <meta property="og:image" content="path/to/img/meta-og.jpg">
+        <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta property="og:site_name" content="UI Component">
+        <!-- END Facebook open graph -->
+
+        <!-- Twitter cards -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@mkfizi">
+        <meta name="twitter:creator" content="@mkfizi">
+        <meta name="twitter:url" content="https://mkfizi.dev">
+        <meta name="twitter:title" content="UI Component">
+        <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="twitter:image" content="path/to/img/meta-card.jpg">
+        <!-- END Twitter cards -->
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/site.webmanifest">
+        <!-- END Favicon -->
+
+        <!-- Styles -->
+        <link rel="preload" href="./src/css/index.css" as="style">
+        <link rel="stylesheet" href="./src/css/index.css">
+        <!-- END Styles -->
+
+        <!-- Scripts -->
+        <link rel="preload" href="./src/js/index.js" as="script">
+        <link rel="preload" href="./src/js/modal.js" as="script">
+        <script src="./src/js/index.js" type="module" defer></script>
+        <script src="./src/js/modal.js" type="module" defer></script>
+        <!-- END Scripts -->
+
+        <!-- Inline code to avoid FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = "dark";
+            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" ||(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));
+            
+            // Viewport height issue on mobile browsers fix
+            // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+            const setVH = () => document.documentElement.style.setProperty("--vh", innerHeight * 0.01 + "px");
+            addEventListener("resize", setVH);
+            setVH();
+        </script>
+        <!-- END Inline code to avoid FOUC -->
+        
+        <title>UI Component | Modal</title>
+    </head>
+    <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-950">
+        <!-- Content -->
+        <main class="w-full max-w-screen-sm px-4 mx-auto mt-32 space-y-4">
+            
+            <!-- Modal Trigger -->
+            <button id="open-modal-button" type="button" class="px-4 py-2 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white disabled:pointer-events-none disabled:opacity-60" aria-controls="modal" aria-expanded="false" aria-label="Open modal.">
+                <span>Modal</span>
+            </button>
+            <!-- END Modal Trigger -->
+
+            <!-- Modal -->
+            <div id="modal" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-black/80" inert>
+                <div class="fixed p-4 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded shadow left-1/2 top-1/2 border-neutral-200 dark:border-neutral-800 dark:bg-neutral-900 w-80 sm:w-96" aria-labelledby="modal">
+                    <button id="close-modal-button-x" type="button" class="absolute cursor-pointer right-4 top-4 group" aria-controls="modal" aria-expanded="false" aria-label="Close modal.">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M18 6l-12 12" />
+                            <path d="M6 6l12 12" />
+                        </svg>
+                    </button>
+                    
+                    <!-- Modal Content -->
+                    <div class="mt-4 space-y-2 text-center">
+                        <p class="text-base font-medium text-neutral-800 sm:text-lg lg:text-xl dark:text-neutral-200">This is a modal text.</p>
+                    </div>
+                    <!-- END Modal Content -->
+
+                    <div class="flex flex-wrap justify-center gap-2 mt-8">
+                        <button type="button" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-black border border-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white hover:border-neutral-800 dark:border-neutral-100 dark:hover:border-white disabled:pointer-events-none disabled:opacity-60">
+                            <span>Okay</span>
+                        </button>
+                        <button id="close-modal-button" type="button" class="flex items-center px-4 py-2 text-sm font-medium text-black border rounded-md cursor-pointer border-neutral-300 dark:text-white hover:border-neutral-400 dark:border-neutral-700 dark:hover:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60" aria-controls="modal">
+                            <span>Close</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- END Modal -->
+             
+        </main>
+        <!-- END Content -->
+    </body>
+</html>

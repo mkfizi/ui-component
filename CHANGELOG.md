@@ -16,6 +16,18 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
+## [1.0.0] - 2025-03-15
+### Added
+- Accordion component.
+
+### Changed
+- Seperate components into respective files.
+- Update Vite configuration.
+- Update TailwindCSS to v4.
+- Redefine component styles.
+- Renamed `app.js` to `index.js`.
+- `404.html` content.
+
 ## [0.3.1] - 2023-11-05
 ### Added
 - Collapse and dropdown padding for element focus.

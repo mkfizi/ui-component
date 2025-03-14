@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <!-- END Metadata -->
+
+        <!-- SEO -->
+        <meta name="title" content="UI Component">
+        <meta name="description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="robots" content="index, follow">
+        <!-- END SEO -->
+    
+        <!-- Facebook open graph -->
+        <meta property="og:url" content="https://mkfizi.dev">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="UI Component">
+        <meta property="og:image" content="path/to/img/meta-og.jpg">
+        <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta property="og:site_name" content="UI Component">
+        <!-- END Facebook open graph -->
+
+        <!-- Twitter cards -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@mkfizi">
+        <meta name="twitter:creator" content="@mkfizi">
+        <meta name="twitter:url" content="https://mkfizi.dev">
+        <meta name="twitter:title" content="UI Component">
+        <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="twitter:image" content="path/to/img/meta-card.jpg">
+        <!-- END Twitter cards -->
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/site.webmanifest">
+        <!-- END Favicon -->
+
+        <!-- Styles -->
+        <link rel="preload" href="./src/css/index.css" as="style">
+        <link rel="stylesheet" href="./src/css/index.css">
+        <!-- END Styles -->
+
+        <!-- Scripts -->
+        <link rel="preload" href="./src/js/index.js" as="script">
+        <link rel="preload" href="./src/js/accordion.js" as="script">
+        <script src="./src/js/index.js" type="module" defer></script>
+        <script src="./src/js/accordion.js" type="module" defer></script>
+        <!-- END Scripts -->
+
+        <!-- Inline code to avoid FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = "dark";
+            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" ||(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));
+            
+            // Viewport height issue on mobile browsers fix
+            // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+            const setVH = () => document.documentElement.style.setProperty("--vh", innerHeight * 0.01 + "px");
+            addEventListener("resize", setVH);
+            setVH();
+        </script>
+        <!-- END Inline code to avoid FOUC -->
+        
+        <title>UI Component | Accordion</title>
+    </head>
+    <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-950">
+        <!-- Content -->
+        <main class="w-full max-w-screen-sm px-4 mx-auto mt-32">
+            
+            <!-- Accordion -->
+            <div id="accordion" class="space-y-2">
+                <!-- Accordion 1-->
+                <div class="p-4 overflow-hidden border rounded border-neutral-200 dark:border-neutral-800">
+                    <button id="toggle-accordion-button-1" type="button" class="flex items-center justify-between w-full text-sm font-medium cursor-pointer curson-pointer group text-neutral-500 dark:text-neutral-400 hover:text-black hover:dark:text-white" aria-controls="accordion-1" aria-expanded="true" aria-label="Toggle accordion 1.">
+                        <span>Accordion 1</span>
+                        <div aria-labelledby="accordion-1" class="rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M6 9l6 6l6 -6" />
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="accordion-1" class="mt-2" aria-labelledby="accordion">
+                        <p class="text-sm text-neutral-800 dark:text-neutral-200">This is an accordion 1 text.</p>
+                    </div>
+                </div>
+                <!-- END Accordion 1-->
+                <!-- Accordion 2-->
+                <div class="p-4 overflow-hidden border rounded border-neutral-200 dark:border-neutral-800">
+                    <button id="toggle-accordion-button-2" type="button" class="flex items-center justify-between w-full text-sm font-medium cursor-pointer curson-pointer group text-neutral-500 dark:text-neutral-400 hover:text-black hover:dark:text-white" aria-controls="accordion-2" aria-expanded="false" aria-label="Toggle accordion 2.">
+                        <span>Accordion 2</span>
+                        <div aria-labelledby="accordion-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M6 9l6 6l6 -6" />
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="accordion-2" class="invisible hidden mt-2" aria-labelledby="accordion" inert>
+                        <p class="text-sm text-neutral-800 dark:text-neutral-200">This is an accordion 2 text.</p>
+                    </div>
+                </div>
+                <!-- END Accordion 2-->
+                <!-- Accordion 3-->
+                <div class="p-4 overflow-hidden border rounded border-neutral-200 dark:border-neutral-800">
+                    <button id="toggle-accordion-button-3" type="button" class="flex items-center justify-between w-full text-sm font-medium cursor-pointer curson-pointer group text-neutral-500 dark:text-neutral-400 hover:text-black hover:dark:text-white" aria-controls="accordion-3" aria-expanded="false" aria-label="Toggle accordion 2.">
+                        <span>Accordion 3</span>
+                        <div aria-labelledby="accordion-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white shrink-0" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M6 9l6 6l6 -6" />
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="accordion-3" class="invisible hidden mt-2" aria-labelledby="accordion" inert>
+                        <p class="text-sm text-neutral-800 dark:text-neutral-200">This is an accordion 3 text.</p>
+                    </div>
+                </div>
+                <!-- END Accordion 3-->
+            </div>
+            <!-- END Accordion -->
+
+        </main>
+        <!-- END Content -->
+    </body>
+</html>
