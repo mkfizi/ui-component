@@ -21,6 +21,7 @@ Put unreleased changes here.
 - Accordion component.
 
 ### Changed
+- Renamed project to `UI Component` as part of `@mkfizi/ui` sandbox.
 - Seperate components into respective files.
 - Update Vite configuration.
 - Update TailwindCSS to v4.
