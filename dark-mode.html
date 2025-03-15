@@ -59,18 +59,12 @@
             // Toggle theme.
             // localStorage.theme = "dark";
             document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!localStorage.theme && window.matchMedia("(prefers-color-scheme: dark)").matches) || (localStorage.theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches));
-
-            // Viewport height issue on mobile browsers fix
-            // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
-            const setVH = () => document.documentElement.style.setProperty("--vh", innerHeight * 0.01 + "px");
-            addEventListener("resize", setVH);
-            setVH();
         </script>
         <!-- END Inline code to avoid FOUC -->
         
         <title>UI Component | Dark Mode</title>
     </head>
-    <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-950">
+    <body class="relative min-h-dvh antialiased bg-white dark:bg-neutral-950">
         <!-- Content -->
         <main class="w-full max-w-screen-sm px-4 mx-auto my-32">
 
