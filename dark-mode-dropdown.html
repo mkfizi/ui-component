@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <!-- END Metadata -->
+
+        <!-- SEO -->
+        <meta name="title" content="UI Component">
+        <meta name="description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="robots" content="index, follow">
+        <!-- END SEO -->
+    
+        <!-- Facebook Open Graph -->
+        <meta property="og:url" content="https://mkfizi.dev">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="UI Component">
+        <meta property="og:image" content="path/to/img/meta-og.jpg">
+        <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta property="og:site_name" content="UI Component">
+        <!-- END Facebook Open Graph -->
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@mkfizi">
+        <meta name="twitter:creator" content="@mkfizi">
+        <meta name="twitter:url" content="https://mkfizi.dev">
+        <meta name="twitter:title" content="UI Component">
+        <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="twitter:image" content="path/to/img/meta-card.jpg">
+        <!-- END Twitter Card -->
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/site.webmanifest">
+        <!-- END Favicon -->
+
+        <!-- Styles -->
+        <link rel="preload" href="./src/css/index.css" as="style">
+        <link rel="stylesheet" href="./src/css/index.css">
+        <!-- END Styles -->
+
+        <!-- Scripts -->
+        <link rel="preload" href="./src/js/index.js" as="script">
+        <link rel="preload" href="./src/js/dark-mode-dropdown.js" as="script">
+        <script src="./src/js/index.js" type="module" defer></script>
+        <script src="./src/js/dark-mode-dropdown.js" type="module" defer></script>
+        <!-- END Scripts -->
+
+        <!-- Inline code to avoid FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = "dark";
+            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!localStorage.theme && window.matchMedia("(prefers-color-scheme: dark)").matches) || (localStorage.theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches));
+
+            // Viewport height issue on mobile browsers fix
+            // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+            const setVH = () => document.documentElement.style.setProperty("--vh", innerHeight * 0.01 + "px");
+            addEventListener("resize", setVH);
+            setVH();
+        </script>
+        <!-- END Inline code to avoid FOUC -->
+        
+        <title>UI Component | Dark Mode Dropdown</title>
+    </head>
+    <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-950">
+        <!-- Content -->
+        <main class="w-full max-w-screen-sm px-4 mx-auto my-32">
+
+            <!-- Dark Mode dropdown -->
+             <div class="relative inline-block">
+                <button id="dark-mode-dropdown-toggle-button" type="button" class="group cursor-pointer disabled:pointer-events-none disabled:opacity-60" aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Toggle dark mode dropdown.">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 dark:hidden stroke-neutral-500 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"></path>
+                        <path d="M6.343 17.657l-1.414 1.414"></path>
+                        <path d="M6.343 6.343l-1.414 -1.414"></path>
+                        <path d="M17.657 6.343l1.414 -1.414"></path>
+                        <path d="M17.657 17.657l1.414 1.414"></path>
+                        <path d="M4 12h-2"></path>
+                        <path d="M12 4v-2"></path>
+                        <path d="M20 12h2"></path>
+                        <path d="M12 20v2"></path>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-5 h-5 dark:block stroke-neutral-400 group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+                        <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+                        <path d="M19 11h2m-1 -1v2"></path>
+                    </svg>
+                </button>
+                <div id="dark-mode-dropdown" class="absolute left-0 z-10 invisible hidden w-36 mt-2 bg-white border rounded border-neutral-200 dark:border-neutral-800 dark:bg-neutral-950" inert>
+                    <ul aria-labelledby="dark-mode-dropdown" class="p-1 space-y-1">
+                        <li>
+                            <button id="theme-light-button" type="button" class="flex items-center w-full gap-2 px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800" aria-labelledby="theme-light" aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Set theme to light mode.">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-black dark:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"></path>
+                                    <path d="M6.343 17.657l-1.414 1.414"></path>
+                                    <path d="M6.343 6.343l-1.414 -1.414"></path>
+                                    <path d="M17.657 6.343l1.414 -1.414"></path>
+                                    <path d="M17.657 17.657l1.414 1.414"></path>
+                                    <path d="M4 12h-2"></path>
+                                    <path d="M12 4v-2"></path>
+                                    <path d="M20 12h2"></path>
+                                    <path d="M12 20v2"></path>
+                                </svg>
+                                <span>Light</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="theme-dark-button" type="button" class="flex items-center w-full gap-2 px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800" aria-labelledby="theme-dark" aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Set theme to dark mode.">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-black dark:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+                                    <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+                                    <path d="M19 11h2m-1 -1v2"></path>
+                                </svg>                                  
+                                <span>Dark</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="theme-system-button" type="button" class="flex items-center w-full gap-2 px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800" aria-labelledby="theme-system"  aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Set theme to dark mode.">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-black dark:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
+                                    <path d="M7 20h10"></path>
+                                    <path d="M9 16v4"></path>
+                                    <path d="M15 16v4"></path>
+                                  </svg>
+                                  
+                                <span>System</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+             </div>
+        </main>
+        <!-- END Content -->
+    </body>
+</html>

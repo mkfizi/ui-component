@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <!-- END Metadata -->
+
+        <!-- SEO -->
+        <meta name="title" content="UI Component">
+        <meta name="description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="robots" content="index, follow">
+        <!-- END SEO -->
+    
+        <!-- Facebook Open Graph -->
+        <meta property="og:url" content="https://mkfizi.dev">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="UI Component">
+        <meta property="og:image" content="path/to/img/meta-og.jpg">
+        <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta property="og:site_name" content="UI Component">
+        <!-- END Facebook Open Graph -->
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@mkfizi">
+        <meta name="twitter:creator" content="@mkfizi">
+        <meta name="twitter:url" content="https://mkfizi.dev">
+        <meta name="twitter:title" content="UI Component">
+        <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="twitter:image" content="path/to/img/meta-card.jpg">
+        <!-- END Twitter Card -->
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/site.webmanifest">
+        <!-- END Favicon -->
+
+        <!-- Styles -->
+        <link rel="preload" href="./src/css/index.css" as="style">
+        <link rel="stylesheet" href="./src/css/index.css">
+        <!-- END Styles -->
+
+        <!-- Scripts -->
+        <link rel="preload" href="./src/js/index.js" as="script">
+        <link rel="preload" href="./src/js/dark-mode.js" as="script">
+        <script src="./src/js/index.js" type="module" defer></script>
+        <script src="./src/js/dark-mode.js" type="module" defer></script>
+        <!-- END Scripts -->
+
+        <!-- Inline code to avoid FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = "dark";
+            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!localStorage.theme && window.matchMedia("(prefers-color-scheme: dark)").matches) || (localStorage.theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches));
+
+            // Viewport height issue on mobile browsers fix
+            // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+            const setVH = () => document.documentElement.style.setProperty("--vh", innerHeight * 0.01 + "px");
+            addEventListener("resize", setVH);
+            setVH();
+        </script>
+        <!-- END Inline code to avoid FOUC -->
+        
+        <title>UI Component | Dark Mode</title>
+    </head>
+    <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-950">
+        <!-- Content -->
+        <main class="w-full max-w-screen-sm px-4 mx-auto my-32">
+
+            <!-- Dark Mode Toggle -->
+            <button id="dark-mode-toggle-button" type="button" class="group" aria-label="Toggle dark mode.">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 dark:hidden stroke-neutral-500 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                    <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-5 h-5 dark:block dark:stroke-neutral-400 group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                </svg>
+            </button>
+            <!-- END Dark Mode Toggle  -->
+
+        </main>
+        <!-- END Content -->
+    </body>
+</html>
