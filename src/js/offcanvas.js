@@ -32,7 +32,7 @@
 
         toggleButton: (id, isOpen) => {
             document.querySelectorAll(`[aria-controls="${id}"]`).forEach(button => {
-                button.setAttribute('aria-expanded', isOpen)
+                button.setAttribute('aria-expanded', isOpen);
             });
         },
 
@@ -74,7 +74,7 @@
             const element = document.getElementById(id);
 
             if (!element) return;
-            offcanvas.open(element)
+            offcanvas.open(element);
         });
     }
 
@@ -85,7 +85,7 @@
             const element = document.getElementById(id);
 
             if (!element) return;
-            offcanvas.close(element)
+            offcanvas.close(element);
         });
     }
 })();

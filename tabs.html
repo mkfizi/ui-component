@@ -57,42 +57,42 @@
         <!-- Inline code to avoid FOUC -->
         <script>
             // Toggle theme.
-            // localStorage.theme = "dark";
-            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" ||(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
         </script>
         <!-- END Inline code to avoid FOUC -->
         
         <title>UI Component | Tabs</title>
     </head>
-    <body class="relative min-h-dvh antialiased bg-white dark:bg-neutral-950">
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
-        <main class="w-full max-w-screen-sm px-4 sm:px-8 mx-auto my-32">
+        <main class="mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
             
             <!-- Tabs -->
             <div id="tabs" class="space-y-2">
                 <!-- Tabs Button Group -->
-                <div class="inline-flex items-center gap-1 p-1 border rounded border-neutral-200 dark:border-neutral-800">
-                    <button id="tab-show-button-1" type="button" class="px-4 py-1 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white disabled:pointer-events-none disabled:opacity-60" aria-controls="tab-1" aria-expanded="true" aria-label="Show tab 1 content.">
+                <div class="inline-flex items-center gap-1 p-1 border border-neutral-200 dark:border-neutral-800 rounded">
+                    <button id="tab-show-button-1" type="button" class="bg-black hover:bg-neutral-800 dark:hover:bg-white dark:bg-neutral-100 disabled:opacity-60 px-4 py-1 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-1" aria-expanded="true" aria-label="Show tab 1 content.">
                         <span>Tab 1</span>
                     </button>
-                    <button id="tab-show-button-2" type="button" class="px-4 py-1 text-sm font-medium text-black rounded cursor-pointer bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:text-white dark:hover:bg-neutral-600 disabled:pointer-events-none disabled:opacity-60" aria-controls="tab-2" aria-expanded="false" aria-label="Show tab 2 content.">
+                    <button id="tab-show-button-2" type="button" class="bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-600 dark:bg-neutral-700 disabled:opacity-60 px-4 py-1 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-2" aria-expanded="false" aria-label="Show tab 2 content.">
                         <span>Tab 2</span>
                     </button>
-                    <button id="tab-show-button-3" type="button" class="px-4 py-1 text-sm font-medium text-black rounded cursor-pointer bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:text-white dark:hover:bg-neutral-600 disabled:pointer-events-none disabled:opacity-60" aria-controls="tab-3" aria-expanded="false" aria-label="Show tab 3 content.">
+                    <button id="tab-show-button-3" type="button" class="bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-600 dark:bg-neutral-700 disabled:opacity-60 px-4 py-1 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="tab-3" aria-expanded="false" aria-label="Show tab 3 content.">
                         <span>Tab 3</span>
                     </button>
                 </div>
                 <!-- END Tabs Button Group -->
 
                 <!-- Tabs Content -->
-                <div id="tab-1" class="p-4 overflow-hidden border rounded border-neutral-200 dark:border-neutral-800" aria-labelledby="tabs">
-                    <p class="text-sm text-neutral-800 dark:text-neutral-200">This is a tab 1 text.</p>
+                <div id="tab-1" class="p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden" aria-labelledby="tabs">
+                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a tab 1 text.</p>
                 </div>
-                <div id="tab-2" class="invisible hidden p-4 overflow-hidden border rounded border-neutral-200 dark:border-neutral-800" aria-labelledby="tabs" inert>
-                    <p class="text-sm text-neutral-800 dark:text-neutral-200">This is a tab 2 text.</p>
+                <div id="tab-2" class="hidden invisible p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden" aria-labelledby="tabs" inert>
+                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a tab 2 text.</p>
                 </div>
-                <div id="tab-3" class="invisible hidden p-4 overflow-hidden border rounded border-neutral-200 dark:border-neutral-800" aria-labelledby="tabs" inert>
-                    <p class="text-sm text-neutral-800 dark:text-neutral-200">This is a tab 3 text.</p>
+                <div id="tab-3" class="hidden invisible p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden" aria-labelledby="tabs" inert>
+                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a tab 3 text.</p>
                 </div>
                 <!-- END Tabs Content -->
                 

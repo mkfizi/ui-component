@@ -57,36 +57,36 @@
         <!-- Inline code to avoid FOUC -->
         <script>
             // Toggle theme.
-            // localStorage.theme = "dark";
-            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" ||(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
         </script>
         <!-- END Inline code to avoid FOUC -->
         
         <title>UI Component | Dropdown</title>
     </head>
-    <body class="relative min-h-dvh antialiased bg-white dark:bg-neutral-950">
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
-        <main class="w-full max-w-screen-sm px-4 sm:px-8 mx-auto my-32">
+        <main class="mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
 
             <!-- Dropdown -->
-             <div class="relative inline-block">
-                <button id="dropdown-toggle-button" type="button" class="flex items-center gap-4 px-4 py-2 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white disabled:pointer-events-none disabled:opacity-60" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown.">
+             <div class="inline-block relative">
+                <button id="dropdown-toggle-button" type="button" class="flex items-center gap-4 bg-black hover:bg-neutral-800 dark:hover:bg-white dark:bg-neutral-100 disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown.">
                     <span>Dropdown</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white dark:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-white dark:stroke-black w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M6 9l6 6l6 -6" />
                     </svg>
                 </button>
-                <div id="dropdown" class="absolute left-0 z-10 invisible hidden w-48 mt-2 bg-white border rounded border-neutral-200 dark:border-neutral-800 dark:bg-neutral-950" inert>
-                    <ul aria-labelledby="dropdown" class="p-1 space-y-1">
+                <div id="dropdown" class="hidden invisible left-0 z-10 absolute bg-white dark:bg-neutral-950 mt-2 border border-neutral-200 dark:border-neutral-800 rounded w-48" inert>
+                    <ul aria-labelledby="dropdown" class="space-y-1 p-1">
                         <li>
-                            <a href="#" class="inline-block w-full px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Dropdown item 1</a>
+                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left">Dropdown item 1</a>
                         </li>
                         <li>
-                            <a href="#" class="inline-block w-full px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Dropdown item 2</a>
+                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left">Dropdown item 2</a>
                         </li>
                         <li>
-                            <a href="#" class="inline-block w-full px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Dropdown item 3</a>
+                            <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left">Dropdown item 3</a>
                         </li>
                     </ul>
                 </div>

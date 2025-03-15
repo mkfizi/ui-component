@@ -38,7 +38,7 @@
 
         toggleButton: (id, isOpen) => {
             document.querySelectorAll(`[aria-controls="${id}"]`).forEach(button => {
-                button.setAttribute('aria-expanded', isOpen)
+                button.setAttribute('aria-expanded', isOpen);
             });
         },
 

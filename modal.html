@@ -57,28 +57,28 @@
         <!-- Inline code to avoid FOUC -->
         <script>
             // Toggle theme.
-            // localStorage.theme = "dark";
-            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" ||(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
         </script>
         <!-- END Inline code to avoid FOUC -->
         
         <title>UI Component | Modal</title>
     </head>
-    <body class="relative min-h-dvh antialiased bg-white dark:bg-neutral-950">
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
-        <main class="w-full max-w-screen-sm px-4 sm:px-8 mx-auto my-32">
+        <main class="mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
             
             <!-- Modal Trigger -->
-            <button id="modal-open-button" type="button" class="px-4 py-2 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white disabled:pointer-events-none disabled:opacity-60" aria-controls="modal" aria-expanded="false" aria-label="Open modal.">
+            <button id="modal-open-button" type="button" class="bg-black hover:bg-neutral-800 dark:hover:bg-white dark:bg-neutral-100 disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal" aria-expanded="false" aria-label="Open modal.">
                 <span>Modal</span>
             </button>
             <!-- END Modal Trigger -->
 
             <!-- Modal -->
-            <div id="modal" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-dvh bg-black/80" inert>
-                <div class="fixed p-4 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded shadow left-1/2 top-1/2 border-neutral-200 dark:border-neutral-800 dark:bg-neutral-950 w-80 sm:w-96" aria-labelledby="modal">
-                    <button id="modal-close-button-x" type="button" class="absolute cursor-pointer right-4 top-4 group" aria-controls="modal" aria-expanded="false" aria-label="Close modal.">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div id="modal" class="hidden invisible top-0 left-0 z-10 fixed bg-black/80 w-screen h-dvh" inert>
+                <div class="top-1/2 left-1/2 fixed bg-white dark:bg-neutral-950 shadow p-4 border border-neutral-200 dark:border-neutral-800 rounded w-80 sm:w-96 -translate-x-1/2 -translate-y-1/2 transform" aria-labelledby="modal">
+                    <button id="modal-close-button-x" type="button" class="group top-4 right-4 absolute cursor-pointer" aria-controls="modal" aria-expanded="false" aria-label="Close modal.">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-500 group-hover:stroke-black dark:group-hover:stroke-white dark:stroke-neutral-400 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M18 6l-12 12" />
                             <path d="M6 6l12 12" />
@@ -86,16 +86,16 @@
                     </button>
                     
                     <!-- Modal Content -->
-                    <div class="mt-4 space-y-2 text-center">
-                        <p class="text-base font-medium text-neutral-800 sm:text-lg lg:text-xl dark:text-neutral-200">This is a modal text.</p>
+                    <div class="space-y-2 mt-4 text-center">
+                        <p class="font-medium text-neutral-800 dark:text-neutral-200 text-base sm:text-lg lg:text-xl">This is a modal text.</p>
                     </div>
                     <!-- END Modal Content -->
 
                     <div class="flex flex-wrap justify-center gap-2 mt-8">
-                        <button type="button" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-black border border-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white hover:border-neutral-800 dark:border-neutral-100 dark:hover:border-white disabled:pointer-events-none disabled:opacity-60">
+                        <button type="button" class="flex items-center gap-2 bg-black hover:bg-neutral-800 dark:hover:bg-white dark:bg-neutral-100 disabled:opacity-60 px-4 py-2 border hover:border-neutral-800 dark:hover:border-white dark:border-neutral-100 border-black rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none">
                             <span>Okay</span>
                         </button>
-                        <button id="modal-close-button" type="button" class="flex items-center px-4 py-2 text-sm font-medium text-black border rounded-md cursor-pointer border-neutral-300 dark:text-white hover:border-neutral-400 dark:border-neutral-700 dark:hover:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60" aria-controls="modal">
+                        <button id="modal-close-button" type="button" class="flex items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:opacity-60 px-4 py-2 border border-neutral-300 hover:border-neutral-400 dark:hover:border-neutral-600 dark:border-neutral-700 rounded-md font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="modal">
                             <span>Close</span>
                         </button>
                     </div>

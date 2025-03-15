@@ -22,7 +22,7 @@
                 
                 button.classList.remove(...(isOpen ? inactiveClasses : activeClasses));
                 button.classList.add(...(isOpen ? activeClasses : inactiveClasses));
-                button.setAttribute('aria-expanded', isOpen)
+                button.setAttribute('aria-expanded', isOpen);
             });
         },
 
@@ -46,7 +46,7 @@
             const element = document.getElementById(id);
 
             if (!element) return;
-            tabs.open(element)
+            tabs.open(element);
         });
     });
 })();

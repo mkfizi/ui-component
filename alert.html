@@ -57,24 +57,24 @@
         <!-- Inline code to avoid FOUC -->
         <script>
             // Toggle theme.
-            // localStorage.theme = "dark";
-            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!localStorage.theme && window.matchMedia("(prefers-color-scheme: dark)").matches) || (localStorage.theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches));
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
         </script>
         <!-- END Inline code to avoid FOUC -->
         
         <title>UI Component | Alert</title>
     </head>
-    <body class="relative min-h-dvh antialiased bg-white dark:bg-neutral-950">
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
-        <main class="w-full max-w-screen-sm px-4 sm:px-8 mx-auto my-32">
+        <main class="mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
 
             <!-- Alert -->
-            <div id="alert" class="flex items-center gap-4 px-4 py-3 border rounded bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800">
+            <div id="alert" class="flex items-center gap-4 bg-neutral-50 dark:bg-neutral-900 px-4 py-3 border border-neutral-200 dark:border-neutral-800 rounded">
                 <div class="grow">
-                    <p class="text-sm text-neutral-800 dark:text-neutral-200">This is an alert text.</p>
+                    <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an alert text.</p>
                 </div>
-                <button id="alert-close-button" type="button" class="cursor-pointer shrink-0 group" aria-controls="alert" aria-label="Close alert.">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <button id="alert-close-button" type="button" class="group cursor-pointer shrink-0" aria-controls="alert" aria-label="Close alert.">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-500 group-hover:stroke-black dark:group-hover:stroke-white dark:stroke-neutral-400 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M18 6l-12 12" />
                         <path d="M6 6l12 12" />

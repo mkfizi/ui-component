@@ -57,21 +57,21 @@
         <!-- Inline code to avoid FOUC -->
         <script>
             // Toggle theme.
-            // localStorage.theme = "dark";
-            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!localStorage.theme && window.matchMedia("(prefers-color-scheme: dark)").matches) || (localStorage.theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches));
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
         </script>
         <!-- END Inline code to avoid FOUC -->
         
         <title>UI Component | Dark Mode Dropdown</title>
     </head>
-    <body class="relative min-h-dvh antialiased bg-white dark:bg-neutral-950">
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
-        <main class="w-full max-w-screen-sm px-4 sm:px-8 mx-auto my-32">
+        <main class="mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
 
             <!-- Dark Mode dropdown -->
-             <div class="relative inline-block">
-                <button id="dark-mode-dropdown-toggle-button" type="button" class="group cursor-pointer disabled:pointer-events-none disabled:opacity-60" aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Toggle dark mode dropdown.">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 dark:hidden stroke-neutral-500 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+             <div class="inline-block relative">
+                <button id="dark-mode-dropdown-toggle-button" type="button" class="group disabled:opacity-60 cursor-pointer disabled:pointer-events-none" aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Toggle dark mode dropdown.">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="dark:hidden stroke-neutral-500 group-hover:stroke-black w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"></path>
                         <path d="M6.343 17.657l-1.414 1.414"></path>
@@ -83,18 +83,18 @@
                         <path d="M20 12h2"></path>
                         <path d="M12 20v2"></path>
                     </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-5 h-5 dark:block stroke-neutral-400 group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden dark:block stroke-neutral-400 group-hover:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
                         <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
                         <path d="M19 11h2m-1 -1v2"></path>
                     </svg>
                 </button>
-                <div id="dark-mode-dropdown" class="absolute left-0 z-10 invisible hidden w-36 mt-2 bg-white border rounded border-neutral-200 dark:border-neutral-800 dark:bg-neutral-950" inert>
-                    <ul aria-labelledby="dark-mode-dropdown" class="p-1 space-y-1">
+                <div id="dark-mode-dropdown" class="hidden invisible left-0 z-10 absolute bg-white dark:bg-neutral-950 mt-2 border border-neutral-200 dark:border-neutral-800 rounded w-36" inert>
+                    <ul aria-labelledby="dark-mode-dropdown" class="space-y-1 p-1">
                         <li>
-                            <button id="theme-light-button" type="button" class="flex items-center w-full gap-2 px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800" aria-labelledby="theme-light" aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Set theme to light mode.">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-black dark:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <button id="theme-light-button" type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left" aria-labelledby="theme-light" aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Set theme to light mode.">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"></path>
                                     <path d="M6.343 17.657l-1.414 1.414"></path>
@@ -110,8 +110,8 @@
                             </button>
                         </li>
                         <li>
-                            <button id="theme-dark-button" type="button" class="flex items-center w-full gap-2 px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800" aria-labelledby="theme-dark" aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Set theme to dark mode.">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-black dark:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <button id="theme-dark-button" type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left" aria-labelledby="theme-dark" aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Set theme to dark mode.">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
                                     <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
@@ -121,8 +121,8 @@
                             </button>
                         </li>
                         <li>
-                            <button id="theme-system-button" type="button" class="flex items-center w-full gap-2 px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800" aria-labelledby="theme-system"  aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Set theme to dark mode.">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-black dark:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <button id="theme-system-button" type="button" class="flex items-center gap-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm text-left" aria-labelledby="theme-system"  aria-controls="dark-mode-dropdown" aria-expanded="false" aria-label="Set theme to dark mode.">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
                                     <path d="M7 20h10"></path>
