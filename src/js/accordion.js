@@ -47,7 +47,8 @@
         }
     }
 
-    document.querySelectorAll('[id^="toggle-accordion-button"]').forEach(button => {
+    const accordionToggleButtons = document.querySelectorAll('[id^="accordion-toggle-button"]');
+    accordionToggleButtons.forEach(button => {
         button.addEventListener('click', () => {
             accordion.toggle(button);
         });

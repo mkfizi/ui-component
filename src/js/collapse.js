@@ -31,9 +31,10 @@
         },
     }
 
-    document.querySelectorAll('[id^="toggle-collapse-button"]').forEach(button => {
-        button.addEventListener('click', () => {
-            collapse.toggle(button);
+    const collapseToggleButton = document.getElementById('collapse-toggle-button');
+    if (collapseToggleButton) {
+        collapseToggleButton.addEventListener('click', () => {
+            collapse.toggle(collapseToggleButton);
         });
-    });
+    }
 })();

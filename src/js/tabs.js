@@ -40,7 +40,7 @@
         }
     }
 
-    document.querySelectorAll('[id^="open-tab-button"]').forEach(button => {
+    document.querySelectorAll('[id^="tab-show-button"]').forEach(button => {
         button.addEventListener('click', () => {
             const id = button.getAttribute('aria-controls');
             const element = document.getElementById(id);

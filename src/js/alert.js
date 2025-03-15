@@ -10,9 +10,10 @@
         }
     }
 
-    document.querySelectorAll('[id^="close-alert-button"]').forEach(button => {
-        button.addEventListener('click', () => {
-            alert.close(button);
+    const alertCloseButton = document.getElementById('alert-close-button');
+    if (alertCloseButton) {
+        alertCloseButton.addEventListener('click', () => { 
+            alert.close(alertCloseButton);
         });
-    });
+    }
 })();

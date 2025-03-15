@@ -14,16 +14,16 @@
         <meta name="robots" content="index, follow">
         <!-- END SEO -->
     
-        <!-- Facebook open graph -->
+        <!-- Facebook Open Graph -->
         <meta property="og:url" content="https://mkfizi.dev">
         <meta property="og:type" content="website">
         <meta property="og:title" content="UI Component">
         <meta property="og:image" content="path/to/img/meta-og.jpg">
         <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta property="og:site_name" content="UI Component">
-        <!-- END Facebook open graph -->
+        <!-- END Facebook Open Graph -->
 
-        <!-- Twitter cards -->
+        <!-- Twitter Card -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@mkfizi">
         <meta name="twitter:creator" content="@mkfizi">
@@ -31,7 +31,7 @@
         <meta name="twitter:title" content="UI Component">
         <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta name="twitter:image" content="path/to/img/meta-card.jpg">
-        <!-- END Twitter cards -->
+        <!-- END Twitter Card -->
 
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -72,33 +72,32 @@
     </head>
     <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-950">
         <!-- Content -->
-        <main class="w-full max-w-screen-sm px-4 mx-auto mt-32">
+        <main class="w-full max-w-screen-sm px-4 mx-auto my-32">
 
             <!-- Dropdown -->
              <div class="relative inline-block">
-                <button id="toggle-dropdown-button" type="button" class="flex items-center gap-4 px-4 py-2 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white disabled:pointer-events-none disabled:opacity-60" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown.">
+                <button id="dropdown-toggle-button" type="button" class="flex items-center gap-4 px-4 py-2 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white disabled:pointer-events-none disabled:opacity-60" aria-controls="dropdown" aria-expanded="false" aria-label="Toggle dropdown.">
                     <span>Dropdown</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-white dark:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M6 9l6 6l6 -6" />
                     </svg>
                 </button>
-                <div id="dropdown" class="absolute left-0 z-10 invisible hidden w-48 mt-1 bg-white border rounded border-neutral-200 dark:border-neutral-800 dark:bg-neutral-950" inert>
-                    <ul aria-labelledby="dropdown" class="p-0.5 space-y-1">
+                <div id="dropdown" class="absolute left-0 z-10 invisible hidden w-48 mt-2 bg-white border rounded border-neutral-200 dark:border-neutral-800 dark:bg-neutral-950" inert>
+                    <ul aria-labelledby="dropdown" class="p-1 space-y-1">
                         <li>
-                            <a href="#" class="inline-block w-full px-3.5 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Dropdown item 1</a>
+                            <a href="#" class="inline-block w-full px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Dropdown item 1</a>
                         </li>
                         <li>
-                            <a href="#" class="inline-block w-full px-3.5 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Dropdown item 2</a>
+                            <a href="#" class="inline-block w-full px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Dropdown item 2</a>
                         </li>
                         <li>
-                            <a href="#" class="inline-block w-full px-3.5 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Dropdown item 3</a>
+                            <a href="#" class="inline-block w-full px-3 py-2 text-sm font-medium text-left text-black rounded dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">Dropdown item 3</a>
                         </li>
                     </ul>
                 </div>
              </div>
         </main>
         <!-- END Content -->
-
     </body>
 </html>

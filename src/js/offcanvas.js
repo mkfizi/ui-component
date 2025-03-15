@@ -9,9 +9,9 @@
             
             if (offcanvas[element.id]) return;
             offcanvas[element.id] = {
-                clickOutside: (event) => offcanvas.clickOutsideHandler(element.id, event),
-                escapeKey: (event) => offcanvas.escapeKeyHandler(element.id, event),
-                focusTrap: (event) => offcanvas.focusTrapHandler(element.id, event)
+                clickOutside: (event) => offcanvas.clickOutsideHandler(element, event),
+                escapeKey: (event) => offcanvas.escapeKeyHandler(element, event),
+                focusTrap: (event) => offcanvas.focusTrapHandler(element, event)
             };
             document.addEventListener('click', offcanvas[element.id].clickOutside);
             window.addEventListener('keydown', offcanvas[element.id].escapeKey);
@@ -36,29 +36,20 @@
             });
         },
 
-        clickOutsideHandler: (id, event) => {
-            const element = document.getElementById(id);
-            
-            if (!element) return;
-            if (!event.target.closest(`[aria-labelledby="${id}"]`) && !event.target.closest(`[aria-controls="${id}"]`)) {
+        clickOutsideHandler: (element, event) => {
+            if (!event.target.closest(`[aria-labelledby="${element.id}"]`) && !event.target.closest(`[aria-controls="${element.id}"]`)) {
                 offcanvas.close(element);
             }
         },
 
-        escapeKeyHandler: (id, event) => {
-            const element = document.getElementById(id);
-
-            if (!element) return;
+        escapeKeyHandler: (element, event) => {
             if (event.key === 'Escape') {
                 offcanvas.close(element);
             }
         },
 
-        focusTrapHandler: (id, event) => {
+        focusTrapHandler: (element, event) => {
             if (event.key === 'Tab') {
-                const element = document.getElementById(id);
-                if (!element) return;
-
                 const focusableElements = Array.from(element.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter((focusableElement) => {
                     return focusableElement.offsetParent !== null
                 });
@@ -76,22 +67,25 @@
         }
     }
 
-    document.querySelectorAll('[id^="open-offcanvas-button"]').forEach(button => {
-        button.addEventListener('click', () => {
-            const id = button.getAttribute('aria-controls');
+    const offcanvasOpenButton = document.getElementById('offcanvas-open-button');
+    if (offcanvasOpenButton) {
+        offcanvasOpenButton.addEventListener('click', () => { 
+            const id = offcanvasOpenButton.getAttribute('aria-controls');
             const element = document.getElementById(id);
 
             if (!element) return;
             offcanvas.open(element)
         });
-    });
-    document.querySelectorAll('[id^="close-offcanvas-button"]').forEach(button => {
-        button.addEventListener('click', () => {
-            const id = button.getAttribute('aria-controls');
+    }
+
+    const offcanvasCloseButton = document.getElementById('offcanvas-close-button');
+    if (offcanvasCloseButton) {
+        offcanvasCloseButton.addEventListener('click', () => { 
+            const id = offcanvasCloseButton.getAttribute('aria-controls');
             const element = document.getElementById(id);
 
             if (!element) return;
             offcanvas.close(element)
         });
-    });
+    }
 })();

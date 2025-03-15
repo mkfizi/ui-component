@@ -9,29 +9,29 @@
         <!-- END Metadata -->
 
         <!-- SEO -->
-        <meta name="title" content="UI Interactive">
-        <meta name="description" content="Interactive UI sandbox in Javascript and TailwindCSS.">
+        <meta name="title" content="UI Component">
+        <meta name="description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta name="robots" content="index, follow">
         <!-- END SEO -->
     
-        <!-- Facebook open graph -->
+        <!-- Facebook Open Graph -->
         <meta property="og:url" content="https://mkfizi.dev">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="UI Interactive">
+        <meta property="og:title" content="UI Component">
         <meta property="og:image" content="path/to/img/meta-og.jpg">
-        <meta property="og:description" content="Interactive UI sandbox in Javascript and TailwindCSS.">
-        <meta property="og:site_name" content="UI Interactive">
-        <!-- END Facebook open graph -->
+        <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta property="og:site_name" content="UI Component">
+        <!-- END Facebook Open Graph -->
 
-        <!-- Twitter cards -->
+        <!-- Twitter Card -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@mkfizi">
         <meta name="twitter:creator" content="@mkfizi">
         <meta name="twitter:url" content="https://mkfizi.dev">
-        <meta name="twitter:title" content="UI Interactive">
-        <meta name="twitter:description" content="Interactive UI sandbox in Javascript and TailwindCSS.">
+        <meta name="twitter:title" content="UI Component">
+        <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta name="twitter:image" content="path/to/img/meta-card.jpg">
-        <!-- END Twitter cards -->
+        <!-- END Twitter Card -->
 
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -58,7 +58,7 @@
         <script>
             // Toggle theme.
             // localStorage.theme = "dark";
-            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" ||(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));
+            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!localStorage.theme && window.matchMedia("(prefers-color-scheme: dark)").matches) || (localStorage.theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches));
             
             // Viewport height issue on mobile browsers fix
             // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
@@ -68,18 +68,18 @@
         </script>
         <!-- END Inline code to avoid FOUC -->
         
-        <title>UI Interactive | Alert</title>
+        <title>UI Component | Alert</title>
     </head>
     <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-950">
         <!-- Content -->
-        <main class="w-full max-w-screen-sm mx-auto mt-32 space-y-4">
+        <main class="w-full max-w-screen-sm px-4 mx-auto my-32">
 
             <!-- Alert -->
             <div id="alert" class="flex items-center gap-4 px-4 py-3 border rounded bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800">
                 <div class="grow">
                     <p class="text-sm text-neutral-800 dark:text-neutral-200">This is an alert text.</p>
                 </div>
-                <button id="close-alert-button" type="button" class="cursor-pointer shrink-0 group" aria-controls="alert" aria-label="Close alert.">
+                <button id="alert-close-button" type="button" class="cursor-pointer shrink-0 group" aria-controls="alert" aria-label="Close alert.">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M18 6l-12 12" />

@@ -18,8 +18,8 @@
             
             if (dropdown[element.id]) return;
             dropdown[element.id] = {
-                clickOutside: (event) => dropdown.clickOutsideHandler(element.id, event),
-                escapeKey: (event) => dropdown.escapeKeyHandler(element.id, event)
+                clickOutside: (event) => dropdown.clickOutsideHandler(element, event),
+                escapeKey: (event) => dropdown.escapeKeyHandler(element, event)
             };
             document.addEventListener('click', dropdown[element.id].clickOutside);
             window.addEventListener('keydown', dropdown[element.id].escapeKey);
@@ -42,28 +42,23 @@
             });
         },
 
-        clickOutsideHandler: (id, event) => {
-            const element = document.getElementById(id);
-            
-            if (!element) return;
-            if (!event.target.closest(`[aria-labelledby="${id}"]`) && !event.target.closest(`[aria-controls="${id}"]`)) {
+        clickOutsideHandler: (element, event) => {
+            if (!event.target.closest(`[aria-labelledby="${element.id}"]`) && !event.target.closest(`[aria-controls="${element.id}"]`)) {
                 dropdown.close(element);
             }
         },
 
-        escapeKeyHandler: (id, event) => {
-            const element = document.getElementById(id);
-
-            if (!element) return;
+        escapeKeyHandler: (element, event) => {
             if (event.key === 'Escape') {
                 dropdown.close(element);
             }
         },
     }
 
-    document.querySelectorAll('[id^="toggle-dropdown-button"]').forEach(button => {
-        button.addEventListener('click', () => {
-            dropdown.toggle(button);
+    const dropdownToggleButton = document.getElementById('dropdown-toggle-button');
+    if (dropdownToggleButton) {
+        dropdownToggleButton.addEventListener('click', () => { 
+            dropdown.toggle(dropdownToggleButton);
         });
-    });
+    }
 })();

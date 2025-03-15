@@ -14,16 +14,16 @@
         <meta name="robots" content="index, follow">
         <!-- END SEO -->
     
-        <!-- Facebook open graph -->
+        <!-- Facebook Open Graph -->
         <meta property="og:url" content="https://mkfizi.dev">
         <meta property="og:type" content="website">
         <meta property="og:title" content="UI Component">
         <meta property="og:image" content="path/to/img/meta-og.jpg">
         <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta property="og:site_name" content="UI Component">
-        <!-- END Facebook open graph -->
+        <!-- END Facebook Open Graph -->
 
-        <!-- Twitter cards -->
+        <!-- Twitter Card -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@mkfizi">
         <meta name="twitter:creator" content="@mkfizi">
@@ -31,7 +31,7 @@
         <meta name="twitter:title" content="UI Component">
         <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta name="twitter:image" content="path/to/img/meta-card.jpg">
-        <!-- END Twitter cards -->
+        <!-- END Twitter Card -->
 
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -72,18 +72,18 @@
     </head>
     <body class="relative min-h-screen antialiased bg-white dark:bg-neutral-950">
         <!-- Content -->
-        <main class="w-full max-w-screen-sm px-4 mx-auto mt-32 space-y-4">
+        <main class="w-full max-w-screen-sm px-4 mx-auto my-32">
             
             <!-- Modal Trigger -->
-            <button id="open-modal-button" type="button" class="px-4 py-2 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white disabled:pointer-events-none disabled:opacity-60" aria-controls="modal" aria-expanded="false" aria-label="Open modal.">
+            <button id="modal-open-button" type="button" class="px-4 py-2 text-sm font-medium text-white bg-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white disabled:pointer-events-none disabled:opacity-60" aria-controls="modal" aria-expanded="false" aria-label="Open modal.">
                 <span>Modal</span>
             </button>
             <!-- END Modal Trigger -->
 
             <!-- Modal -->
             <div id="modal" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen bg-black/80" inert>
-                <div class="fixed p-4 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded shadow left-1/2 top-1/2 border-neutral-200 dark:border-neutral-800 dark:bg-neutral-900 w-80 sm:w-96" aria-labelledby="modal">
-                    <button id="close-modal-button-x" type="button" class="absolute cursor-pointer right-4 top-4 group" aria-controls="modal" aria-expanded="false" aria-label="Close modal.">
+                <div class="fixed p-4 transform -translate-x-1/2 -translate-y-1/2 bg-white border rounded shadow left-1/2 top-1/2 border-neutral-200 dark:border-neutral-800 dark:bg-neutral-950 w-80 sm:w-96" aria-labelledby="modal">
+                    <button id="modal-close-button-x" type="button" class="absolute cursor-pointer right-4 top-4 group" aria-controls="modal" aria-expanded="false" aria-label="Close modal.">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-neutral-500 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M18 6l-12 12" />
@@ -101,7 +101,7 @@
                         <button type="button" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-black border border-black rounded cursor-pointer dark:text-black hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-white hover:border-neutral-800 dark:border-neutral-100 dark:hover:border-white disabled:pointer-events-none disabled:opacity-60">
                             <span>Okay</span>
                         </button>
-                        <button id="close-modal-button" type="button" class="flex items-center px-4 py-2 text-sm font-medium text-black border rounded-md cursor-pointer border-neutral-300 dark:text-white hover:border-neutral-400 dark:border-neutral-700 dark:hover:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60" aria-controls="modal">
+                        <button id="modal-close-button" type="button" class="flex items-center px-4 py-2 text-sm font-medium text-black border rounded-md cursor-pointer border-neutral-300 dark:text-white hover:border-neutral-400 dark:border-neutral-700 dark:hover:border-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-60" aria-controls="modal">
                             <span>Close</span>
                         </button>
                     </div>
