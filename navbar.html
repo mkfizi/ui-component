@@ -65,9 +65,13 @@
         <title>UI Component | Navbar</title>
     </head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+
+        <!-- Navbar -->
         <nav id="navbar" class="top-0 z-10 sticky bg-white dark:bg-neutral-950 border-transparent dark:border-transparent border-b" aria-labelledby="navbar-menu">
             <div class="flex justify-between items-center mx-auto px-4 lg:px-8 py-4 max-w-screen-xl">
                 <a href="#" class="font-medium text-black hover:text-neutral-700 hover:dark:text-neutral-200 dark:text-white text-sm cursor-pointer">Navbar</a>
+                
+                <!-- Navbar Menu -->
                 <div id="navbar-menu" class="hidden invisible top-0 left-0 fixed lg:relative lg:flex bg-white dark:bg-neutral-950 p-4 lg:p-0 w-dvw lg:w-auto h-dvh lg:h-auto overflow-y-scroll lg:visible">
                     <button id="navbar-menu-close-button" type="button" class="group lg:hidden lg:invisible top-4 right-4 absolute cursor-pointer" aria-controls="navbar-menu" aria-expanded="false" aria-label="Close navbar menu.">
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-500 group-hover:stroke-black dark:group-hover:stroke-white dark:stroke-neutral-400 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -88,6 +92,8 @@
                         </li>
                     </ul>
                 </div>
+                <!-- END Navbar Menu -->
+
                 <button id="navbar-menu-open-button" type="button" class="group lg:hidden" aria-controls="navbar-menu" aria-expanded="false" aria-label="Open navbar menu.">
                     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-500 group-hover:stroke-black dark:group-hover:stroke-white dark:stroke-neutral-400 w-5 h-5 cursor-pointer" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -98,6 +104,7 @@
                 </button>
             </div>
         </nav>
+        <!-- END Navbar -->
         
         <!-- Content -->
         <main class="mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
