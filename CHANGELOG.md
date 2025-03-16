@@ -19,8 +19,9 @@ Put unreleased changes here.
 ## [1.0.0] - 2025-03-15
 ### Added
 - Accordion component.
-- Dark mode compoennt.
-- Dark mode dropdown.
+- Dark mode component.
+- Dark mode dropdown component.
+- Navbar component.
 
 ### Changed
 - Renamed project to `UI Component` as part of `@mkfizi/ui` sandbox.

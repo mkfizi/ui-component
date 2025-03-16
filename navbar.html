@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <!-- END Metadata -->
+
+        <!-- SEO -->
+        <meta name="title" content="UI Component">
+        <meta name="description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="robots" content="index, follow">
+        <!-- END SEO -->
+    
+        <!-- Facebook Open Graph -->
+        <meta property="og:url" content="https://mkfizi.dev">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="UI Component">
+        <meta property="og:image" content="path/to/img/meta-og.jpg">
+        <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta property="og:site_name" content="UI Component">
+        <!-- END Facebook Open Graph -->
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@mkfizi">
+        <meta name="twitter:creator" content="@mkfizi">
+        <meta name="twitter:url" content="https://mkfizi.dev">
+        <meta name="twitter:title" content="UI Component">
+        <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="twitter:image" content="path/to/img/meta-card.jpg">
+        <!-- END Twitter Card -->
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/site.webmanifest">
+        <!-- END Favicon -->
+
+        <!-- Styles -->
+        <link rel="preload" href="./src/css/index.css" as="style">
+        <link rel="stylesheet" href="./src/css/index.css">
+        <!-- END Styles -->
+
+        <!-- Scripts -->
+        <link rel="preload" href="./src/js/index.js" as="script">
+        <link rel="preload" href="./src/js/navbar.js" as="script">
+        <script src="./src/js/index.js" type="module" defer></script>
+        <script src="./src/js/navbar.js" type="module" defer></script>
+        <!-- END Scripts -->
+
+        <!-- Inline code to avoid FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = "dark";
+            document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!localStorage.theme && window.matchMedia("(prefers-color-scheme: dark)").matches) || (localStorage.theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches));
+        </script>
+        <!-- END Inline code to avoid FOUC -->
+        
+        <title>UI Component | Navbar</title>
+    </head>
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+        <nav id="navbar" class="top-0 z-10 sticky bg-white dark:bg-neutral-950 border-transparent dark:border-transparent border-b" aria-labelledby="navbar-menu">
+            <div class="flex justify-between items-center mx-auto px-4 lg:px-8 py-4 max-w-screen-xl">
+                <a href="#" class="font-medium text-black hover:text-neutral-700 hover:dark:text-neutral-200 dark:text-white text-sm cursor-pointer">Navbar</a>
+                <div id="navbar-menu" class="hidden invisible top-0 left-0 fixed lg:relative lg:flex bg-white dark:bg-neutral-950 p-4 lg:p-0 w-dvw lg:w-auto h-dvh lg:h-auto overflow-y-scroll lg:visible">
+                    <button id="navbar-menu-close-button" type="button" class="group lg:hidden lg:invisible top-4 right-4 absolute cursor-pointer" aria-controls="navbar-menu" aria-expanded="false" aria-label="Close navbar menu.">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-500 group-hover:stroke-black dark:group-hover:stroke-white dark:stroke-neutral-400 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M18 6l-12 12" />
+                            <path d="M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <ul class="lg:flex lg:gap-4 space-y-1 lg:space-y-0 mt-8 lg:mt-0 leading-0">
+                        <li>
+                            <a href="#" class="inline-block bg-neutral-100 lg:bg-transparent dark:lg:bg-transparent dark:bg-neutral-800 p-2 lg:p-0 rounded lg:rounded-none w-full font-medium text-black lg:hover:text-neutral-700 lg:hover:dark:text-neutral-200 dark:text-white text-sm text-left">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="inline-block lg:bg-transparent dark:lg:bg-transparent dark:lg:hover:bg-transparent lg:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 lg:p-0 rounded lg:rounded-none w-full font-medium text-black lg:text-neutral-500 lg:hover:text-black dark:lg:hover:text-white dark:lg:text-neutral-400 dark:text-white text-sm text-left">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#" class="inline-block lg:bg-transparent dark:lg:bg-transparent dark:lg:hover:bg-transparent lg:hover:bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 lg:p-0 rounded lg:rounded-none w-full font-medium text-black lg:text-neutral-500 lg:hover:text-black dark:lg:hover:text-white dark:lg:text-neutral-400 dark:text-white text-sm text-left">Link 3</a>
+                        </li>
+                    </ul>
+                </div>
+                <button id="navbar-menu-open-button" type="button" class="group lg:hidden" aria-controls="navbar-menu" aria-expanded="false" aria-label="Open navbar menu.">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-500 group-hover:stroke-black dark:group-hover:stroke-white dark:stroke-neutral-400 w-5 h-5 cursor-pointer" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                        <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Content -->
+        <main class="mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
+            <div class="p-4 border border-neutral-200 dark:border-neutral-800 rounded h-dvh overflow-hidden">
+                <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a content text.</p>
+            </div>
+        </main>
+        <!-- END Content -->
+    </body>
+</html>
