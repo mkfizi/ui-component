@@ -6,6 +6,7 @@
         open: (element) => {
             element.classList.remove('hidden', 'invisible');
             element.removeAttribute('inert');
+            modal.forceFocus(element);
             modal.toggleButton(element.id, true);
             
             if (modal[element.id]) return;
@@ -35,6 +36,14 @@
             document.querySelectorAll(`[aria-controls="${id}"]`).forEach(button => {
                 button.setAttribute('aria-expanded', isOpen);
             });
+        },
+
+        forceFocus: (element) => {
+            element.setAttribute('tabindex', 1);
+            element.focus();
+            setTimeout(() => {
+                element.removeAttribute('tabindex');
+            }, 100);
         },
 
         clickOutsideHandler: (element, event) => {

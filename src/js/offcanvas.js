@@ -21,6 +21,7 @@
         close: (element) => {
             element.classList.add('hidden', 'invisible');
             element.setAttribute('inert', '');
+            offcanvas.forceFocus(element);
             offcanvas.toggleButton(element.id, false);
 
             if (!offcanvas[element.id]) return;
@@ -34,6 +35,14 @@
             document.querySelectorAll(`[aria-controls="${id}"]`).forEach(button => {
                 button.setAttribute('aria-expanded', isOpen);
             });
+        },
+
+        forceFocus: (element) => {
+            element.setAttribute('tabindex', 1);
+            element.focus();
+            setTimeout(() => {
+                element.removeAttribute('tabindex');
+            }, 100);
         },
 
         clickOutsideHandler: (element, event) => {
