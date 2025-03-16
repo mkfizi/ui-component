@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#ffffff">
+        <!-- END Metadata -->
+
+        <!-- SEO -->
+        <meta name="title" content="UI Component">
+        <meta name="description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="robots" content="index, follow">
+        <!-- END SEO -->
+    
+        <!-- Facebook Open Graph -->
+        <meta property="og:url" content="https://mkfizi.dev">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="UI Component">
+        <meta property="og:image" content="path/to/img/meta-og.jpg">
+        <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta property="og:site_name" content="UI Component">
+        <!-- END Facebook Open Graph -->
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@mkfizi">
+        <meta name="twitter:creator" content="@mkfizi">
+        <meta name="twitter:url" content="https://mkfizi.dev">
+        <meta name="twitter:title" content="UI Component">
+        <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
+        <meta name="twitter:image" content="path/to/img/meta-card.jpg">
+        <!-- END Twitter Card -->
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="/site.webmanifest">
+        <!-- END Favicon -->
+
+        <!-- Styles -->
+        <link rel="preload" href="./src/css/index.css" as="style">
+        <link rel="stylesheet" href="./src/css/index.css">
+        <!-- END Styles -->
+
+        <!-- Scripts -->
+        <link rel="preload" href="./src/js/index.js" as="script">
+        <link rel="preload" href="./src/js/sidebar.js" as="script">
+        <script src="./src/js/index.js" type="module" defer></script>
+        <script src="./src/js/sidebar.js" type="module" defer></script>
+        <!-- END Scripts -->
+
+        <!-- Inline code to avoid FOUC -->
+        <script>
+            // Toggle theme.
+            // localStorage.theme = 'dark';
+            document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        </script>
+        <!-- END Inline code to avoid FOUC -->
+        
+        <title>UI Component | Sidebar</title>
+    </head>
+    <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
+        <div class="relative flex">
+
+            <!-- Sidebar -->
+            <aside id="sidebar" class="hidden invisible lg:block top-0 left-0 z-10 fixed lg:sticky bg-black/80 lg:bg-transparent w-dvw lg:w-64 h-dvh lg:visible lg:shrink-0">
+                <div class="top-0 left-0 fixed bg-white dark:bg-neutral-950 p-4 border-neutral-200 dark:border-neutral-800 border-r w-72 lg:w-64 h-full overflow-y-auto" aria-labelledby="sidebar">
+                    <a href="#" class="font-medium text-black hover:text-neutral-700 hover:dark:text-neutral-200 dark:text-white text-sm cursor-pointer">Sidebar</a>
+                    <button id="sidebar-close-button" type="button" class="group lg:hidden lg:invisible top-4 right-4 absolute cursor-pointer" aria-controls="sidebar" aria-expanded="false" aria-label="Close sidebar.">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-500 group-hover:stroke-black dark:group-hover:stroke-white dark:stroke-neutral-400 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M18 6l-12 12" />
+                            <path d="M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <div class="mt-8">
+                        <p class="font-medium text-neutral-800 dark:text-neutral-200 text-sm uppercase">Title</p>
+                        <ul class="space-y-1 mt-2 leading-0">
+                            <li>
+                                <a href="#" class="inline-block bg-neutral-100 dark:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left">Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="inline-block hover:bg-neutral-100 dark:hover:bg-neutral-800 p-2 rounded w-full font-medium text-black dark:text-white text-sm text-left">Link 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <!-- END Sidebar -->
+
+            <div class="relative flex-auto w-full">
+                
+                <div class="m-4">
+                    <button id="sidebar-open-button" type="button" class="group lg:hidden" aria-controls="sidebar" aria-expanded="false" aria-label="Open sidebar.">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-500 group-hover:stroke-black dark:group-hover:stroke-white dark:stroke-neutral-400 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M4 6l16 0" />
+                            <path d="M4 12l16 0" />
+                            <path d="M4 18l16 0" />
+                        </svg>
+                    </button>
+                </div>
+
+                 <!-- Content -->
+                <main class="mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
+                    <div class="p-4 border border-neutral-200 dark:border-neutral-800 rounded h-dvh overflow-hidden">
+                        <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a content text.</p>
+                    </div>
+                </main>
+                <!-- END Content -->
+            </div>
+        </div>
+    </body>
+</html>

@@ -22,6 +22,7 @@ Put unreleased changes here.
 - Dark mode component.
 - Dark mode dropdown component.
 - Navbar component.
+- Sidebar component.
 
 ### Changed
 - Renamed project to `UI Component` as part of `@mkfizi/ui` sandbox.
