@@ -92,8 +92,7 @@
                         firstElement.focus();
                     }
                 }
-            }
-                
+            }   
         }
     }
 
