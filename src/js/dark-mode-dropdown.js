@@ -112,10 +112,10 @@
 
     darkMode.init();
 
-    const darkModeDropdownToggleButton = document.getElementById('dark-mode-dropdown-toggle-button');
-    if (darkModeDropdownToggleButton) {
-        darkModeDropdownToggleButton.addEventListener('click', () => { 
-            dropdown.toggle(darkModeDropdownToggleButton);
+    const darkModeMenuToggleButton = document.getElementById('dark-mode-menu-toggle-button');
+    if (darkModeMenuToggleButton) {
+        darkModeMenuToggleButton.addEventListener('click', () => { 
+            dropdown.toggle(darkModeMenuToggleButton);
         });
     }
 
