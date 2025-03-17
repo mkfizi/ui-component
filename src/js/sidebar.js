@@ -81,7 +81,7 @@
 
         toggleResponsive: (element) => {
             if (window.innerWidth >= sidebar.breakpointSize) {
-                offcanvas.close(element);
+                sidebar.close(element);
             }
         },
         open: (element) => {
