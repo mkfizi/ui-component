@@ -5,6 +5,7 @@
         open: (element) => {
             element.classList.remove('hidden', 'invisible');
             element.removeAttribute('inert');
+            offcanvas.forceFocus(element);
             offcanvas.toggleButton(element.id, true);
             
             if (offcanvas[element.id]) return;
@@ -21,7 +22,6 @@
         close: (element) => {
             element.classList.add('hidden', 'invisible');
             element.setAttribute('inert', '');
-            offcanvas.forceFocus(element);
             offcanvas.toggleButton(element.id, false);
 
             if (!offcanvas[element.id]) return;
