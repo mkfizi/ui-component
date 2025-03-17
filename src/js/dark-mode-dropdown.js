@@ -43,7 +43,7 @@
         },
 
         clickOutsideHandler: (element, event) => {
-            if (!event.target.closest(`[aria-labelledby="${element.id}"]`) && !event.target.closest(`[aria-controls="${element.id}"]`)) {
+            if (!event.target.closest(`[id="${element.id}"]`) && !event.target.closest(`[aria-controls="${element.id}"]`)) {
                 dropdown.close(element);
             }
         },
