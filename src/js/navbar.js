@@ -101,6 +101,9 @@
         window.addEventListener('scroll', () => {
             navbar.toggle(navbarElement)
         });
+        window.addEventListener('load', () => {
+            navbar.toggle(navbarElement)
+        });
         window.addEventListener('resize', () => {
             navbar.toggleResponsive(navbarElement)
         });
