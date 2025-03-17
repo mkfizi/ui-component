@@ -58,8 +58,9 @@
     const darkMode = {
         theme: '',
 
-        toggle: (theme, button) => {
-            localStorage.theme = theme;
+        toggle: (button) => {
+            const selectedTheme = button.getAttribute("aria-labelledby")?.replace("theme-", "");
+            localStorage.theme = selectedTheme;
             darkMode.updateTheme();
             darkMode.updateButton();
             
@@ -122,21 +123,21 @@
     const themeLightButton = document.getElementById('theme-light-button');
     if (themeLightButton) {
         themeLightButton.addEventListener('click', () => { 
-            darkMode.toggle('light', themeLightButton);
+            darkMode.toggle(themeLightButton);
         });
     }
 
     const themeDarkButton = document.getElementById('theme-dark-button');
     if (themeDarkButton) {
         themeDarkButton.addEventListener('click', () => { 
-            darkMode.toggle('dark', themeDarkButton);
+            darkMode.toggle(themeDarkButton);
         });
     }
 
     const themeSystemButton = document.getElementById('theme-system-button');
     if (themeSystemButton) {
         themeSystemButton.addEventListener('click', () => { 
-            darkMode.toggle('system', themeSystemButton);
+            darkMode.toggle(themeSystemButton);
         });
     }
 })();
