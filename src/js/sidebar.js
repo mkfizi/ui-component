@@ -1,41 +1,34 @@
 'use strict';
 
 (function () {
-    const sidebar = {
-        breakpointSize: 1024,
-
-        toggleResponsive: (element) => {
-            if (window.innerWidth >= sidebar.breakpointSize) {
-                sidebar.close(element);
-            }
-        },
+    const offcanvas = {
         open: (element) => {
             element.classList.remove('hidden', 'invisible');
-            sidebar.forceFocus(element);
-            sidebar.toggleButton(element.id, true);
-            document.body.classList.add("overflow-hidden");
-
-            if (sidebar[element.id]) return;
-            sidebar[element.id] = {
-                clickOutside: (event) => sidebar.clickOutsideHandler(element, event),
-                escapeKey: (event) => sidebar.escapeKeyHandler(element, event),
-                focusTrap: (event) => sidebar.focusTrapHandler(element, event)
+            element.removeAttribute('inert');
+            offcanvas.toggleButton(element.id, true);
+            
+            if (offcanvas[element.id]) return;
+            offcanvas[element.id] = {
+                clickOutside: (event) => offcanvas.clickOutsideHandler(element, event),
+                escapeKey: (event) => offcanvas.escapeKeyHandler(element, event),
+                focusTrap: (event) => offcanvas.focusTrapHandler(element, event)
             };
-            document.addEventListener('click', sidebar[element.id].clickOutside);
-            window.addEventListener('keydown', sidebar[element.id].escapeKey);
-            window.addEventListener('keydown', sidebar[element.id].focusTrap);
+            document.addEventListener('click', offcanvas[element.id].clickOutside);
+            window.addEventListener('keydown', offcanvas[element.id].escapeKey);
+            window.addEventListener('keydown', offcanvas[element.id].focusTrap);
         },
 
         close: (element) => {
             element.classList.add('hidden', 'invisible');
-            sidebar.toggleButton(element.id, false);
-            document.body.classList.remove("overflow-hidden");
+            element.setAttribute('inert', '');
+            offcanvas.forceFocus(element);
+            offcanvas.toggleButton(element.id, false);
 
-            if (!sidebar[element.id]) return;
-            document.removeEventListener('click', sidebar[element.id].clickOutside);
-            window.removeEventListener('keydown', sidebar[element.id].escapeKey);
-            window.removeEventListener('keydown', sidebar[element.id].focusTrap);
-            delete sidebar[element.id];
+            if (!offcanvas[element.id]) return;
+            document.removeEventListener('click', offcanvas[element.id].clickOutside);
+            window.removeEventListener('keydown', offcanvas[element.id].escapeKey);
+            window.removeEventListener('keydown', offcanvas[element.id].focusTrap);
+            delete offcanvas[element.id];
         },
 
         toggleButton: (id, isOpen) => {
@@ -54,13 +47,13 @@
 
         clickOutsideHandler: (element, event) => {
             if (!event.target.closest(`[aria-labelledby="${element.id}"]`) && !event.target.closest(`[aria-controls="${element.id}"]`)) {
-                sidebar.close(element);
+                offcanvas.close(element);
             }
         },
 
         escapeKeyHandler: (element, event) => {
             if (event.key === 'Escape') {
-                sidebar.close(element);
+                offcanvas.close(element);
             }
         },
 
@@ -80,6 +73,27 @@
                     firstElement.focus();
                 }
             }
+        }
+    }
+
+    const sidebar = {
+        breakpointSize: 1024,
+
+        toggleResponsive: (element) => {
+            if (window.innerWidth >= sidebar.breakpointSize) {
+                offcanvas.close(element);
+            }
+        },
+        open: (element) => {
+            offcanvas.open(element);
+            document.body.classList.add("overflow-hidden");
+            element.removeAttribute('inert');
+        },
+
+        close: (element) => {
+            offcanvas.close(element);
+            document.body.classList.remove("overflow-hidden");
+            element.removeAttribute('inert');
         }
     }
 
