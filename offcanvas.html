@@ -70,7 +70,7 @@
         <main class="mx-auto my-32 px-4 sm:px-8 w-full max-w-screen-sm">
 
             <!-- Offcanvas Trigger -->
-            <button id="offcanvas-open-button" type="button" class="bg-black hover:bg-neutral-800 dark:hover:bg-white dark:bg-neutral-100 disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-expanded="false" aria-label="Open offcanvas.">
+            <button id="offcanvas-open-button" type="button" class="bg-black hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white dark:bg-neutral-100 disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-expanded="false" aria-label="Open offcanvas.">
                 <span>Offcanvas</span>
             </button>
             <!-- END Offcanvas Trigger -->
@@ -78,14 +78,14 @@
             <!-- Offcanvas -->
             <div id="offcanvas" class="hidden invisible top-0 left-0 z-10 fixed bg-black/80 w-dvw h-dvh" inert>
                 <div class="top-0 left-0 fixed bg-white dark:bg-neutral-950 p-4 border-neutral-200 dark:border-neutral-800 border-r w-72 h-full overflow-y-auto" aria-labelledby="offcanvas">
-                    <button id="offcanvas-close-button" type="button" class="group top-4 right-4 absolute cursor-pointer" aria-controls="offcanvas" aria-expanded="false" aria-label="Close offcanvas.">
+                    <button id="offcanvas-close-button" type="button" class="group top-2 right-2 absolute hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:bg-neutral-100 dark:focus:bg-neutral-800 disabled:opacity-60 p-2 rounded font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="offcanvas" aria-expanded="false" aria-label="Close offcanvas.">
                         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-neutral-500 group-hover:stroke-black dark:group-hover:stroke-white dark:stroke-neutral-400 w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M18 6l-12 12" />
                             <path d="M6 6l12 12" />
                         </svg>
                     </button>
-                    <div class="mt-4">
+                    <div class="mt-8">
                         <p class="font-medium text-neutral-800 dark:text-neutral-200 text-sm uppercase">Offcanvas Menu</p>
                         <ul class="space-y-1 mt-2 leading-0">
                             <li>

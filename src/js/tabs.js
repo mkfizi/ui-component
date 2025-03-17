@@ -17,8 +17,8 @@
 
         toggleButton: (id, isOpen) => {
             document.querySelectorAll(`[aria-controls="${id}"]`).forEach(button => {
-                const activeClasses = ['text-white', 'dark:text-black', 'bg-black', 'dark:bg-neutral-100', 'hover:bg-neutral-800', 'dark:hover:bg-white'];
-                const inactiveClasses = ['text-black', 'dark:text-white', 'bg-neutral-100', 'dark:bg-neutral-700', 'hover:bg-neutral-200', 'dark:hover:bg-neutral-600'];
+                const activeClasses = ['text-white', 'dark:text-black', 'bg-black', 'dark:bg-neutral-100', 'hover:bg-neutral-800', 'dark:hover:bg-white', 'focus:bg-neutral-800', 'dark:focus:bg-white'];
+                const inactiveClasses = ['text-black', 'dark:text-white', 'bg-neutral-100', 'dark:bg-neutral-700', 'hover:bg-neutral-200', 'dark:hover:bg-neutral-600', 'focus:bg-neutral-200', 'dark:focus:bg-neutral-600'];
                 
                 button.classList.remove(...(isOpen ? inactiveClasses : activeClasses));
                 button.classList.add(...(isOpen ? activeClasses : inactiveClasses));
