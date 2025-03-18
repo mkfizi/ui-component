@@ -3,7 +3,7 @@
 const darkMode = {
     theme: '',
     toggle(button) {
-        const selectedTheme = button.getAttribute("aria-labelledby")?.replace("theme-", "");
+        const selectedTheme = button.getAttribute('aria-labelledby')?.replace('theme-', '');
         localStorage.theme = selectedTheme;
         darkMode.updateTheme();
         darkMode.updateButton();

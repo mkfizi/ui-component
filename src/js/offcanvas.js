@@ -11,6 +11,7 @@ const overlay = {
     open(element) {
         element.classList.remove('hidden', 'invisible');
         element.removeAttribute('inert');
+        document.body.classList.add('overflow-hidden');
         utility.forceFocus(element);
         this.toggleButton(element.id, true);
         this.addEvents(element);
@@ -18,6 +19,7 @@ const overlay = {
     close(element) {
         element.classList.add('hidden', 'invisible');
         element.setAttribute('inert', '');
+        document.body.classList.remove('overflow-hidden');
         this.toggleButton(element.id, false);
         this.removeEvents(element)
     },

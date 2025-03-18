@@ -5,12 +5,10 @@ const breakpointSize = 1024;
 const sidebar = {
     open(button) {
         overlay.toggle(button, true);
-        document.body.classList.add("overflow-hidden");
         this.removeInert(button);
     },
     close(button) {
         overlay.toggle(button, false);
-        document.body.classList.remove("overflow-hidden");
         if (window.innerWidth >= breakpointSize) this.removeInert(button);
     },
     removeInert(button) {
@@ -22,7 +20,6 @@ const sidebar = {
     toggleResponsive(element) {
         if (window.innerWidth >= breakpointSize) {
             overlay.close(element);
-            document.body.classList.remove("overflow-hidden");
             element.removeAttribute('inert');
         }
     },
@@ -39,6 +36,7 @@ const overlay = {
     open(element) {
         element.classList.remove('hidden', 'invisible');
         element.removeAttribute('inert');
+        document.body.classList.add('overflow-hidden');
         utility.forceFocus(element);
         this.toggleButton(element.id, true);
         this.addEvents(element);
@@ -46,6 +44,7 @@ const overlay = {
     close(element) {
         element.classList.add('hidden', 'invisible');
         element.setAttribute('inert', '');
+        document.body.classList.remove('overflow-hidden');
         this.toggleButton(element.id, false);
         this.removeEvents(element)
     },
