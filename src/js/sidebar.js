@@ -1,127 +1,116 @@
 'use strict';
 
-(function () {
-    const offcanvas = {
-        open: (element) => {
-            element.classList.remove('hidden', 'invisible');
-            element.removeAttribute('inert');
-            offcanvas.forceFocus(element);
-            offcanvas.toggleButton(element.id, true);
-            
-            if (offcanvas[element.id]) return;
-            offcanvas[element.id] = {
-                clickOutside: (event) => offcanvas.clickOutsideHandler(element, event),
-                escapeKey: (event) => offcanvas.escapeKeyHandler(element, event),
-                focusTrap: (event) => offcanvas.focusTrapHandler(element, event)
-            };
-            document.addEventListener('click', offcanvas[element.id].clickOutside);
-            window.addEventListener('keydown', offcanvas[element.id].escapeKey);
-            window.addEventListener('keydown', offcanvas[element.id].focusTrap);
-        },
+const breakpointSize = 1024;
 
-        close: (element) => {
-            element.classList.add('hidden', 'invisible');
-            element.setAttribute('inert', '');
-            offcanvas.toggleButton(element.id, false);
-
-            if (!offcanvas[element.id]) return;
-            document.removeEventListener('click', offcanvas[element.id].clickOutside);
-            window.removeEventListener('keydown', offcanvas[element.id].escapeKey);
-            window.removeEventListener('keydown', offcanvas[element.id].focusTrap);
-            delete offcanvas[element.id];
-        },
-
-        toggleButton: (id, isOpen) => {
-            document.querySelectorAll(`[aria-controls="${id}"]`).forEach(button => {
-                button.setAttribute('aria-expanded', isOpen);
-            });
-        },
-
-        forceFocus: (element) => {
-            element.setAttribute('tabindex', 1);
-            element.focus();
-            setTimeout(() => {
-                element.removeAttribute('tabindex');
-            }, 100);
-        },
-
-        clickOutsideHandler: (element, event) => {
-            if (!event.target.closest(`[aria-labelledby="${element.id}"]`) && !event.target.closest(`[aria-controls="${element.id}"]`)) {
-                offcanvas.close(element);
-            }
-        },
-
-        escapeKeyHandler: (element, event) => {
-            if (event.key === 'Escape') {
-                offcanvas.close(element);
-            }
-        },
-
-        focusTrapHandler: (element, event) => {
-            if (event.key === 'Tab') {
-                const focusableElements = Array.from(element.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter((focusableElement) => {
-                    return focusableElement.offsetParent !== null
-                });
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-
-                if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
-                    event.preventDefault();
-                    lastElement.focus();
-                } else if (!event.shiftKey && document.activeElement === lastElement) {
-                    event.preventDefault();
-                    firstElement.focus();
-                }
-            }
-        }
-    }
-
-    const sidebar = {
-        breakpointSize: 1024,
-
-        toggleResponsive: (element) => {
-            if (window.innerWidth >= sidebar.breakpointSize) {
-                sidebar.close(element);
-            }
-        },
-        open: (element) => {
-            offcanvas.open(element);
-            document.body.classList.add("overflow-hidden");
-            element.removeAttribute('inert');
-        },
-
-        close: (element) => {
-            offcanvas.close(element);
+const sidebar = {
+    open(button) {
+        overlay.toggle(button, true);
+        document.body.classList.add("overflow-hidden");
+        this.removeInert(button);
+    },
+    close(button) {
+        overlay.toggle(button, false);
+        document.body.classList.remove("overflow-hidden");
+        if (window.innerWidth >= breakpointSize) this.removeInert(button);
+    },
+    removeInert(button) {
+        const id = button.getAttribute('aria-controls');
+        const element = document.getElementById(id);
+        if (!element) return;
+        element.removeAttribute('inert');
+    },
+    toggleResponsive(element) {
+        if (window.innerWidth >= breakpointSize) {
+            overlay.close(element);
             document.body.classList.remove("overflow-hidden");
             element.removeAttribute('inert');
         }
-    }
+    },
+}
 
-    const sidebarElement = document.getElementById('sidebar');
-    if (sidebarElement) {
-        window.addEventListener('resize', () => {
-            sidebar.toggleResponsive(sidebarElement)
+const overlay = {
+    toggle(button, isOpen = null) {
+        const id = button.getAttribute('aria-controls');
+        const element = document.getElementById(id);
+        if (isOpen == null) isOpen = button.getAttribute('aria-expanded') !== 'true';
+        if (!element) return;
+        isOpen ? this.open(element) : this.close(element);
+    },
+    open(element) {
+        element.classList.remove('hidden', 'invisible');
+        element.removeAttribute('inert');
+        utility.forceFocus(element);
+        this.toggleButton(element.id, true);
+        this.addEvents(element);
+    },
+    close(element) {
+        element.classList.add('hidden', 'invisible');
+        element.setAttribute('inert', '');
+        this.toggleButton(element.id, false);
+        this.removeEvents(element)
+    },
+    toggleButton(id, isOpen) {
+        document.querySelectorAll(`[aria-controls="${id}"]`).forEach(button => {
+            button.setAttribute('aria-expanded', isOpen);
         });
+    },
+    addEvents(element) {
+        if (this[element.id]) return;
+        this[element.id] = {
+            clickOutside: (event) => utility.clickOutsideHandler(this, element, event),
+            escapeKey: (event) => utility.escapeKeyHandler(this, element, event),
+            focusTrap: (event) => utility.focusTrapHandler(element, event),
+        };
+        document.addEventListener('click', this[element.id].clickOutside);
+        window.addEventListener('keydown', this[element.id].escapeKey);
+        window.addEventListener('keydown', this[element.id].focusTrap);
+    },
+    removeEvents(element) {
+        if (!this[element.id]) return;
+        document.removeEventListener('click', this[element.id].clickOutside);
+        window.removeEventListener('keydown', this[element.id].escapeKey);
+        window.removeEventListener('keydown', this[element.id].focusTrap);
+        delete this[element.id];
     }
+}
 
-    const sidebarOpenButton = document.getElementById('sidebar-open-button');
-    if (sidebarOpenButton) {
-        sidebarOpenButton.addEventListener('click', () => {
-            const id = sidebarOpenButton.getAttribute('aria-controls');
-            const element = document.getElementById(id);
-
-            if (!element) return;
-            sidebar.open(element);
-        });
+const utility = {
+    forceFocus(element) {
+        element.setAttribute('tabindex', 1);
+        element.focus();
+        setTimeout(() => element.removeAttribute('tabindex'), 100);
+    },
+    clickOutsideHandler(component, element, event) {
+        if (!event.target.closest(`[aria-labelledby="${element.id}"]`) && !event.target.closest(`[aria-controls="${element.id}"]`)) {
+            component.close(element);
+        }
+    },
+    escapeKeyHandler(component, element, event) {
+        if (event.key === 'Escape') component.close(element);
+    },
+    focusTrapHandler: (element, event) => {
+        if (event.key === 'Tab') {
+            const focusableElements = Array.from(element.querySelectorAll('a, button, input, textarea, select, details, [tabindex], [contenteditable="true"]')).filter((focusableElement) => {
+                return focusableElement.offsetParent !== null
+            });
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+            if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === document.body)) {
+                event.preventDefault();
+                lastElement.focus();
+            } else if (!event.shiftKey && document.activeElement === lastElement) {
+                event.preventDefault();
+                firstElement.focus();
+            }
+        }
     }
-    const sidebarCloseButton = document.getElementById('sidebar-close-button');
-    if (sidebarCloseButton) {
-        sidebarCloseButton.addEventListener('click', () => {
-            const id = sidebarCloseButton.getAttribute('aria-controls');
-            const element = document.getElementById(id);
+} 
 
-            if (!element) return;
-            sidebar.close(element);
-        });
-    }
-})();
+const sidebarElement = document.getElementById('sidebar');
+const sidebarOpenButton = document.getElementById('sidebar-open-button');
+const sidebarCloseButton = document.getElementById('sidebar-close-button');
+
+sidebarOpenButton.addEventListener('click', () => sidebar.open(sidebarOpenButton));
+sidebarCloseButton.addEventListener('click', () => sidebar.close(sidebarCloseButton));
+
+window.addEventListener('resize', () => sidebar.toggleResponsive(sidebarElement));

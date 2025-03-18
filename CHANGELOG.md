@@ -16,7 +16,7 @@ Types of changes:
 ## [Unreleased]
 Put unreleased changes here.
 
-## [1.0.0] - 2025-03-15
+## [1.0.0] - 2025-03-19
 ### Added
 - Accordion component.
 - Dark mode component.
@@ -32,6 +32,7 @@ Put unreleased changes here.
 - Redefine component styles.
 - Renamed `app.js` to `index.js`.
 - `404.html` content.
+- Categorize Modal and Offcanvas as Overlay.
 
 ## [0.3.1] - 2023-11-05
 ### Added

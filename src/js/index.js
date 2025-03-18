@@ -1,15 +1,12 @@
 'use strict';
 
-(function () {
-    const app = {};
-
-    app.name = 'UI Component';
-    app.version = '1.0.0';
-
-    app.init = () => {
-        console.log(app.name);
-        console.log(app.version);
+const app = {
+    name: 'UI Component',
+    version: '1.0.0',
+    init() {
+        console.log(this.name);
+        console.log(this.version);
     }
-    
-    app.init();
-})();
+};
+
+app.init();
