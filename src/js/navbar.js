@@ -15,7 +15,7 @@ const navbar = {
             document.body.classList.remove("overflow-hidden");
             element.removeAttribute('inert');
         }
-    },
+    }
 }
 
 const overlay = {

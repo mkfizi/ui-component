@@ -5,8 +5,8 @@ const darkMode = {
     toggle(button) {
         const selectedTheme = button.getAttribute('aria-labelledby')?.replace('theme-', '');
         localStorage.theme = selectedTheme;
-        darkMode.updateTheme();
-        darkMode.updateButton();
+        this.updateTheme();
+        this.updateButton();
         const dropdownId = button.getAttribute('aria-controls');
         const dropdownElement = document.getElementById(dropdownId);
         if (!dropdownElement) return;
@@ -21,7 +21,7 @@ const darkMode = {
         } else {
             document.documentElement.classList.remove('dark');
         }
-        darkMode.theme = storedTheme || '';
+        this.theme = storedTheme || '';
     },
     updateButton() {
         if (!darkMode.theme) return;
