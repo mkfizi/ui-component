@@ -7,13 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#ffffff">
         <!-- END Metadata -->
-
         <!-- SEO -->
         <meta name="title" content="UI Component">
         <meta name="description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta name="robots" content="index, follow">
         <!-- END SEO -->
-    
         <!-- Facebook Open Graph -->
         <meta property="og:url" content="https://mkfizi.dev">
         <meta property="og:type" content="website">
@@ -22,7 +20,6 @@
         <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta property="og:site_name" content="UI Component">
         <!-- END Facebook Open Graph -->
-
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@mkfizi">
@@ -32,7 +29,6 @@
         <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta name="twitter:image" content="path/to/img/meta-card.jpg">
         <!-- END Twitter Card -->
-
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -41,35 +37,31 @@
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
         <link rel="manifest" href="/site.webmanifest">
         <!-- END Favicon -->
-
-        <!-- Styles -->
-        <link rel="preload" href="./src/css/index.css" as="style">
+        <!-- Style -->
         <link rel="stylesheet" href="./src/css/index.css">
-        <!-- END Styles -->
-
-        <!-- Scripts -->
-        <link rel="preload" href="./src/js/index.js" as="script">
-        <link rel="preload" href="./src/js/collapse.js" as="script">
+        <link rel="preload" href="./src/css/index.css" as="style">
+        <!-- END Style -->
+        <!-- Script -->
         <script src="./src/js/index.js" type="module" defer></script>
         <script src="./src/js/collapse.js" type="module" defer></script>
-        <!-- END Scripts -->
-
-        <!-- Inline code to avoid FOUC -->
+        <link rel="preload" href="./src/js/index.js" as="script">
+        <link rel="preload" href="./src/js/collapse.js" as="script">
+        <!-- END Script -->
+        <!-- Prevent FOUC -->
         <script>
             // Toggle theme.
             // localStorage.theme = 'dark';
             document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
         </script>
-        <!-- END Inline code to avoid FOUC -->
-        
+        <!-- END Prevent FOUC -->
         <title>UI Component | Collapse</title>
     </head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
         <main class="mx-auto px-4 sm:px-8 py-32 w-full max-w-screen-sm">
-
             <!-- Collapse -->
             <div class="space-y-2">
+                <!-- Collpase Button -->
                 <button id="collapse-toggle-button" type="button" class="flex items-center gap-4 bg-black hover:bg-neutral-800 dark:hover:bg-white focus:bg-neutral-800 dark:focus:bg-white dark:bg-neutral-100 disabled:opacity-60 px-4 py-2 rounded font-medium text-white dark:text-black text-sm cursor-pointer disabled:pointer-events-none" aria-controls="collapse" aria-expanded="false" aria-label="Toggle collapse.">
                     <span>Collapse</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-white dark:stroke-black w-5 h-5">
@@ -77,12 +69,14 @@
                         <path d="M8 9l4 -4l4 4"/><path d="M16 15l-4 4l-4 -4"/>
                     </svg>
                 </button>
+                <!-- END Collapse Button -->
+                <!-- Collapse Content -->
                 <div id="collapse" class="hidden invisible p-4 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden" inert>
                     <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is a collapse text.</p>
                 </div>
+                <!-- END Collapse Content -->
             </div>
-            <!-- END Collapse -->
-             
+            <!-- END Collapse -->          
         </main>
         <!-- END Content -->
     </body>

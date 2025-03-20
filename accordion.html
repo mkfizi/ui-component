@@ -7,13 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#ffffff">
         <!-- END Metadata -->
-
         <!-- SEO -->
         <meta name="title" content="UI Component">
         <meta name="description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta name="robots" content="index, follow">
         <!-- END SEO -->
-    
         <!-- Facebook Open Graph -->
         <meta property="og:url" content="https://mkfizi.dev">
         <meta property="og:type" content="website">
@@ -22,7 +20,6 @@
         <meta property="og:description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta property="og:site_name" content="UI Component">
         <!-- END Facebook Open Graph -->
-
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@mkfizi">
@@ -32,7 +29,6 @@
         <meta name="twitter:description" content="Component UI sandbox in Javascript and TailwindCSS.">
         <meta name="twitter:image" content="path/to/img/meta-card.jpg">
         <!-- END Twitter Card -->
-
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -41,37 +37,32 @@
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
         <link rel="manifest" href="/site.webmanifest">
         <!-- END Favicon -->
-
-        <!-- Styles -->
-        <link rel="preload" href="./src/css/index.css" as="style">
+        <!-- Style -->
         <link rel="stylesheet" href="./src/css/index.css">
-        <!-- END Styles -->
-
-        <!-- Scripts -->
-        <link rel="preload" href="./src/js/index.js" as="script">
-        <link rel="preload" href="./src/js/accordion.js" as="script">
+        <link rel="preload" href="./src/css/index.css" as="style">
+        <!-- END Style -->
+        <!-- Script -->
         <script src="./src/js/index.js" type="module" defer></script>
         <script src="./src/js/accordion.js" type="module" defer></script>
-        <!-- END Scripts -->
-
-        <!-- Inline code to avoid FOUC -->
+        <link rel="preload" href="./src/js/index.js" as="script">
+        <link rel="preload" href="./src/js/accordion.js" as="script">
+        <!-- END Script -->
+        <!-- Prevent FOUC -->
         <script>
             // Toggle theme.
             // localStorage.theme = 'dark';
             document.documentElement.classList.toggle('dark', localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches) || (localStorage.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
         </script>
-        <!-- END Inline code to avoid FOUC -->
-        
+        <!-- END Prevent FOUC -->
         <title>UI Component | Accordion</title>
     </head>
     <body class="relative bg-white dark:bg-neutral-950 min-h-dvh antialiased">
         <!-- Content -->
         <main class="mx-auto px-4 sm:px-8 py-32 w-full max-w-screen-sm">
-            
             <!-- Accordion -->
             <div id="accordion" class="space-y-2">
-                <!-- Accordion 1-->
                 <div class="p-1 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
+                    <!-- Accordion 1 Button -->
                     <button id="accordion-toggle-button-1" type="button" class="flex justify-between items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:bg-neutral-100 dark:focus:bg-neutral-800 disabled:opacity-60 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="accordion-1" aria-expanded="true" aria-label="Toggle accordion 1.">
                         <span>Accordion 1</span>
                         <div aria-labelledby="accordion-1" class="rotate-180">
@@ -81,13 +72,15 @@
                             </svg>
                         </div>
                     </button>
+                    <!-- END Accordion 1 Button -->
+                    <!-- Accordion 1 -->
                     <div id="accordion-1" class="mt-1 p-3" aria-labelledby="accordion">
                         <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 1 text.</p>
                     </div>
+                    <!-- END Accordion 1 -->
                 </div>
-                <!-- END Accordion 1-->
-                <!-- Accordion 2-->
                 <div class="p-1 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
+                    <!-- Accordion 2 Button -->
                     <button id="accordion-toggle-button-2" type="button" class="flex justify-between items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:bg-neutral-100 dark:focus:bg-neutral-800 disabled:opacity-60 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="accordion-2" aria-expanded="false" aria-label="Toggle accordion 2.">
                         <span>Accordion 2</span>
                         <div aria-labelledby="accordion-2">
@@ -97,13 +90,15 @@
                             </svg>
                         </div>
                     </button>
+                    <!-- END Accordion 2 Button -->
+                    <!-- Accordion 2 -->
                     <div id="accordion-2" class="hidden invisible mt-1 p-3" aria-labelledby="accordion" inert>
                         <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 2 text.</p>
                     </div>
+                    <!-- END Accordion 2 -->
                 </div>
-                <!-- END Accordion 2-->
-                <!-- Accordion 3-->
                 <div class="p-1 border border-neutral-200 dark:border-neutral-800 rounded overflow-hidden">
+                    <!-- Accordion 3 Button -->
                     <button id="accordion-toggle-button-3" type="button" class="flex justify-between items-center hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:bg-neutral-100 dark:focus:bg-neutral-800 disabled:opacity-60 px-3 py-2 rounded w-full font-medium text-black dark:text-white text-sm cursor-pointer disabled:pointer-events-none" aria-controls="accordion-3" aria-expanded="false" aria-label="Toggle accordion 2.">
                         <span>Accordion 3</span>
                         <div aria-labelledby="accordion-3">
@@ -113,14 +108,15 @@
                             </svg>
                         </div>
                     </button>
+                    <!-- END Accordion 3 Button -->
+                    <!-- Accordion 3 -->
                     <div id="accordion-3" class="hidden invisible mt-1 p-3" aria-labelledby="accordion" inert>
                         <p class="text-neutral-800 dark:text-neutral-200 text-sm">This is an accordion 3 text.</p>
                     </div>
+                    <!-- END Accordion 3 -->
                 </div>
-                <!-- END Accordion 3-->
             </div>
             <!-- END Accordion -->
-
         </main>
         <!-- END Content -->
     </body>

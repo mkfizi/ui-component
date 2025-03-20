@@ -97,7 +97,6 @@ const utility = {
         }
     }
 } 
-
 const navbarElement = document.getElementById('navbar');
 const navbarMenu = document.getElementById('navbar-menu');
 const navbarMenuOpenButton = document.getElementById('navbar-menu-open-button');

@@ -83,7 +83,5 @@ const utility = {
 const modalOpenButton = document.getElementById('modal-open-button');
 modalOpenButton.addEventListener('click', () => overlay.toggle(modalOpenButton, true));
 document.querySelectorAll('[id^="modal-close-button"]').forEach(button => {
-    button.addEventListener('click', () => {
-        overlay.toggle(button, false);
-    });
+    button.addEventListener('click', () => overlay.toggle(button, false));
 });
